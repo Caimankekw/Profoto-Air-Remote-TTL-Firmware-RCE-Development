@@ -1,0 +1,194 @@
+{
+  "format": "air2-m2-final-validation-summary-v1",
+  "release": "AIR2-P8-M2",
+  "status": "PASS_BOUNDED_M2_FINAL_REGRESSIONS",
+  "developer": "Caimankekw",
+  "models": {
+    "N": {
+      "image_sha256": "01dc7913cb007a4d9cd7aafd295714bfba1f2b2f1d0dc261f70b647139b6966b",
+      "integration_normal_cases": 78,
+      "integration_optimized_cases": 78,
+      "boot_normal_cases": 24,
+      "boot_optimized_cases": 24,
+      "hss_independent_cases": 8,
+      "stock_hss_preservation_review_passed": true,
+      "nv_enabled": true,
+      "specialized_normal_cases": 23,
+      "specialized_optimized_cases": 23
+    },
+    "S": {
+      "image_sha256": "e159e3accf1271af66e52b11b626433d5cd7136c8b2717b44f441b4730bbf287",
+      "integration_normal_cases": 78,
+      "integration_optimized_cases": 78,
+      "boot_normal_cases": 24,
+      "boot_optimized_cases": 24,
+      "hss_independent_cases": 8,
+      "stock_hss_preservation_review_passed": true,
+      "nv_enabled": true,
+      "specialized_normal_cases": 78,
+      "specialized_optimized_cases": 78
+    },
+    "F": {
+      "image_sha256": "edf60a81b787b0548f481133f899fc3f58b7f5a1ce4d5194cb90826600e6e1e5",
+      "integration_normal_cases": 78,
+      "integration_optimized_cases": 78,
+      "boot_normal_cases": 24,
+      "boot_optimized_cases": 24,
+      "hss_independent_cases": 8,
+      "stock_hss_preservation_review_passed": true,
+      "nv_enabled": true,
+      "specialized_normal_cases": 102,
+      "specialized_optimized_cases": 102
+    },
+    "O": {
+      "image_sha256": "67b3db05f412dfb33c1c7173693d4bf71b720a59265cd5b3feb2b7563a13ae95",
+      "integration_normal_cases": 78,
+      "integration_optimized_cases": 78,
+      "boot_normal_cases": 24,
+      "boot_optimized_cases": 24,
+      "hss_independent_cases": 8,
+      "stock_hss_preservation_review_passed": true,
+      "nv_enabled": true,
+      "specialized_normal_cases": 23,
+      "specialized_optimized_cases": 23
+    }
+  },
+  "core_policy_cases": 59,
+  "storage_backend_cases": 12,
+  "repack_cases": 12,
+  "canon_comparison": {
+    "baseline_sha256": "337120c7ed51954f4cdf0e60816e0289583a3c6b4ad400504d0cbef0a259f185",
+    "normal_radio_cases": 1024,
+    "normal_radio_differences": 0,
+    "normal_multiaction_traces_per_model": 26,
+    "normal_multiaction_steps_per_model": 178,
+    "all_traces_per_model": 38,
+    "all_trace_summary": {
+      "N": {
+        "steps": 242,
+        "matching_steps": 186,
+        "traces": 38,
+        "matching_traces": 26,
+        "matching_final_observations": 28,
+        "different_steps": 56,
+        "different_traces": 12
+      },
+      "S": {
+        "steps": 242,
+        "matching_steps": 202,
+        "traces": 38,
+        "matching_traces": 30,
+        "matching_final_observations": 30,
+        "different_steps": 40,
+        "different_traces": 8
+      },
+      "F": {
+        "steps": 242,
+        "matching_steps": 202,
+        "traces": 38,
+        "matching_traces": 30,
+        "matching_final_observations": 30,
+        "different_steps": 40,
+        "different_traces": 8
+      },
+      "O": {
+        "steps": 242,
+        "matching_steps": 202,
+        "traces": 38,
+        "matching_traces": 30,
+        "matching_final_observations": 30,
+        "different_steps": 40,
+        "different_traces": 8
+      }
+    },
+    "normal_traces_match": true,
+    "remaining_scheduling_policy_differences_preserved": true,
+    "scope": "Radio matrix uses committed canonical values; separate normal multiaction traces cover UI arithmetic/state. Busy admission differs from Canon synchronous sending, unchanged from M1. No physical rapid-tap or RF-completion claim."
+  },
+  "canon_additional_audit": {
+    "total_bounded_cases": 254,
+    "matching_cases": 242,
+    "counterexamples_same_busy_idle_defect": 12,
+    "frozen_baseline_unchanged": true,
+    "separate_fix1_independent_cases": 92,
+    "separate_fix1_hardware_tested": false
+  },
+  "retained_policy_differences": [
+    "Each mount retains original HSS/camera/RF scheduling, not Canon HSS-P3.",
+    "Native asynchronous transmission admission differs from Canon synchronous output.",
+    "One NVM failure disables further saves for that power cycle; reboot retries. Canon retains dirty state and retries later.",
+    "V5 records are model-tagged; no cross-mount or Canon V1-V4 migration."
+  ],
+  "host_model_timing": "N uses stable=20 and clock_mask=0xFFFF; other model profile values remain explicit. Host model only; no new device timing calibration.",
+  "input_evidence": {
+    "m2_review/final/integration_normal.json": "b053dfe27b56b95c7f9cbdc29dab683b51f3140044a99664d8a6041e657f01ff",
+    "m2_review/final/integration_optimized.json": "d7e5d0e35b25db0bfb26002c53f3ac2afcde1501c3c137fe42d88556cd5c08ab",
+    "m2_review/final/boot_normal.json": "40d61998222a2f8ae7e9f7a426fb60e82e47725378484ca306ca26e023fade7c",
+    "m2_review/final/boot_optimized.json": "300b1b64cc49ab0ec09d088467d6a158b7417601b7aabf3d527178454c92067b",
+    "m2_review/parity/radio_matrix_results.json": "214c6bf59ee21c73c4ab6f4b6febfbcf66a783e25d8adf752fb2972736d1d899",
+    "m2_review/parity/actual_replay_results.json": "50d39f2887d7f1a6980df46fe246632cb10b7359ab66d5a2cd77faded69698b4",
+    "m2_review/canon/audit_summary.json": "aa0b3781798af1cdfc838722c9e52d0cc722dff44e8e85b6f83afbf75389f47a",
+    "m2_review/canon/fix1_review.json": "45dd147f9aa80d17dafd3d1c839700065bc0b7936c7e8e426afbc9dd26bb287c",
+    "m2_review/hss/HSS_PRESERVATION_REVIEW.json": "7a5aeed5575629fd55cdf3b6c09a757906976f592d80456e05d1046b6ad864de",
+    "N/idle_retry_m2_results.json": "5a8f872404f94062ad264b801e8e56a7515740aa964e257f296a209efbe3878f",
+    "N/idle_retry_m2_results_optimized.json": "5a8f872404f94062ad264b801e8e56a7515740aa964e257f296a209efbe3878f",
+    "O/idle_retry_m2_results.json": "c86329918160462fb58546bd728cbfe603ada826c8f334e5085fc42df3ba22a3",
+    "O/idle_retry_m2_results_optimized.json": "c86329918160462fb58546bd728cbfe603ada826c8f334e5085fc42df3ba22a3",
+    "F/m2_verification/ui_parity_results.json": "5e615f9666557e82edc9c571f4456e17649257e22d033b2bf9b79735c5fbbe81",
+    "F/m2_verification/ui_parity_results_optimized.json": "5e615f9666557e82edc9c571f4456e17649257e22d033b2bf9b79735c5fbbe81",
+    "m2_review/S/idle_retry_normal.json": "31fde6b49ea19a454f3a221e24c308bb2c39fd71973abf74aeb84b1b5504e3d9",
+    "m2_review/S/idle_retry_optimized.json": "31fde6b49ea19a454f3a221e24c308bb2c39fd71973abf74aeb84b1b5504e3d9",
+    "m2_review/S/page_hint_normal.json": "9ce16ce1d53285076445dc68f6b3f176709c80ac3ce8ebca53479e7bc0d60bab",
+    "m2_review/S/page_hint_optimized.json": "9ce16ce1d53285076445dc68f6b3f176709c80ac3ce8ebca53479e7bc0d60bab",
+    "m2_review/final/tool_input_path_checks.json": "ae13b794ded0fd39a1b6d9d6401036fe6b56798b00c1024d87c4162abf6f6502"
+  },
+  "hardware_accessed": false,
+  "updaters_executed": false,
+  "hardware_boot_verified": false,
+  "limits": [
+    "Bounded actual-instruction/controlled peripheral replay, not hardware acceptance.",
+    "Historical full parity/review reports are referenced by hash, not included in the corresponding source archive.",
+    "Source archive byte-identical rebuild is checked separately after the source snapshot is frozen."
+  ],
+  "host_tool_only_delta": {
+    "path": "shared/repack_variants.py",
+    "sha256": "b3a1585db4906a21fc3153048a7dc82ab6e7e9a9555d1d0c2d7ab236c463fe80",
+    "change": "Default stock path prefers source-root inputs when present; explicit source always wins and invalid local input fails its fingerprint.",
+    "device_code_changed": false,
+    "old_new_repacker_four_exe_hex_image_exact": true,
+    "source_report_rebound": true,
+    "path_priority_tests": 3,
+    "existing_repack_tests": 12,
+    "evidence_sha256": "ae13b794ded0fd39a1b6d9d6401036fe6b56798b00c1024d87c4162abf6f6502"
+  },
+  "final_build_reports": {
+    "N": {
+      "profile.json": "75d7bf6720281e04bb385766ac42b08f81d6f391d808d5cbdf95454d91014b46",
+      "linked_components.json": "31619eea8a56f6a07e2ce63440315c6d3fc5fced42a26e625c61af28d61c7ade",
+      "patch_plan.json": "05800ca7628a64da900ef38e9c2ffcfa741d0eae32b67f086e09864939994b3d",
+      "verification.json": "1ecb0ef42af1b0523ac966119f73261722e94324de2fe996b7ddd66c57947204",
+      "final_image_verification.json": "f7cc6e110800e1ea025421db588ec18c792f9613692d4cd0e584fe46fe9be43b"
+    },
+    "S": {
+      "profile.json": "c6fa4fab58024720592a48d28579b5805e748c342056f18ec278c876c2411ec8",
+      "linked_components.json": "d28b5a1491c038c850597d7a5f018d01978dc4617811fd15eb0b4eee82e459cf",
+      "patch_plan.json": "d657a5665412e9fa08ea807afb8085b08a202e272e085a04581a898b18cdf169",
+      "verification.json": "4c2d34d16a92a0c4a4a4efdc97ac99d72fd60321f5b37bf0b74066c39c5b1c50",
+      "final_image_verification.json": "bfed0874c152c18ac9cf5df3e097c6b3d5ae1bc57ad5c936799d9d6120f9912d"
+    },
+    "F": {
+      "profile.json": "d1cd853011eb283a76df969ba82228e040c9e450f95828089fdb854815aa3218",
+      "linked_components.json": "58ea52e124e2d953e97a4f8c5d17f7e5d2ae97dddd61cae54a42587b12c96d89",
+      "patch_plan.json": "cdd04e49c1782abc6e4bdd43ad08c8b408a3937329df5300bb204251fca26ad1",
+      "verification.json": "43b5ff853c45bf0f19ab2ec8a5518b29c5875c18b3418c5d202081cd978d2540",
+      "final_image_verification.json": "faa8fbd2941a02bf607fe64c69c7c46379f160cb601ea47d48c6357b2728341b"
+    },
+    "O": {
+      "profile.json": "eeb4f76672f954027c426ba462ec3716cf7cf4d8ffd6bb47480dadd1412f1fad",
+      "linked_components.json": "951771a75bfaf82faf7bdc9e54c9dc8c42a64bf0d78f3d9622cc7459e6d6fe13",
+      "patch_plan.json": "386a70375bb22b673725e4c0d8e80e276c4eb4d3948c59d32b2655e4e4711160",
+      "verification.json": "c20374753d9233a28927ec9d99726b99ad02a38f75cc80ebceb04286bde200c7",
+      "final_image_verification.json": "56d92a527f40b331bc857ca6945649ebf824b0c292511a84bd95c8a96ae9b5b0"
+    }
+  }
+}

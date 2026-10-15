@@ -1,0 +1,706 @@
+{
+  "branch": "olympus-air2-m2",
+  "developer": "Caimankekw",
+  "files": {
+    ".gitattributes": {
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+      "size": 8
+    },
+    ".gitignore": {
+      "sha256": "58560c455146be5708e0275a2815863bf8681caa000bf0d7cf1c0413b0574d5e",
+      "size": 110
+    },
+    "CHANGELOG.md": {
+      "sha256": "6d99b2ca15ff69911887c9a7ded8e1dccb3935ef3a32b212c7b76b892c66add8",
+      "size": 662
+    },
+    "CHANGELOG.zh-CN.md": {
+      "sha256": "678d0221d8879d9a9f01aef7d64c372c2b068470d76e0fab1d597dc215d0cd51",
+      "size": 564
+    },
+    "DISCLAIMER.md": {
+      "sha256": "91848067bfcebb401e9c9cf50ef2f402df9a231631f03391aae0b9a0ab6747c0",
+      "size": 1678
+    },
+    "DISCLAIMER.zh-CN.md": {
+      "sha256": "68f45c569753e37a95456c25f6432cfa2499b965b2b7c3fddcd4cd0faf974b78",
+      "size": 1440
+    },
+    "LICENSE": {
+      "sha256": "d8a6cc31abc16b6748c7a21f21611f5a1ec33f67d22ca23d7da1c19b95496bee",
+      "size": 34020
+    },
+    "NOTICE.md": {
+      "sha256": "4cf3d0f64fc366f0bcd84d86aa7292b7bdaf2f6452330701b88d2b9a9168bcf7",
+      "size": 1566
+    },
+    "NOTICE.zh-CN.md": {
+      "sha256": "91463ee6324d8d716115c3f77b72f2e9a6f39958b5472cefe509530a071c3144",
+      "size": 1308
+    },
+    "README.md": {
+      "sha256": "24ff14775c35d241e13010f142e52d5af295164a7ff0806de6800126068f3b8a",
+      "size": 5679
+    },
+    "README.zh-CN.md": {
+      "sha256": "7299c99ff6c42cc22074e394b2c93b59468682b1e56857238c05e364b9795340",
+      "size": 4866
+    },
+    "build.py": {
+      "sha256": "792c74c1b0156b8f0fdd91769f67b636851cc84050ee14d0bd3d8ce89d4e1e49",
+      "size": 6516
+    },
+    "firmware/DISCLAIMER.md": {
+      "sha256": "9345b8a485f61291076f704c695a94e87220a304d1a0ace776e7bf7495ca2627",
+      "size": 1678
+    },
+    "firmware/DISCLAIMER.zh-CN.md": {
+      "sha256": "8163c0172026853392b12cca1e7e24a504d75de3cf97dfab319d2ce4cf96abd6",
+      "size": 1440
+    },
+    "firmware/F/F_A5_adapter_evidence.json": {
+      "sha256": "74d21fee8ea2936af93e6745cf16fc9b8eedff628473d84a5112500746fec9f6",
+      "size": 14823
+    },
+    "firmware/F/F_A5_clock_irq_evidence.json": {
+      "sha256": "35fb2dab36e910699ed01aa35e41f06cd28ba1bc7af7a4f9390298468592bac7",
+      "size": 56042
+    },
+    "firmware/F/M2_UI_FIX.md": {
+      "sha256": "74921955dcdb8d7ba912342afa25a77e45647d543681fd4c5e680900ff489e99",
+      "size": 3775
+    },
+    "firmware/F/M2_UI_FIX.zh-CN.md": {
+      "sha256": "96eeb2553f4ccc8d21d6f2a4cabe116cfe6f10a3ea11894a78c191cf1be4a84d",
+      "size": 3415
+    },
+    "firmware/F/README.md": {
+      "sha256": "1b27eaa0b27027c349a8440283b61f1cf4054dd1416fb5190f39734862afea40",
+      "size": 4897
+    },
+    "firmware/F/README.zh-CN.md": {
+      "sha256": "fffac723b7604663bd4acfdfd6be4228251c0bd96e52ef188dc6a78b9625618c",
+      "size": 6515
+    },
+    "firmware/F/native_backend.py": {
+      "sha256": "525fbc398bac39761c0b55cca3fec675fb81d7239ee2b9af18cd30c92549fb12",
+      "size": 14359
+    },
+    "firmware/F/native_hooks.py": {
+      "sha256": "47dd7599e2c0072a2ade0b904c0c5c16a012f3eabb6a2a1f7f1ad3fb9416aeb8",
+      "size": 6349
+    },
+    "firmware/F/port_profile.json": {
+      "sha256": "5fe8101e63fd55ceb942a04456571e1bdcd51f47fed4e6fdd5b7d3040a486bff",
+      "size": 3393
+    },
+    "firmware/F/test_integrated_hooks.py": {
+      "sha256": "68f7eb06861cbcdf335d4a1da06650862eee8c1c34c54d7686b25189a43d4bf2",
+      "size": 5086
+    },
+    "firmware/F/test_native_backend.py": {
+      "sha256": "2f1e945728a710d97edd48288f30121c0eccb9aaca58716d1a3d5840b8204b19",
+      "size": 7031
+    },
+    "firmware/F/test_ui_parity_m2.py": {
+      "sha256": "0e2b01e7075c831a84d67b6a324e5de1e48b73dbebf125ba1d0d00ebe7b9b26a",
+      "size": 12457
+    },
+    "firmware/LICENSE": {
+      "sha256": "79735a75d0274d2a5dcc240d11a0f81e34cfc3533939b7fce8e84e35a150a238",
+      "size": 34255
+    },
+    "firmware/N/IDLE_RETRY_M2.md": {
+      "sha256": "90982472b1affd087afc1ff19bdbef65a886164b7552def666fd4f6f1d6dc731",
+      "size": 2171
+    },
+    "firmware/N/IDLE_RETRY_M2.zh-CN.md": {
+      "sha256": "42f35bbd36dc88a9de7d5561d32f12980bed578c2d4ba8d870cd372df2704108",
+      "size": 1959
+    },
+    "firmware/N/N_TIMING_AND_NATIVE_ABI.zh-en.md": {
+      "sha256": "e7eaff20e2cf4b3abfc43681f90c32278cc5810e0764cfe0c8a1997fcbfc2f05",
+      "size": 9669
+    },
+    "firmware/N/PORT_REVIEW.zh-CN.md": {
+      "sha256": "2fecbe0e58192d463c0bbab5ce357d3ea351f1f4d3122b32811b69e8e84e2fc0",
+      "size": 4865
+    },
+    "firmware/N/native_backend.py": {
+      "sha256": "31574b655019dc597be9925e635ce1ccc69f8f253f817f6eee73f8551bc73ca5",
+      "size": 14957
+    },
+    "firmware/N/native_hooks.py": {
+      "sha256": "5eb08dc9643077562f87ba0f353bd25ba6815e71df3f0e6d603838347bd72f87",
+      "size": 8685
+    },
+    "firmware/N/port_profile.json": {
+      "sha256": "d632548e3a1d4465e7aa70cc0def973367c9792d9c0abaf32bb04ad749a9f0cf",
+      "size": 3857
+    },
+    "firmware/N/test_full_link.py": {
+      "sha256": "07586aaaa53ca9e0584ee097d9abb644839f052be09d32fc9c0768bd3e6cdf05",
+      "size": 1646
+    },
+    "firmware/N/test_idle_retry_m2.py": {
+      "sha256": "f2637a6444952dc81880fa63393ef5f567470f68b8007b326a7eb07679be521f",
+      "size": 9736
+    },
+    "firmware/N/test_native_backend.py": {
+      "sha256": "0c929d5ab17d43f683e818d52154c7f49d637b797ad6924def5e88ed4ad788a7",
+      "size": 8753
+    },
+    "firmware/N/test_native_hooks.py": {
+      "sha256": "c28cc25b28de8ee89130ae21916cde9f75fbb27113db554fd16f1db24f6b765f",
+      "size": 9025
+    },
+    "firmware/NOTICE.md": {
+      "sha256": "4cf3d0f64fc366f0bcd84d86aa7292b7bdaf2f6452330701b88d2b9a9168bcf7",
+      "size": 1566
+    },
+    "firmware/NOTICE.zh-CN.md": {
+      "sha256": "91463ee6324d8d716115c3f77b72f2e9a6f39958b5472cefe509530a071c3144",
+      "size": 1308
+    },
+    "firmware/O/IDLE_RETRY_M2.md": {
+      "sha256": "aba75e2361571ca75738e2059d14fb26269987802273520d57d21574cfe42195",
+      "size": 2373
+    },
+    "firmware/O/IDLE_RETRY_M2.zh-CN.md": {
+      "sha256": "0ace84843544cf3e0cdcdad9f53c3c11e28c7d7867be3881315226a9f7b4cf05",
+      "size": 2149
+    },
+    "firmware/O/PORT_STATUS.md": {
+      "sha256": "353f4bb7c959b2ad1423a903214a68312ca674f9be74e7d27e28e43df92aee4a",
+      "size": 4737
+    },
+    "firmware/O/hook_contract.json": {
+      "sha256": "b9d654be8cd9c1e268478881206a2b551e41fe57eb633212d32797a3b2296fb3",
+      "size": 15755
+    },
+    "firmware/O/hook_review.md": {
+      "sha256": "ac5b53221b623b33951d3502ac360f268b6883ba3769675d545426ac0630892d",
+      "size": 11446
+    },
+    "firmware/O/keyboard_contract.json": {
+      "sha256": "49e405019a388d7210fce3c3d6e622da212e1123f91f2ef2137a35f6092fd0e2",
+      "size": 19899
+    },
+    "firmware/O/keyboard_review.md": {
+      "sha256": "f1138afbc0998c27ec776b6da09b4dc82f34d2a9a6e4298b68b1b701e22a05a5",
+      "size": 9655
+    },
+    "firmware/O/mode_transition_contract.json": {
+      "sha256": "9b19ec7dc8ea44d3b540dd285640a3b9cca53a94abaa60490f0342c6e3a54017",
+      "size": 48368
+    },
+    "firmware/O/mode_transition_contract.md": {
+      "sha256": "e75f1638ce3155ff809761a8ce0e406c3f05c358765cf3b94c19ee925db9800e",
+      "size": 13212
+    },
+    "firmware/O/model_adapter.py": {
+      "sha256": "f91a81359d7068ab76bf97b9ef4a05508b15b6108ab5e070ec58bce3f4a823dd",
+      "size": 3268
+    },
+    "firmware/O/native_backend.py": {
+      "sha256": "b228b513348d1b77a4a2fa2420159d0134af1e228d9691250350b90f1953533c",
+      "size": 15368
+    },
+    "firmware/O/native_contract.py": {
+      "sha256": "29edfda4496fbba87eea71fc991c0afa128a6f2726bd0f1b2f205a26d53ddb1c",
+      "size": 3545
+    },
+    "firmware/O/native_hooks.py": {
+      "sha256": "e7578ea879deb078e7282544907226ffedecf020cdbf41b870ea762838f7513d",
+      "size": 9296
+    },
+    "firmware/O/port_profile.json": {
+      "sha256": "d11774c3fc24e88d15bc89e1b67f632ded2f87078d16ab17358d1e118a3166df",
+      "size": 4294
+    },
+    "firmware/O/ram_nvm_contract.json": {
+      "sha256": "b8d4c7735a61a2591e2c19c68c3c9abad89c504d18a43afb93ed9fc82400902e",
+      "size": 9350
+    },
+    "firmware/O/ram_nvm_review.md": {
+      "sha256": "bab642015595c3327a66cf8144d991eb439075714f1e8fda60bdf6039f6ed70f",
+      "size": 4341
+    },
+    "firmware/O/test_idle_retry_m2.py": {
+      "sha256": "f2637a6444952dc81880fa63393ef5f567470f68b8007b326a7eb07679be521f",
+      "size": 9736
+    },
+    "firmware/O/test_mode_transition.py": {
+      "sha256": "9e2471e340263f23da0928f827a3b0bfe246ef5e65a13fbc4eb72baa7eb6e6b3",
+      "size": 8201
+    },
+    "firmware/O/test_model_integration.py": {
+      "sha256": "05124a6cd90b12bb31d4c46ee5aafe8522f157cf9de7b11ec859ceb0d685de5a",
+      "size": 5181
+    },
+    "firmware/O/test_native_adapter.py": {
+      "sha256": "a57536112af6ac1cc1c05270c60d88906e8a1e56d8539c65d498bc8b5bafaba2",
+      "size": 8198
+    },
+    "firmware/O/test_native_backend.py": {
+      "sha256": "6f45a12fd2fbf8fb7b98c1b9a1a48e2918c0e8280fbf97e93cb767ec67820ec2",
+      "size": 5060
+    },
+    "firmware/README.md": {
+      "sha256": "6f755fa691623e4daa945e876f22eb65eee4ec912876e2aae59e26df3028eae1",
+      "size": 13631
+    },
+    "firmware/README.zh-CN.md": {
+      "sha256": "fe15dfde69d88a58620dc9aa6f9a72575791a303bd3385c5a427c5749819b122",
+      "size": 12207
+    },
+    "firmware/S/README.md": {
+      "sha256": "207ab568852f22456a374b5a3ab36078695a514f28fb566f3470ee009a58f1d0",
+      "size": 2988
+    },
+    "firmware/S/README.zh-CN.md": {
+      "sha256": "daf04a5e4c26c0b0afb9de909dbd8250436d7d0aa94e1fcea14685fffed74510",
+      "size": 2623
+    },
+    "firmware/S/control_adapter.py": {
+      "sha256": "8ecbc974702ebf5159e21ac4e349c97b6059767cfe1e2e3a28fe2a9f21f109cb",
+      "size": 5085
+    },
+    "firmware/S/display/PAGE_HINT_M2.md": {
+      "sha256": "aefe79afd572d69f4869169a6073097d33bdd3792d65823585dea5342c2a0798",
+      "size": 3268
+    },
+    "firmware/S/display/PAGE_HINT_M2.zh-CN.md": {
+      "sha256": "12c7395d23dfeae3e748498e85e187dee1cbc06dfdd048d29e26255018809002",
+      "size": 2932
+    },
+    "firmware/S/display/README.md": {
+      "sha256": "1e11dafe18df0a597f774868e791f155d40067fd6e0f8f58ee6e3467deeb352b",
+      "size": 17364
+    },
+    "firmware/S/display/canonical_full_renderer.py": {
+      "sha256": "9e5a9cd92e0375fc87a676efa2f203e56ef9bc9b8e8c31e524ab2a49ac53bf2b",
+      "size": 5111
+    },
+    "firmware/S/display/canonical_renderer.py": {
+      "sha256": "88ae4dca05a435d6aa4166c9bcd51c7f6ad1a06bec7823434875fdc09003945e",
+      "size": 3526
+    },
+    "firmware/S/display/display_adapter.py": {
+      "sha256": "d0183b1533eea075a26fa78723143954f07d422a13ffdea1b087ee8a2b4eeb2c",
+      "size": 5337
+    },
+    "firmware/S/display/final_display_hook.py": {
+      "sha256": "d0578589e0e32a465d4f51caa7ed963cba37abcbafa439d3c9c0cd3ff3606825",
+      "size": 2737
+    },
+    "firmware/S/display/keys/README.md": {
+      "sha256": "54a9c135d70bb357a2d16af273a77177ab3b693ce604f68b639b24d80f9b5311",
+      "size": 5678
+    },
+    "firmware/S/display/keys/native_key_adapter.py": {
+      "sha256": "7f1d2a4252183750e7467871ae8cbd60bb377a35e38f10c3d68dd8ffff6a351c",
+      "size": 5106
+    },
+    "firmware/S/display/test_page_hint_integration.py": {
+      "sha256": "1aabeda0e9ad2779afcc9c71a0e02a91d2ef771b3f1dcebf9da711a4778aae95",
+      "size": 9028
+    },
+    "firmware/S/lifecycle_adapter.py": {
+      "sha256": "18a582f18fc1c3d6bce96c895bb18f4f10469e2b689e964ef6e5491e57fe6397",
+      "size": 4098
+    },
+    "firmware/S/native_backend.py": {
+      "sha256": "3da318910ff57aef2ffbb411b744b0c031c96e4066cabe2fdef51289662e8260",
+      "size": 3539
+    },
+    "firmware/S/native_hooks.py": {
+      "sha256": "8fffc01fbac6afe5ec9e74786fecfbacd62c7153c25faa8ffbea54c11c52be70",
+      "size": 3546
+    },
+    "firmware/S/port_profile.json": {
+      "sha256": "3102e6df909fc3de0f0da127304b94f6d997c0d2fa62647cc8586b6eb520fa84",
+      "size": 3996
+    },
+    "firmware/S/radio/CONCURRENCY.md": {
+      "sha256": "aa44c1145f719665fd39f898f6199ff52cc4f9a55cc60a579fab7444c5fafe8d",
+      "size": 5282
+    },
+    "firmware/S/radio/CONCURRENCY.zh-CN.md": {
+      "sha256": "80ade746e8a8103682add4104c99ff714885e7e31a9c946381a4cb8d7c3254a8",
+      "size": 4972
+    },
+    "firmware/S/radio/README.md": {
+      "sha256": "5603f37ed00daceb07e6e075a1d57dbf8ade06b994927d01e51679697716d285",
+      "size": 6153
+    },
+    "firmware/S/radio/README.zh-CN.md": {
+      "sha256": "74f579c7b2e833c28b5aaa5d4d26b9d575d2d4b5a7b994b921c8948cceffb6bf",
+      "size": 6172
+    },
+    "firmware/S/radio/concurrency_audit.json": {
+      "sha256": "0c88bb10051eec822893ed7962140ad98d19ae736d28d4a20f6cdcf9d119fcc7",
+      "size": 53986
+    },
+    "firmware/S/radio/context_audit.json": {
+      "sha256": "da155429ad9be27a80291f3f22a4d21d8e68f9aaa0d4006af674fe002ee9c76f",
+      "size": 4655
+    },
+    "firmware/S/radio/context_audit.py": {
+      "sha256": "78ddb1432c011b115f94031962d979a55c9564fdd6084cef7e1917efe240c3e7",
+      "size": 6516
+    },
+    "firmware/S/radio/fast_empty_queue.py": {
+      "sha256": "07515b7ada7b4630ed1e4692109811e12d7a1c0b87ffcb6a7f875723d1108d47",
+      "size": 4923
+    },
+    "firmware/S/radio/pic18_emit.py": {
+      "sha256": "f3517f2b96ba8b1a071a983330ca7ff67c453e95f334903adbb7753d2cb99bfa",
+      "size": 2031
+    },
+    "firmware/S/sony_native_contract.py": {
+      "sha256": "bf8d431c013299b90805221c349e7eddb93466757ea9f12b4d82ff56c84e9181",
+      "size": 6778
+    },
+    "firmware/S/sony_nvm_evidence.json": {
+      "sha256": "6d9c6d67c06a8d0d0fe80b5c9d16eaf2749a81b8efc7ddf5b7e308e62c519f94",
+      "size": 1086
+    },
+    "firmware/S/state_adapter.py": {
+      "sha256": "727e69171365785643cc03ac144dbf0e7f243d55cd00a4370e864aa5295ab696",
+      "size": 8551
+    },
+    "firmware/S/test_control_adapter.py": {
+      "sha256": "1bd309a62cfdc0f68b73a13e69bcbb94910dceb91d99ba40d2052629bb79e5b0",
+      "size": 9467
+    },
+    "firmware/S/test_idle_retry_m2.py": {
+      "sha256": "495104f960a1b08cba72869c6984988c0db14912c5e7af125f2b28469cb815fa",
+      "size": 9293
+    },
+    "firmware/S/test_lifecycle_adapter.py": {
+      "sha256": "3ae1400685128705df4656956058bc7336f5e3189539bd524e30fbceaf76e7fd",
+      "size": 2784
+    },
+    "firmware/S/test_state_adapter.py": {
+      "sha256": "c90ec6c86de3e4bc7054cd75ba99e34cd2fbc972313d411ce5c00c1b8cbd0f23",
+      "size": 15410
+    },
+    "firmware/S/verify_linked.py": {
+      "sha256": "c20ef1efd56c9a76697a310db7017407db68d77760b3936602efdd36ae883883",
+      "size": 1423
+    },
+    "firmware/S/verify_native_nvm.py": {
+      "sha256": "94107ef2457008566c0d758132e3e8cca9a69d61547d148d13e1992e63012853",
+      "size": 2819
+    },
+    "firmware/shared/HSS_PRESERVATION_M2.json": {
+      "sha256": "e8510edcc317a190558352fae7b8c0706ccc1e9100c70e1d35ad7ceae0c43989",
+      "size": 12847
+    },
+    "firmware/shared/HSS_PRESERVATION_M2.md": {
+      "sha256": "4d6671898119c8c28e72d7c58ddc1d600b671cadea7ecbb0ccc482e8132ec374",
+      "size": 2960
+    },
+    "firmware/shared/NATIVE_BACKEND_ABI.md": {
+      "sha256": "806158fc7c7eec639478e7d7e3bd9e2c2d5946c50ca5ef3d08bc21289baa46b4",
+      "size": 11893
+    },
+    "firmware/shared/PERSISTENCE_BACKEND.md": {
+      "sha256": "aa3ac8fae1de9c4d171532d8ca91e70c5d7c464a877907f3adcd8754de6d8cb0",
+      "size": 8194
+    },
+    "firmware/shared/RAM_ALLOCATION.zh-CN.md": {
+      "sha256": "50df1f4d383163d6bb7fea97c8cb204f4af2b705f5c550e567f17d9ed2ab63d1",
+      "size": 8811
+    },
+    "firmware/shared/VM_README.zh-CN.md": {
+      "sha256": "f3d9500731e2199069d35f1b260f75c2618e8e5928793d45c16b74c701469b70",
+      "size": 7521
+    },
+    "firmware/shared/build_variants.py": {
+      "sha256": "332f1474f41ecda966cc3b97291b40e0428047b9aebe3b7aa2700c6489edf73c",
+      "size": 12476
+    },
+    "firmware/shared/final_validation_m2.json": {
+      "sha256": "47fa2e9a4738ba75726b9131e0b190bc5b1a5cf638d6eb3c4b977ee0ba7c23f7",
+      "size": 10018
+    },
+    "firmware/shared/gesture_runtime_codegen.py": {
+      "sha256": "92b18b0d2a8f3889a0dc036355448cd5bb8f76111db2693ce208376f99a8b324",
+      "size": 9342
+    },
+    "firmware/shared/helpers/README.md": {
+      "sha256": "0ffd4c8fc6a47382c6bde337b09495411e8428c29eea1ceea7fa25543f6d41bc",
+      "size": 855
+    },
+    "firmware/shared/helpers/container.py": {
+      "sha256": "1edc61a912a81d9f351b45ceefbe0365fa3d1b5e1b49587c6b1a6e38e58912df",
+      "size": 8440
+    },
+    "firmware/shared/helpers/reference_codec.py": {
+      "sha256": "1cec5771dbf0f8430170bed9f17c8cd14045954f0b9c19c98373c9178ac37bcf",
+      "size": 5567
+    },
+    "firmware/shared/identity_report.json": {
+      "sha256": "ace571c8d06bbef093c4814a0b7bd6b976ecab702fd1a20df63ea892330f9079",
+      "size": 20620
+    },
+    "firmware/shared/identity_report.md": {
+      "sha256": "c0d96534a135216f89427d532e956b71a4ac812c6b01a5923364a400dbab77e9",
+      "size": 3601
+    },
+    "firmware/shared/inspect_variants.py": {
+      "sha256": "443a50b30a5b897c46a3a46eaac068a5d7ad18d9547bd412a84bd85bd0b7acdb",
+      "size": 6609
+    },
+    "firmware/shared/newGUI_GATE.json": {
+      "sha256": "dcc915be3bec3226d73c672dbe76d8e69d0ea4e2b7c4372ddd78188c12fba432",
+      "size": 20907
+    },
+    "firmware/shared/newGUI_GATE.md": {
+      "sha256": "32ae1f69ac9d6dfd4ca6fe3da7ed4555ecd2df059520aaf5ffb8f6062f82958e",
+      "size": 3670
+    },
+    "firmware/shared/persistence_backend.py": {
+      "sha256": "9d1ab69564eed06efb1719f811af60986ffc0dc466c70b77585e9ca60b887161",
+      "size": 17269
+    },
+    "firmware/shared/pic18_vm.py": {
+      "sha256": "f7abaaeb2ec1255427dbcbb42ffd9e1f31b7b0c798ce2b0540946246169f39a9",
+      "size": 23971
+    },
+    "firmware/shared/ram_allocation_audit.json": {
+      "sha256": "9a881b1856a050a76a949ebc0695b6fcf0381d7ac299efd5a367d2b34536ff4f",
+      "size": 411642
+    },
+    "firmware/shared/record_runtime_codegen.py": {
+      "sha256": "7b932ef184f38bbe74cf6c73bb804671f77e0f63925a4421e1562bd9340e2d8c",
+      "size": 6008
+    },
+    "firmware/shared/reference/c11_offset_transform.bin": {
+      "sha256": "7779d34181f9d302d2d122e9a2ed40f975a4128b738a40561f97fc86ac949303",
+      "size": 73725
+    },
+    "firmware/shared/reference/codec_manifest.json": {
+      "sha256": "835f2745f6c592c9dee1a1f4570c818ce4e5c5158e4ea2e220580c2b4859b3fd",
+      "size": 1172
+    },
+    "firmware/shared/repack_variants.py": {
+      "sha256": "b3a1585db4906a21fc3153048a7dc82ab6e7e9a9555d1d0c2d7ab236c463fe80",
+      "size": 14810
+    },
+    "firmware/shared/runtime_generator.py": {
+      "sha256": "a0919fa9670d8627c6de2959df5c0b59389564e4bc7e4c13188754be838b9efe",
+      "size": 23923
+    },
+    "firmware/shared/state_model.py": {
+      "sha256": "5f707de831dc29c60695c6958acccb4f6382b0b2c0ab5f7494f075bc513a3510",
+      "size": 29392
+    },
+    "firmware/shared/stock/F/profile.json": {
+      "sha256": "dddc9bc8222141a576ef079ea33f172352b7562f320c18c41820bb360501114b",
+      "size": 1420
+    },
+    "firmware/shared/stock/N/profile.json": {
+      "sha256": "5c4507ddab180c73d25d1b750e17e99631111c8171e31e8dddd716dfc5a451c8",
+      "size": 1420
+    },
+    "firmware/shared/stock/O/profile.json": {
+      "sha256": "cc114a343817ec56008599cceb73b0f041ab5217ac3dabfa8c60e53301839bba",
+      "size": 1420
+    },
+    "firmware/shared/stock/S/profile.json": {
+      "sha256": "2189d96bc02a3c2e0b7e295fd7278053620320fe8e4bfe507e1834f5dc0fd98e",
+      "size": 1420
+    },
+    "firmware/shared/stock_inventory.json": {
+      "sha256": "d31fabacf1ac31802260c354b02d57c66a7b6f1ee4c8ea3caea391b0f716d8c8",
+      "size": 6027
+    },
+    "firmware/shared/test_boot_restore_m2.py": {
+      "sha256": "6be5278f983e67168857dd5465f84b8e47b718e390ad50df77170fa306d46534",
+      "size": 12972
+    },
+    "firmware/shared/test_integrated_firmware.py": {
+      "sha256": "d51e7ad44fe17897339bcfde18de2d2d37c41aa7ce4a176effb526aac272ebc5",
+      "size": 41056
+    },
+    "firmware/shared/test_persistence_backend.py": {
+      "sha256": "49f8a5489833f0970c2a26d4bf52abb76f96d2a9f150a819bd451dca3af69d21",
+      "size": 14227
+    },
+    "firmware/shared/test_pic18_vm.py": {
+      "sha256": "4926a0a98e0c24d61b76736ab78982defba67fd9f5d11f372e4f22a8be061125",
+      "size": 15408
+    },
+    "firmware/shared/test_repack_variants.py": {
+      "sha256": "2be9035d5359ba2f2d61250565ce708bac30752b8c746b7d0024b953a20f5500",
+      "size": 5255
+    },
+    "firmware/shared/tests_core.py": {
+      "sha256": "86f2ac5f84db948d0dddfc37989aa23fd2c94dd6ed33f5e6d4f77ba4743752ea",
+      "size": 32726
+    },
+    "firmware/tools/package_portable.py": {
+      "sha256": "ef63673b93c53178062d0b3c81fd4aaf54d6aeb066da92afdfe14ad4b7e0f04b",
+      "size": 28929
+    },
+    "firmware/tools/package_source.py": {
+      "sha256": "a2619512d986e5d4bb0d90caf30d1565bb7fd21ec54b0f2ad8ce8e2ac87a25fe",
+      "size": 9836
+    },
+    "model.json": {
+      "sha256": "cc114a343817ec56008599cceb73b0f041ab5217ac3dabfa8c60e53301839bba",
+      "size": 1420
+    },
+    "release_profile.json": {
+      "sha256": "14b1243bcfd513a4a1f239f6eec79c2437277dfc25e1156803decdb3f3b913e4",
+      "size": 13055
+    },
+    "reverse/README.md": {
+      "sha256": "6c6ffb3dea53aab1cf29a505b7a5ac6b55deaf5b374d22de1dfac27906913190",
+      "size": 3710
+    },
+    "reverse/README.zh-CN.md": {
+      "sha256": "ae46adfa010008daaa29701f18da012b8b47679d545fd3816c3e21ffc536d975",
+      "size": 3206
+    },
+    "reverse/original_contract.json": {
+      "sha256": "3552f2175fcb53bdc262bb76ee7a1b4158ca4649bfc33db7e92c39caa83c3601",
+      "size": 5039
+    },
+    "reverse/provenance.json": {
+      "sha256": "3d2d3ebec866e6cc28458d525da35eb4d0ecc4c4c3770a587d18601543026cb4",
+      "size": 21622
+    },
+    "reverse/pseudocode/hss_boundaries.c": {
+      "sha256": "258af50d0ae2a9e97894fbf57686cdc0478b1e6ef94b21c6147a54a54cd1a9cb",
+      "size": 1628
+    },
+    "reverse/pseudocode/keyboard_clock.c": {
+      "sha256": "a64332dd796170cdba06b76d41180b150ecc5c01d8ab30a3113aedc12eb2381d",
+      "size": 2793
+    },
+    "reverse/pseudocode/nv_startup.c": {
+      "sha256": "288cf546dd4c98a72f279c1c0d52135793710d4cfadd6be740bd7147bae47be7",
+      "size": 2190
+    },
+    "reverse/pseudocode/radio.c": {
+      "sha256": "a5f57bb21398845be401edf10b9f5e6a13875d163cf731929be743afac7ab698",
+      "size": 1603
+    },
+    "reverse/pseudocode/ui_abc.c": {
+      "sha256": "4f771323c60957b11a4bffec7ed3a06f4ab4a474579ed7af77d74fbaf80bb037",
+      "size": 2609
+    },
+    "tests/README.md": {
+      "sha256": "9d8f774eb8e87a139dc8c208e5cb7b1ac25ee7c18fb21b0b2a05e7fd1b3e90a9",
+      "size": 1197
+    },
+    "tests/README.zh-CN.md": {
+      "sha256": "2b08c5ffd7791acafe061c19cb287113ea49fd6299691455ed9a084759b1dde1",
+      "size": 1076
+    },
+    "tests/WRAPPER_VERIFICATION.json": {
+      "sha256": "5fef6384e75756a7e717e4e70fb8321fb08cdb30138ca1d324352af5c890523b",
+      "size": 677
+    },
+    "tests/test_branch_tools.py": {
+      "sha256": "c80ec0c920daa81e90dbffc603c8391df320ab43caa839bc6f6ee775adcee2bb",
+      "size": 7138
+    },
+    "tests/test_inspect_original.py": {
+      "sha256": "7e07cb10c61c495d319e97ccf779c4d76e5adad5316082b6b43110a6658263f4",
+      "size": 9881
+    },
+    "tools/README.md": {
+      "sha256": "4e99efe3a5f26f42930a47fa968065a931b8e6e212a89ca852e25efc8697b408",
+      "size": 3930
+    },
+    "tools/README.zh-CN.md": {
+      "sha256": "b3a5f9cd75983ec9925bfefc114ede435e5c92471081d4bbcd7535553be84105",
+      "size": 3583
+    },
+    "tools/helpers/__init__.py": {
+      "sha256": "da0eaea38f0123e87f7b2f8430bd5a21273a88d7e9c187c9fdd472b83f9be197",
+      "size": 160
+    },
+    "tools/helpers/container.py": {
+      "sha256": "b99044b0c17f863cbfbb760be61e71b25424bf035075529b317332986962642a",
+      "size": 4176
+    },
+    "tools/helpers/reference_codec.py": {
+      "sha256": "655e1a2ff7a3e90897a5244af591a991377150a03dec7a6611a3fde07b6634e3",
+      "size": 3133
+    },
+    "tools/inspect_original.py": {
+      "sha256": "e5d0876c458218fabd92c48ae7902f01d517f7ebcc1c7ece79a1cab23a503ffa",
+      "size": 8362
+    },
+    "tools/package_source.py": {
+      "sha256": "1b323cc5f0002e67be134ee1b44854cc7c85c2767820dab5bb8f7b9fc9bd725e",
+      "size": 13627
+    },
+    "tools/reference/c11_offset_transform.bin": {
+      "sha256": "7779d34181f9d302d2d122e9a2ed40f975a4128b738a40561f97fc86ac949303",
+      "size": 73725
+    },
+    "tools/reference/codec_manifest.json": {
+      "sha256": "835f2745f6c592c9dee1a1f4570c818ce4e5c5158e4ea2e220580c2b4859b3fd",
+      "size": 1172
+    },
+    "windows/README.md": {
+      "sha256": "02f4bc8de9efdcd1c9493c44c884678cf6990551126a64d5fed44f5127f72728",
+      "size": 3660
+    },
+    "windows/README.zh-CN.md": {
+      "sha256": "5ad0dadfdd6c7884a73bacfcca9145eae9557f4827646579061e7abff6f2cbc4",
+      "size": 3229
+    },
+    "windows/build_package.py": {
+      "sha256": "94ce02bd7d0163d89ec39ab308188b9b0c7caee432c1a2423fcf786d22bef639",
+      "size": 23384
+    },
+    "windows/input_manifest.json": {
+      "sha256": "22d4c33cbe4a1db0bc3061fbd2b482b754412f53f47e900757608e0ac838185a",
+      "size": 1013
+    },
+    "windows/installer.nsi": {
+      "sha256": "00f2043eb23be28f28c3eae77e7f426d9ecfce2e1d2e4a3a452642efa1a2353c",
+      "size": 7488
+    },
+    "windows/requirements.txt": {
+      "sha256": "a36f37b8129c5cfb68e8b41bcece30f3145b9eaeb34717013d6fe531e03bb557",
+      "size": 144
+    },
+    "windows/templates/README.md": {
+      "sha256": "cde7b1550559a503eb853b6da46cd94d80ac3f1165fc5fd09c6c1c85ecbf9b06",
+      "size": 4795
+    },
+    "windows/templates/README.zh-CN.md": {
+      "sha256": "9a7dabdf1c3e16caf8331a3ca6450b286d628dc3753e3a15e62a6df6c127c7b5",
+      "size": 4313
+    },
+    "windows/test_build_package.py": {
+      "sha256": "27508f7e4a8648e1d24c1a4b4ed786261f07dc1dadf232fc7b1374d8ebc546cf",
+      "size": 7885
+    },
+    "windows/vendor/NSIS-COPYING.txt": {
+      "sha256": "388357c1215ff403c5ebde3a5ecd273e68f8b79a579996775245d1ee65442aba",
+      "size": 15632
+    }
+  },
+  "firmware_sha256": "67b3db05f412dfb33c1c7173693d4bf71b720a59265cd5b3feb2b7563a13ae95",
+  "format": "airremote-air2-branch-source-v1",
+  "hardware_validated": false,
+  "license": "AGPL-3.0-only; authored material only; see NOTICE.md",
+  "model": "O",
+  "name": "AIR2-P8-M2",
+  "original_updater_sha256": "80ae4cac56c6bb7c363062d3ed7927373e4b7a907df8abbc2fed6731621a52b5",
+  "release_date": "2026-10-16",
+  "release_tag": "olympus-air2-m2-20261016",
+  "scope": "Branch source and generic reference parameters; no vendor updater, device capture or build output.",
+  "updater_sha256": "d07ee22f348e29e422e4af73a1c4427af3f80ce09633697c7073dd46b1820e93",
+  "version": "AIR2-P8-M2"
+}

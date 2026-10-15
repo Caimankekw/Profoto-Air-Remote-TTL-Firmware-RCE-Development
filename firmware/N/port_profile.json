@@ -1,0 +1,121 @@
+{
+  "model_tag": "N",
+  "revision": "C5",
+  "state_base": 1664,
+  "state_span": 384,
+  "window_counts": 200,
+  "stable_counts": 20,
+  "page_hint_counts": 650,
+  "clock_mask": 65535,
+  "code_limit": 63488,
+  "nv_enabled": true,
+  "native_nv_gate_proven": true,
+  "ram_proven": true,
+  "hardware_proven": true,
+  "clock_proven": true,
+  "native_interfaces_proven": true,
+  "persistence": {
+    "hardware_proven": true,
+    "ram_proven": true,
+    "pages_proven": true,
+    "isr_context_proven": true,
+    "flash_bytes": 131072,
+    "erase_bytes": 1024,
+    "write_bytes": 2,
+    "eecon1": 4006,
+    "eecon2": 4007,
+    "wprog_bit": 5
+  },
+  "proofs": {
+    "hardware": "../shared/identity_report.json",
+    "ram": "../shared/ram_allocation_audit.json",
+    "clock": "N_TIMING_AND_NATIVE_ABI.zh-en.md: raw 11B:11C 16bit, nominal one millisecond; no exact physical calibration claim",
+    "native": "candidate_port_map.json + native_backend_test_results.json + native_hooks_test_results.json",
+    "nv": "original F800..FFFF all FF, original journal 1F800..1FBFF remains unchanged; IRQ closure uses no TBLPTR/TABLAT and restores FSR2/BSR",
+    "readiness": "independent edit, radio and NV flags, fresh hardware pending check; see native_backend.py"
+  },
+  "readiness_contract": {
+    "edit": "valid model pointer/selector/mode, 4D=0, A6C6 permits, 4B=85=1B8=0",
+    "radio": "edit and 02BA=95=0",
+    "nv": "radio, all sampled keys released, core gesture18 and TX28 clear, RXcount1CC=0, ISR53.bit1=0, FF0 bits0/1 clear, F9E bit5 clear, FAD bit1 set; no interrupt enable writes"
+  },
+  "vm_idle_sfr": {
+    "0xFF0": 0,
+    "0xF9E": 0,
+    "0xFAD": 2
+  },
+  "protected_ranges": [
+    {
+      "start": 16648,
+      "end": 16766,
+      "label": "original interrupt and fast return"
+    },
+    {
+      "start": 19708,
+      "end": 19748,
+      "label": "original camera critical phase"
+    },
+    {
+      "start": 23924,
+      "end": 24116,
+      "label": "original camera state dispatch"
+    },
+    {
+      "start": 26050,
+      "end": 26204,
+      "label": "original camera transmitter"
+    },
+    {
+      "start": 27856,
+      "end": 27984,
+      "label": "original camera state helper"
+    },
+    {
+      "start": 39426,
+      "end": 39466,
+      "label": "original hotshoe timing pulse"
+    },
+    {
+      "start": 40276,
+      "end": 40352,
+      "label": "original queue producer"
+    },
+    {
+      "start": 41134,
+      "end": 41166,
+      "label": "original hardware timer sampler"
+    },
+    {
+      "start": 42874,
+      "end": 42892,
+      "label": "original RX interrupt dispatch"
+    }
+  ],
+  "device_boot_verified": false,
+  "offline_qualification_complete": true,
+  "validation": {
+    "native_hook_preimages": true,
+    "instruction_boundaries": true,
+    "private_ram_allocation": true,
+    "native_calling_conventions": true,
+    "radio_queue_backpressure": true,
+    "original_hss_paths_preserved": true,
+    "persistence_backend": true,
+    "core_policy_tests": true,
+    "native_adapter_tests": true
+  },
+  "qualification": {
+    "status": "OFFLINE_VALIDATED_EXPERIMENTAL",
+    "release": "AIR2-P8-M2",
+    "date": "2026-10-15",
+    "image_sha256": "01dc7913cb007a4d9cd7aafd295714bfba1f2b2f1d0dc261f70b647139b6966b",
+    "integration_cases": 78,
+    "boot_regression_cases": 24,
+    "evidence": [
+      "shared/final_validation_m2.json",
+      "shared/HSS_PRESERVATION_M2.json"
+    ],
+    "scope": "Actual linked instruction replay, mount UI regressions and stock/container preservation. No physical boot, RF acknowledgment, exposure or zero-latency guarantee.",
+    "profile_metadata_note": "Final builders require this reviewed image and replay it again; evidence pointers avoid reciprocal report/profile hashes."
+  }
+}

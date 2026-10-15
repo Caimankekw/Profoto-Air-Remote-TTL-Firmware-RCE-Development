@@ -18,6 +18,8 @@ The original `9F1E` requests **16** from `919E`, whose rule is `requested <= 31 
 
 The unchanged `model.json` pins the stock profile. The analysis image spans `[0x4000,0x1FC00)`: the first word `[0x4000,0x4002)` is unknown and placeholder zeros are not recovered instructions. The reference codec reads `[0x4002,0x10000)`. High-tail FF interpretation on `[0x10000,0x1FC00)` depends on an opaque encoded-byte fingerprint matching a known FF reference, not independent decoding. The last observed non-FF byte below `0x10000` ends at `0xABF0` exclusive; this proves neither executable extent nor free flash ownership. Every provenance window is within the decoded interval.
 
+The original HEX spans `[0x4000,0x1FC10)` and `[0x1FFF0,0x20000)`. Its 32 bytes beyond the analysis image and its address gap are outside the partial plaintext. This is not a complete firmware decode.
+
 The evidence index gives original workspace-relative source identities, SHA-256 hashes and exact half-open byte windows hashed from the pinned stock analysis image. Source paths are historical provenance, not runtime dependencies. Only reviewed instruction windows are summarized; a linear candidate listing can misinterpret data as code. Manufacturer EXE/HEX/BIN files, large listings and device captures are omitted.
 
 No EXE, device, USB or network action was run to assemble this package. The 250/650 thresholds must not be called milliseconds. Complete HSS timing, analog multi-key behavior, bootloader ownership and unproven interrupt nesting remain unknown. AIR2 qualification is not an original-firmware proof.

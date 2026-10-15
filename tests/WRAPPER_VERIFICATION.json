@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "scope": "Publication wrapper unit tests; no device access or firmware execution",
+  "tests": 13,
+  "normal_and_optimized": true,
+  "commands": [
+    "python -X utf8 -B tests/test_branch_tools.py",
+    "python -O -X utf8 -B tests/test_branch_tools.py"
+  ],
+  "source_sha256": {
+    "build.py": "792c74c1b0156b8f0fdd91769f67b636851cc84050ee14d0bd3d8ce89d4e1e49",
+    "tools/package_source.py": "1b323cc5f0002e67be134ee1b44854cc7c85c2767820dab5bb8f7b9fc9bd725e",
+    "tests/test_branch_tools.py": "c80ec0c920daa81e90dbffc603c8391df320ab43caa839bc6f6ee775adcee2bb"
+  },
+  "hardware_validated": false,
+  "frozen_firmware_modified": false
+}

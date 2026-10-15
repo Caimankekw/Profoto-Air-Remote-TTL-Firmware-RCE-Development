@@ -1,0 +1,168 @@
+{
+  "schema_version": 1,
+  "status": "STATIC_OUTER_HOOK_CONTRACT_WITH_EXPLICIT_LIMITS",
+  "reviewed_at": "2026-10-15",
+  "address_unit": "PIC18 absolute byte address; RAM ranges below are end-exclusive",
+  "source": {
+    "original": "../shared/stock/O/original.base4000.partial.bin",
+    "base": "0x4000",
+    "length": 113664,
+    "sha256": "84645f098eeab93dd41d150015c7c642207037b7605b937b0a13388df1805976",
+    "known_mask": "../shared/stock/O/original.known_mask.bin",
+    "known_mask_sha256": "81fe4da4f8a15728c97bc6de35fae71572d44f39a927dce22a9ca300b5d2558b",
+    "listing": "o_a4_candidate_listing.txt",
+    "all_recorded_hook_preimages_known": true,
+    "known_mask_value": 1,
+    "confidence": "High for raw bytes, instruction boundaries and recorded control flow; no hardware execution claim. Initial firmware word remains unknown."
+  },
+  "abi": {
+    "source": "../shared/NATIVE_BACKEND_ABI.md",
+    "magic": "0xA8",
+    "core_owned_offsets": ["0x000", "0x0B0"],
+    "provider_owned_offsets": ["0x0B0", "0x180"],
+    "backend_bridge_scratch_offsets": ["0x0B0", "0x0B3"],
+    "physical_state_base": "Not proved by this review; never infer physical RAM merely from a save-frame fit.",
+    "exports": ["init", "service", "power_edit", "select_row", "secondary_press", "idle_expired", "display_row"],
+    "native_gate": "Normal press reaches 0x5C12 only through original input permission and UI RAM0x082==0. Backend rechecks permission before projection."
+  },
+  "hooks": [
+    {
+      "id": "startup",
+      "address": "0x57BC",
+      "expected_hex": "9FEC46F0",
+      "original": "CALL 0x8D3E",
+      "replacement_kind": "CALL wrapper",
+      "continuation": "0x57C0",
+      "wrapper_order": ["CALL original 0x8D3E", "Save post-original caller context", "CALL core.init", "Initialize any provider ownership latch", "Restore post-original caller context", "RETURN"],
+      "evidence": ["0x57A2..0x57A8 puts 0x0199 in RAM0x0F3:0x0F4", "0x57AA CALL0x5520; 0x5520/0x5524 copy those bytes to config pointer RAM0x07E:0x07F", "0x57AE..0x57BA supplies object0x40 and config0x0199 to 0x8D3E", "0x8D5A..0x8D66 clears config+1; finish native object initialization before core.init", "0x57C0 is recurring CLRWDT main-loop head, not a one-time initialization site"],
+      "confidence": "high static"
+    },
+    {
+      "id": "normal_press",
+      "address": "0x5C12",
+      "expected_hex": "000E0001",
+      "original": "MOVLW 0; MOVLB 0",
+      "replacement_kind": "GOTO wrapper",
+      "fallback_continuation": "0x5C16",
+      "fallback_replay": "Restore entry context; MOVLW0; MOVLB0; GOTO0x5C16",
+      "handled_return": "RETURN to 0x5A3C using the existing CALL0x80F4 frame; do not add a synthetic frame",
+      "slot_pointer": ["0x0F2", "0x0F3"],
+      "dispatch": [
+        {"slot": "0x10C", "meaning": "A", "core": "select_row", "W": 1},
+        {"slot": "0x110", "meaning": "B", "core": "select_row", "W": 2},
+        {"slot": "0x114", "meaning": "C", "core": "secondary_press", "W": 1, "flags": "0x115"},
+        {"slot": "0x118", "meaning": "MODEL", "core": "secondary_press", "W": 2, "flags": "0x119"},
+        {"slot": "0x11C", "meaning": "HEAD", "core": "secondary_press", "W": 4, "flags": "0x11D"}
+      ],
+      "wrapper_order": ["Save entry context before comparisons", "Require initialized magic0xA8 for core dispatch", "Use saved F2:F3, not 1E:1F, to identify the slot", "Call selected core entry", "For owned secondary slot, preserve slot history/time and OR slot[1] with 0x30", "Restore caller scratch/registers without undoing intentional slot flags/core/native projections", "RETURN for handled keys; replay original for nonowned keys"],
+      "rejected_core_edit": "An initialized core refusal must not fall through into the original owned-key effect.",
+      "evidence": ["0x5A30/0x5A34 copy consumer pointer1E9:1EA to F4:F5; 0x5A38 CALL0x80F4", "0x80F4 calls0xA3E0/0x9F42/0xA838; permission branch0x8138 tests UI082", "0x8110/0x8114 copy F4:F5 to F2:F3; 0x8118 GOTO0x5C12", "0x5C6A..0x5C9C matches slots10C/110/114 and passes1/2/3 to0x98D8", "0x5CA0..0x5CC2 dispatches MODEL through pointer063; 0x5CC4..0x5CEA dispatches HEAD through066"],
+      "confidence": "high static; key labels inferred from handler semantics, not Olympus physical-key testing"
+    },
+    {
+      "id": "power_edit",
+      "address": "0x86D6",
+      "expected_hex": "0001EA6F",
+      "original": "MOVLB 0; MOVWF 0x0EA",
+      "replacement_kind": "GOTO wrapper",
+      "fallback_continuation": "0x86DA",
+      "fallback_replay": "Restore original W/context; MOVLB0; MOVWF0x0EA; GOTO0x86DA",
+      "input": "W is signed int8 delta, normally +1/-1 or +10/-10",
+      "handled_return": "RETURN through original caller frame; no native callback069 or ADDWF061 after core.power_edit",
+      "wrapper_order": ["Save entry W and caller context", "If core active, pass original signed W to core.power_edit", "If accepted, rearm original native idle timer through MOVLB0; CALL4A8E; CALLA174; CALL5D30", "Restore entry caller context, retaining AD:AE timer and intentional core/native changes", "RETURN even if active core rejects; native fallback only for explicitly inactive-core policy"],
+      "evidence": ["0x87CA/0x87DC short paths and0x6DE6/0x6DFE timed paths tail-enter0x86D6", "0x86E0 and0x86FA select indirect callback069", "0x8716 MOVF0x0EA,W;0x8718 ADDWF0x061,F queues native relative accumulation", "0x63BC background service consumes061 and can send old native relative commands", "0x4A8E..0x4A96 sets C6:C7=0x05DC;0xA174 encodes native timer;0x5D30/0x5D34 copyC6:C7 toAD:AE"],
+      "confidence": "high static; parameter0x05DC is not asserted to be milliseconds"
+    },
+    {
+      "id": "main_service",
+      "address": "0x58E0",
+      "expected_hex": "D6EC3AF0",
+      "original": "CALL 0x75AC",
+      "replacement_kind": "CALL wrapper",
+      "continuation": "0x58E4",
+      "wrapper_order": ["CALL original0x75AC first", "Save its post-return context", "CALL core.service", "If normal UI082==0, optional immediate backend.redraw", "Restore post-original context", "RETURN"],
+      "evidence": ["0x58D0 CALL0x6E5E main UI, including native idle processing", "0x58D4 CALL0x7FDC ADC work", "0x58D8 CALL0x5036 scans slots", "0x58DC CALL0x9DF4 consumes one slot", "0x58E0 CALL0x75AC performs native reconciliation before core.service"],
+      "display_limit": "Redraw here alone is insufficient: 58F2 may subsequently CALLA7C2 -> GOTO9A48 -> CALL6C24, overwriting LCD before5912. See final_lcd_overlay.",
+      "confidence": "high static"
+    },
+    {
+      "id": "native_man_idle_expired",
+      "address": "0x7FBE",
+      "expected_hex": "12EC36F0",
+      "original": "CALL 0x6C24",
+      "replacement_kind": "CALL wrapper",
+      "continuation": "0x7FC2",
+      "wrapper_order": ["CALL original0x6C24", "Save post-original context", "CALL core.idle_expired if initialized", "Restore post-original context", "RETURN; original7FC2..7FC8 disarmsAD:AE"],
+      "precise_path": ["58D0 CALL6E5E;6EBE..6EC4 chooses7F7E forUI082==0", "7FA0/7FA4 load config pointer7E:7F", "7FA8 DECF POSTINC2,W;7FAA BNZ7FCC: native mode must equal1", "7FAC CALL87B2 sets22:23=0x00AD", "7FB0 CALL732C;7FB4 IORLW0;7FB6 BZ7FCC: continue only when original timer expires", "7FB8/7FBA/7FBC clear native relative036/037/038", "7FBE CALL6C24 redraws;7FC2..7FC8 suppliesAD andCALLAA38 to disarm"],
+      "coverage_limit": "MAN only. TTL DEF/AIR1 relative values do not reach this callsite because7FAA branches away.",
+      "do_not_substitute": ["Do not infer idle from RAM061==0: native TX and mode changes also clear it", "Do not globally hook6C24: non-idle rendering also calls it, including9A6E and9ABA"],
+      "confidence": "high static"
+    },
+    {
+      "id": "final_lcd_overlay",
+      "selection": "Required correction if overlay must survive UI timeout in the same pass; parent implementation decision pending at review time",
+      "address": "0x5912",
+      "expected_hex": "CDEC42F0",
+      "original": "CALL 0x859A",
+      "replacement_kind": "CALL wrapper",
+      "continuation": "0x5916",
+      "wrapper_order": ["Save context including original859A arguments1E..22", "If core active and UI082==0, CALL backend.redraw", "Restore entry context and memcmp arguments", "TAIL GOTO0x859A so its RETURN consumes the original CALL5912 frame"],
+      "evidence": ["5900..5910 prepares comparison of11 LCD bytes8A..94 against2C4..2CE", "5912 CALL859A;5916/5918 combine returned difference;591C CALLAB8C marks dirty", "58EA timerA9 expiry invokes58F2 CALLA7C2", "A7C4 clears082;A7CA/A7CE change native idle deadline;A7D2 GOTO9A48", "9A4A..9A60 alters8A/90/92/93;9A6E CALL6C24 redraws rows, after58E0 overlay", "5932..5936 prepares pointerB9:BA=0x008A;5938 CALL9D54 transports the final buffer"],
+      "no_5938_hook_needed": true,
+      "confidence": "high static"
+    }
+  ],
+  "other_exact_boundaries": [
+    {"address": "0x58D8", "expected_hex": "1BEC28F0", "original": "CALL5036", "continuation": "0x58DC", "decision": "Leave scan call unchanged"},
+    {"address": "0x58DC", "expected_hex": "FAEC4EF0", "original": "CALL9DF4", "continuation": "0x58E0", "decision": "Leave consumer call unchanged"},
+    {"address": "0x5938", "expected_hex": "AAEC4EF0", "original": "CALL9D54", "continuation": "0x593C", "decision": "Leave transport unchanged; render before dirty comparison"},
+    {"address": "0x57AA", "expected_hex": "90EC2AF0", "original": "CALL5520", "continuation": "0x57AE", "decision": "Earlier init alternative, superseded by57BC after8D3E"},
+    {"address": "0x5A72", "expected_hex": "D8EC41F0", "original": "CALL83B0", "continuation": "0x5A76", "decision": "Optional lifecycle guard only; pointer0ED:0EE. Owned RETURN, nonowned tailGOTO83B0"},
+    {"address": "0x5A00", "expected_hex": "6BEF4FF0", "original": "GOTO9ED6", "continuation": "0x9ED6", "decision": "Optional lifecycle guard only; pointer1E7:1E8. Owned RETURN to consumer caller, nonowned GOTO9ED6"},
+    {"address": "0x7F9C", "expected_hex": "01EC38F0", "original": "CALL7002", "continuation": "0x7FA0", "decision": "Candidate TTL idle extension: original7002 first, then mode0-only original87B2->732C timer test, core.idle_expired andAA38 disarm if expired; requires adapter replay validation"}
+  ],
+  "secondary_full_lifecycle_suppression": {
+    "primary_method": "On a normal owned press, OR the native slot flags with0x30, skip original5C12 body, and preserve history/timestamp.",
+    "slots": [
+      {"key": "C", "base": "0x114", "flags": "0x115"},
+      {"key": "MODEL", "base": "0x118", "flags": "0x119"},
+      {"key": "HEAD", "base": "0x11C", "flags": "0x11D"}
+    ],
+    "press": "Handled5C12 returns to5A3C; native low-frequency press body is skipped, while5A40 still marks history.bit7.",
+    "hold": "59BA RCALL5A8E obtains slot+1;59BC BTFSC INDF2,5;59BE RETURN occurs before both250-count ABC2 and650-count9ED6 callbacks.",
+    "release": "5A5E RCALL5A8E obtains slot+1;5A60 BTFSC INDF2,4;5A62 BRA5A76 skips CALL83B0 at5A72.",
+    "cleanup": "5A76..5A8C sets flags08, clears timestamp+2/+3 and history+0 even when release callback was suppressed. Next native press can rearm normally.",
+    "rearm_survival": "9936 MOVLWBB;9938 ANDWF slotflags,F preserves bits4/5 but clears bit6. Suppression with bit6 alone is insufficient.",
+    "domain_change": "Keep suppression for the full physical lifetime even if pending core gesture cancels on external mode/UI change.",
+    "optional_owner_latch": "If extra release/hold guards are added, use a provider-owned latch per slot. Clear only after native release cleanup (history==0 and flags==08), not at first raw-zero sample. A suppressed release never enters5A72.",
+    "scope_limit": "All native flag writers and every non-normal UI transition are not exhaustively proved. The recorded normal event state machine proves0x30 suppression; optional guards must not indiscriminately block keys owned by other UI modes.",
+    "confidence": "high for normal state-machine branches"
+  },
+  "native_context": {
+    "strategy": "Conservative frame for current reviewed backend/helper set. Preserve caller scratch actually clobbered; save after displaced original CALL for startup/service/idle, and before dispatch for tail entries.",
+    "register_addresses": ["0xFE8", "0xFD8", "0xFE0", "0xFE9", "0xFEA", "0xFE1", "0xFE2", "0xFD9", "0xFDA", "0xFF3", "0xFF4", "0xFF5", "0xFF6", "0xFF7", "0xFF8", "0xFFA", "0xFFB"],
+    "register_names": ["WREG", "STATUS", "BSR", "FSR0L", "FSR0H", "FSR1L", "FSR1H", "FSR2L", "FSR2H", "PRODL", "PRODH", "TABLAT", "TBLPTRL", "TBLPTRH", "TBLPTRU", "PCLATH", "PCLATU"],
+    "ram_ranges": [
+      {"start": "0x01E", "end": "0x024", "bytes": 6, "reason": "Native arguments, results and pointer scratch; crucial for5912 memcmp"},
+      {"start": "0x0B7", "end": "0x100", "bytes": 73, "reason": "Compiled bank0 locals/parameters, including F2:F3, deltaEA, LCD pointerB9:BA and packetC1..D0"},
+      {"start": "0x1E5", "end": "0x1F1", "bytes": 12, "reason": "Active keyboard caller locals, especially consumer pointer1E9:1EA and elapsed1EF:1F0"},
+      {"start": "0x2C3", "end": "0x2C4", "bytes": 1, "reason": "Live outer5806 caller value consumed at593E/5940; preserve or assert helpers never clobber"}
+    ],
+    "total_conservative_bytes": 109,
+    "suggested_provider_frame": {"start_offset": "0x0C0", "end_offset": "0x12D", "status": "Fits ABI provider budget; physical RAM proof and exact generator allocation remain separate"},
+    "save_order": "MOVFF WREG and STATUS before flag-changing tests. Save pointer registers before using them for copies. Restore BSR, pointer registers, STATUS/W without altering restored flags.",
+    "not_ordinary_scratch": ["IRQ save cells01A..01D", "native tick073..076", "persistent mode0199/FEC019D..019F", "selector060/callbacks063..06E", "Head02C/Model03F", "LCD08A..094", "queue pointers095..09A and queue300..363", "native timerAD:AE", "intentional secondary slotflags115/119/11D"],
+    "stack": "Balance native CALL/RETURN and PUSH/TOS trampolines; do not restore STKPTR/TOS as ordinary registers. Tail-entry handled RETURN and replay GOTO must preserve original frame depth.",
+    "interrupts": "Do not alter native interrupt priorities/settings. IRQ4108 saves FSR1/2 into01A..01D and restores them at4164..4170; RETFIE1 at4176. Complete ISR callgraph/concurrency proof belongs to integration review; do not infer it from this save list.",
+    "nesting": "Current backend helpers should not reenter these outer hooks. A single frame requires a verified no-reentry callgraph; future helper changes require a new audit or separate nested frame."
+  },
+  "remaining_closure": [
+    "TTL DEF/AIR1 idle needs the documented mode0 extension or another proved reuse of originalAD:AE deadline;7FBE alone is MAN-only.",
+    "Service58E0-only redraw is overwritten by the58F2 UI timeout path; final overlay before5912 or equivalent must be implemented and replay-tested.",
+    "Actual wrapper machine code, displaced-instruction replay, stack depth, context survival and simultaneous-key/domain-change cases require integration tests.",
+    "RAM capacity/non-overlap, queue atomicity and real timer units are independently proved by other work; this review does not establish them.",
+    "Physical key labels remain semantic inference without Olympus hardware key testing."
+  ],
+  "restriction_zh": "仅静态审查契约；未修改固件、未运行升级器/USB、未生成可刷包。MAN idle 与 TTL idle 的覆盖范围、LCD 超时后重画差异必须明确处理。",
+  "restriction_en": "Static review contract only: no firmware modification, updater/USB execution or flashable package. MAN versus TTL idle coverage and post-service LCD overwrite must be explicitly handled."
+}
