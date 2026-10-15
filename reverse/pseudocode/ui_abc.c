@@ -28,11 +28,12 @@ void mode_toggle_synopsis(uint8 request) {
  * This is callback dispatch, not a six-group or absolute-power command. */
 void power_step(int8 step) {
     RAM[0x0E2] = step;
+    uint8 initial_mode = native_mode_569A(); /* mode tested before callback */
     native_indirect_power_callback_at_069();
-    if (native_mode_569A() == 1)
+    if (initial_mode != 0)                   /* legal MAN value is 1 */
         RAM[0x061] += step;                  /* pending manual aggregate */
-    else
-        native_ttl_post_callback_path_8D7E();
+    else if (RAM[0x060] != 7)
+        native_ttl_followup_7F40();
 }
 /* Original state: FEC at config+4/+5/+6 (0190..0192),
  * manual relative at 002F..0031, Head mask 0029, Model mask 0038.
@@ -42,7 +43,7 @@ void power_step(int8 step) {
 /* VERIFIED 0xA6BA..0xA6D2. Preserve the existing destination bit 7. */
 void glyph_write(uint8 destination, uint8 glyph_index) {
     RAM[destination] = (RAM[destination] & 0x80)
-        | (native_glyph_table(glyph_index) & 0x7f);
+        | native_glyph_table(glyph_index);   /* original has no extra &7F */
 }
 
 /* VERIFIED interfaces, with formatter internals deliberately opaque. */
