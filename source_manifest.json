@@ -6,6 +6,10 @@
       "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
       "size": 8
     },
+    ".github/workflows/build-macos.yml": {
+      "sha256": "9226238433d254f983513bc0d833558c3ce5d558c23fa7b4def002345b95784b",
+      "size": 2372
+    },
     ".gitignore": {
       "sha256": "58560c455146be5708e0275a2815863bf8681caa000bf0d7cf1c0413b0574d5e",
       "size": 110
@@ -39,12 +43,12 @@
       "size": 1308
     },
     "README.md": {
-      "sha256": "a7135b2909b87175bb269c1595e988ea8ff86762b95adba191568b29511ecb77",
-      "size": 5655
+      "sha256": "96d877f995f3fcd089ef20981ed9f4ab76291aaa8701015144bee85770e690ad",
+      "size": 6450
     },
     "README.zh-CN.md": {
-      "sha256": "0432f50fb96071456aaaddc64cb4173ae9af5bbd03e657246308ecec35b9c7a0",
-      "size": 4842
+      "sha256": "cb9e331d7114886cb9f536c7e3c5606bab1d138c34524260469f35a57f5cfe06",
+      "size": 5502
     },
     "build.py": {
       "sha256": "792c74c1b0156b8f0fdd91769f67b636851cc84050ee14d0bd3d8ce89d4e1e49",
@@ -550,6 +554,30 @@
       "sha256": "a2619512d986e5d4bb0d90caf30d1565bb7fd21ec54b0f2ad8ce8e2ac87a25fe",
       "size": 9836
     },
+    "macos/README.md": {
+      "sha256": "e74cdd9bcaea0cb20924e5688f31f3a0ba61f76a646e32405cc566c7338d6ceb",
+      "size": 3131
+    },
+    "macos/README.zh-CN.md": {
+      "sha256": "1787aba57b471c9eddaed39b85e63132d1587339e92af676d65539b2300df5d6",
+      "size": 2730
+    },
+    "macos/build_package.py": {
+      "sha256": "abb704e9c9e91781468f26625e86fac4f1a1a30be514aef5fdaa2e6ed2c55d0a",
+      "size": 29186
+    },
+    "macos/fetch_inputs.py": {
+      "sha256": "76fd10d17c8d63fa0aed73806631f9d4f222f118c6029007acbf24141a2c77b1",
+      "size": 2692
+    },
+    "macos/model.json": {
+      "sha256": "51d6058f82db85cf66641a6ba94871b663076202d42bb192c60ed6361f57ed96",
+      "size": 2552
+    },
+    "macos/test_build_macos.py": {
+      "sha256": "c06552d63e8981ff272447af9135f715e6f61a405a848e6ba31d3326797acf45",
+      "size": 8209
+    },
     "model.json": {
       "sha256": "2189d96bc02a3c2e0b7e295fd7278053620320fe8e4bfe507e1834f5dc0fd98e",
       "size": 1420
@@ -627,8 +655,8 @@
       "size": 8362
     },
     "tools/package_source.py": {
-      "sha256": "1b323cc5f0002e67be134ee1b44854cc7c85c2767820dab5bb8f7b9fc9bd725e",
-      "size": 13627
+      "sha256": "2959975d1f1422290a26166c34cba9fdab614e968380c43b8af9aec8ca8e6c6b",
+      "size": 13770
     },
     "tools/reference/c11_offset_transform.bin": {
       "sha256": "7779d34181f9d302d2d122e9a2ed40f975a4128b738a40561f97fc86ac949303",
@@ -686,6 +714,7 @@
   "model": "S",
   "name": "AIR2-P8-M2",
   "original_updater_sha256": "707b65d9cb6ea6c320976e5a6244de05b1f0856ab9c7ddc5008fe739337b9737",
+  "packaging_tag": "sony-air2-m2-20261016-mac",
   "release_date": "2026-10-16",
   "release_tag": "sony-air2-m2-20261016",
   "scope": "Branch source and generic reference parameters; no vendor updater, device capture or build output.",

@@ -15,7 +15,7 @@ FORMAT = 'airremote-air2-branch-source-v1'
 PROFILE_FORMAT = 'airremote-air2-release-profile-v1'
 DATE = (2026, 10, 16, 0, 0, 0)
 EXCLUDED = {'.git', '.venv', '__pycache__', '.pytest_cache', 'build', 'dist', 'artifacts', 'outputs', '.tmp'}
-SUFFIXES = {'.py', '.md', '.txt', '.json', '.c', '.h', '.nsi', '.bin'}
+SUFFIXES = {'.py', '.md', '.txt', '.json', '.c', '.h', '.nsi', '.bin', '.yml', '.yaml'}
 REQUIRED = {'build.py', 'README.md', 'README.zh-CN.md', 'LICENSE', 'NOTICE.md',
             'NOTICE.zh-CN.md', 'DISCLAIMER.md', 'DISCLAIMER.zh-CN.md', 'CHANGELOG.md',
             'CHANGELOG.zh-CN.md', '.gitignore', '.gitattributes', 'model.json',
@@ -156,6 +156,7 @@ def source_manifest(files):
     profile, model = validate_files(files)
     return {'format': FORMAT, 'name': profile['version'], 'version': profile['version'],
             'model': profile['model'], 'branch': profile['branch'], 'release_tag': profile['tag'],
+            'packaging_tag': parse_json(files['macos/model.json'])['packaging_tag'] if 'macos/model.json' in files else None,
             'release_date': profile.get('release_date', '2026-10-16'), 'developer': 'Caimankekw',
             'license': 'AGPL-3.0-only; authored material only; see NOTICE.md',
             'hardware_validated': False, 'original_updater_sha256': model['source_sha256'],
