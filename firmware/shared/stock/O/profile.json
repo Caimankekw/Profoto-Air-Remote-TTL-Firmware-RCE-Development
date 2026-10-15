@@ -1,0 +1,40 @@
+{
+  "model": "Air Remote TTL-O",
+  "version": "A4",
+  "source": "air_remote_ttl/air-remote-ttl-o-firmware-a4-win/Air-Remote-TTL-O-Firmware-A4.exe",
+  "source_size": 3652752,
+  "source_sha256": "80ae4cac56c6bb7c363062d3ed7927373e4b7a907df8abbc2fed6731621a52b5",
+  "hex_start": 2125432,
+  "hex_end": 2438140,
+  "hex_sha256": "92bb4bf65809d61d92e4578f107a612184bf2d04a14acc0c90e3c86d0bde1b5c",
+  "hex_layout_sha256": "59e18b8641506461cfe137ab5103cf7e1fa5c6b2c9a706b365117a94740a71bb",
+  "hex_spans": [
+    [
+      16384,
+      130064
+    ],
+    [
+      131056,
+      131072
+    ]
+  ],
+  "outside_hex_sha256": "af95c84472c84a2b7ad36a5088d9655f72cc839673453d1b5edb063efbcbee85",
+  "partial_plaintext_sha256": "84645f098eeab93dd41d150015c7c642207037b7605b937b0a13388df1805976",
+  "known_mask_sha256": "81fe4da4f8a15728c97bc6de35fae71572d44f39a927dce22a9ca300b5d2558b",
+  "known_start": 16386,
+  "base": 16384,
+  "end_exclusive": 130048,
+  "header_crc_stored": 14689,
+  "header_crc_calculated": 14689,
+  "header_crc_xor": 0,
+  "header_model_le16": 3076,
+  "header_version_le16": 42146,
+  "last_non_ff_end_exclusive_below_10000": 44016,
+  "high_tail_opaque_equal_known_C11_ff": true,
+  "codec_roundtrip_exact": true,
+  "first_two_plaintext_bytes_unknown": true,
+  "updater_executed": false,
+  "hardware_accessed": false,
+  "air2_port_implemented": false,
+  "scope": "Stock-only analysis; no modified executable is generated."
+}

@@ -1,0 +1,323 @@
+{
+  "format": "air2-m2-hss-preservation-summary-v1",
+  "release": "AIR2-P8-M2",
+  "status": "PASS_BOUNDED_M2_HSS_PRESERVATION_REVIEW",
+  "source_report": {
+    "path": "m2_review/hss/HSS_PRESERVATION_REVIEW.json",
+    "sha256": "7a5aeed5575629fd55cdf3b6c09a757906976f592d80456e05d1046b6ad864de"
+  },
+  "models": {
+    "N": {
+      "image_sha256": "01dc7913cb007a4d9cd7aafd295714bfba1f2b2f1d0dc261f70b647139b6966b",
+      "code_end": 58146,
+      "protected_ranges": [
+        {
+          "start": 16648,
+          "end": 16766,
+          "label": "original interrupt and fast return",
+          "sha256": "80ae26f3fcebbe7e0c44a47c01a479a0a015eccc7eea4245601432e49b8e051c",
+          "unchanged": true,
+          "known": true
+        },
+        {
+          "start": 19708,
+          "end": 19748,
+          "label": "original camera critical phase",
+          "sha256": "111482359d6a1a010077a8357f9f4a623c4f8178b81abae86be7ec99e6f7f4f8",
+          "unchanged": true,
+          "known": true
+        },
+        {
+          "start": 23924,
+          "end": 24116,
+          "label": "original camera state dispatch",
+          "sha256": "b5a399c80b5f52283169d087d760db16c0728fa970033f1a89aaf25c5f2e7902",
+          "unchanged": true,
+          "known": true
+        },
+        {
+          "start": 26050,
+          "end": 26204,
+          "label": "original camera transmitter",
+          "sha256": "0ff2e7aef8eba76423f690bce230e6306605198aaa1d0e68d46b89746ffdb340",
+          "unchanged": true,
+          "known": true
+        },
+        {
+          "start": 27856,
+          "end": 27984,
+          "label": "original camera state helper",
+          "sha256": "3d085cde58cf05904f1cb14b59839b37062b6965b215e39b10d9ba85e730210e",
+          "unchanged": true,
+          "known": true
+        },
+        {
+          "start": 39426,
+          "end": 39466,
+          "label": "original hotshoe timing pulse",
+          "sha256": "1f37fad038e0c3762ca263690b029bac77a76878137da50c58b4a5a7c2281dad",
+          "unchanged": true,
+          "known": true
+        },
+        {
+          "start": 40276,
+          "end": 40352,
+          "label": "original queue producer",
+          "sha256": "3bd1e960adf44e4e09911ebcf8d96ac0ca985dfea704193a1ba4d37cbab4648b",
+          "unchanged": true,
+          "known": true
+        },
+        {
+          "start": 41134,
+          "end": 41166,
+          "label": "original hardware timer sampler",
+          "sha256": "df14f1b1e183b5511a7876f35c62f6572f3c747d894fda4f8983d4601ab61ec8",
+          "unchanged": true,
+          "known": true
+        },
+        {
+          "start": 42874,
+          "end": 42892,
+          "label": "original RX interrupt dispatch",
+          "sha256": "5631a6b8241ef6cf1a3e141a739de3be72675d7f827447842f9d8dec93508619",
+          "unchanged": true,
+          "known": true
+        }
+      ],
+      "changes_only_hooks_and_cave": true,
+      "first_unknown_word_and_stock_journal_preserved": true,
+      "nv_enabled": true
+    },
+    "S": {
+      "image_sha256": "e159e3accf1271af66e52b11b626433d5cd7136c8b2717b44f441b4730bbf287",
+      "code_end": 59470,
+      "protected_ranges": [
+        {
+          "start": 16648,
+          "end": 16978,
+          "label": "Sony original interrupt/camera dispatch and context restore",
+          "sha256": "6e6743be7f521115e0456a4c574805be9a0033b744df3ecc3ab134d6f5cd95b6",
+          "unchanged": true,
+          "known": true
+        },
+        {
+          "start": 27568,
+          "end": 28126,
+          "label": "Sony original foreground camera protocol region",
+          "sha256": "cfa5b1819f2ffad57228a130dfb8b328bd06d63b44030bb9570c9cb0b599b49a",
+          "unchanged": true,
+          "known": true
+        },
+        {
+          "start": 23560,
+          "end": 23768,
+          "label": "Sony original RF queue consumer/service",
+          "sha256": "c9c5c8dac5daadc4b1934d9faa1f2666ce8490e893742c0e143b06779d01f00f",
+          "unchanged": true,
+          "known": true
+        },
+        {
+          "start": 42374,
+          "end": 42472,
+          "label": "Sony original RSUU timing/exclusive service",
+          "sha256": "fa8cbee2ebf229c6f4cba7da21f04ca15aa3d4313c8977920323b823e523b987",
+          "unchanged": true,
+          "known": true
+        }
+      ],
+      "changes_only_hooks_and_cave": true,
+      "first_unknown_word_and_stock_journal_preserved": true,
+      "nv_enabled": true
+    },
+    "F": {
+      "image_sha256": "edf60a81b787b0548f481133f899fc3f58b7f5a1ce4d5194cb90826600e6e1e5",
+      "code_end": 60378,
+      "protected_ranges": [
+        {
+          "start": 16648,
+          "end": 16836,
+          "label": "F original interrupt entry and dispatch 4108..41C4",
+          "sha256": "7bb2c448b2766387b393c1f54abb74bce110dbebce22a9ba407689be56c97660",
+          "unchanged": true,
+          "known": true
+        },
+        {
+          "start": 23874,
+          "end": 24170,
+          "label": "F original camera SPI ISR handler 5D42..5E6A",
+          "sha256": "30b34de1331a12eed3872232de3619916c272815cb61adcacf19ef8abf912cec",
+          "unchanged": true,
+          "known": true
+        },
+        {
+          "start": 24908,
+          "end": 25332,
+          "label": "F original foreground camera state machine 614C..62F4",
+          "sha256": "78ada0fcacb7fd08f3a73131ddc8f839a6ad98f28bcdc18c463f9c3224be6914",
+          "unchanged": true,
+          "known": true
+        },
+        {
+          "start": 42506,
+          "end": 42542,
+          "label": "F original RF queue admission A60A..A62E",
+          "sha256": "d49ba73b6080aae9cbec83b36e6f9eb540eb045b367fcfb2ba70c8dfb56cf6a9",
+          "unchanged": true,
+          "known": true
+        }
+      ],
+      "changes_only_hooks_and_cave": true,
+      "first_unknown_word_and_stock_journal_preserved": true,
+      "nv_enabled": true
+    },
+    "O": {
+      "image_sha256": "67b3db05f412dfb33c1c7173693d4bf71b720a59265cd5b3feb2b7563a13ae95",
+      "code_end": 60106,
+      "protected_ranges": [
+        {
+          "start": 16386,
+          "end": 22460,
+          "label": "O original code/data outside checked UI hooks",
+          "sha256": "8b3a5c7036543dcd6b5a2f7a082f8c55866c96ea4df7901704729e72d474fb15",
+          "unchanged": true,
+          "known": true
+        },
+        {
+          "start": 22464,
+          "end": 22752,
+          "label": "O original code/data outside checked UI hooks",
+          "sha256": "854260ed4a406283716350ffc40edf14c05abed68f175781fecb728a2c4689ea",
+          "unchanged": true,
+          "known": true
+        },
+        {
+          "start": 22756,
+          "end": 22802,
+          "label": "O original code/data outside checked UI hooks",
+          "sha256": "09e5d178909f25086c251bfb34f099ddb8da889fccd8fb44c5386a86e78aef62",
+          "unchanged": true,
+          "known": true
+        },
+        {
+          "start": 22806,
+          "end": 23570,
+          "label": "O original code/data outside checked UI hooks",
+          "sha256": "8ebfbe83cf88d15e5248246e2ab76d081fbfb96463963e59bcee92dc0f440b16",
+          "unchanged": true,
+          "known": true
+        },
+        {
+          "start": 23574,
+          "end": 32702,
+          "label": "O original code/data outside checked UI hooks",
+          "sha256": "ad2578b9e179a71905c33558e94e310dc14a5c7a9ac0ac95c04998bdb1b13289",
+          "unchanged": true,
+          "known": true
+        },
+        {
+          "start": 32706,
+          "end": 34518,
+          "label": "O original code/data outside checked UI hooks",
+          "sha256": "bccfa0fab8c32a0b2c14073c4f340fad58b0e69286d772e06c5d7947dda0427e",
+          "unchanged": true,
+          "known": true
+        },
+        {
+          "start": 34522,
+          "end": 44016,
+          "label": "O original code/data outside checked UI hooks",
+          "sha256": "2bfac3894719e508fa7afb3f02a309159ba991ce60b420ce5e821092d1066124",
+          "unchanged": true,
+          "known": true
+        },
+        {
+          "start": 16648,
+          "end": 16760,
+          "label": "Original Olympus interrupt entry and return",
+          "sha256": "bcbfccb3e6481853cd80ea4021859f1e6a6e615fc3724a39e6351a934cd0f8fc",
+          "unchanged": true,
+          "known": true
+        },
+        {
+          "start": 27234,
+          "end": 27378,
+          "label": "Original Olympus mode transition implementation",
+          "sha256": "aaa0992101bedd197dc7d7b2c66a8e80e38e6a5a1d8f487ce87b34f881b76eef",
+          "unchanged": true,
+          "known": true
+        },
+        {
+          "start": 40734,
+          "end": 40770,
+          "label": "Original Olympus native 16-byte radio enqueue",
+          "sha256": "a3b7d9fd6aae5c55fb1ddd4709ace44ef22d2a50fa975cc5f814de3cb1b044c8",
+          "unchanged": true,
+          "known": true
+        }
+      ],
+      "changes_only_hooks_and_cave": true,
+      "first_unknown_word_and_stock_journal_preserved": true,
+      "nv_enabled": true
+    }
+  },
+  "independent_actual_instruction_cases": 32,
+  "preservation": {
+    "protected_ranges_all_known_and_unchanged": true,
+    "changes_only_declared_hooks_and_code_caves": true,
+    "original_first_unknown_word_and_journal_preserved": true,
+    "model_specific_stock_bases_preserved": true,
+    "no_m2_hardware_timer_reconfiguration": true,
+    "no_new_idle_busy_wait": true,
+    "original_context_exclusions_preserved": true,
+    "no_extra_rf_enqueue_from_boot_mask_only_or_idle_clear": true
+  },
+  "resolved_findings": [
+    {
+      "id": "BOOT_NATIVE_MODE_PRIORITY",
+      "resolved": true,
+      "summary": "Boot mode change keeps native/camera mode authoritative across busy retries and flip-back; retry applies mask-only flags 8 instead of restoring stale saved mode. Pending bit is retained until gated success."
+    },
+    {
+      "id": "F_NATIVE_IDLE_AND_LCD",
+      "resolved": true,
+      "summary": "F 0x8618 expands only TTL/DEF/AIR1 native idle eligibility. Original deadline polling is retained; 0x8636 branches on core return before restoring context. LCD RAM087 OR 2A uses original selection-box bits."
+    },
+    {
+      "id": "ALL_MODEL_IDLE_RETRY",
+      "resolved": true,
+      "summary": "N 7B72, O 7FBE, S 807A and F 8636 preserve the original deadline or expired FFFF latch when clearing is refused. Successful clear resumes original disarm. No busy loop or new hardware timer."
+    },
+    {
+      "id": "FRESH_IDLE_GATE",
+      "resolved": true,
+      "summary": "Shared idle_expired refreshes read_inputs and requires edit plus radio readiness after magic/AIR2 checks. Ordinary edit admission is unchanged; AIR2 retains its original cleanup behavior."
+    },
+    {
+      "id": "SONY_PAGE_HINT",
+      "resolved": true,
+      "summary": "Only successful Sony page toggle invokes optional glyph hint; stable full release redraws once. Original LCD/table helpers are used without new RF/camera flag or IRQ-register writes."
+    }
+  ],
+  "hardware_hss_equivalence_verified": false,
+  "device_test_performed": false,
+  "limits": [
+    "This is bounded offline preservation, not proof of identical physical HSS/RF timing or zero added foreground/interrupt latency.",
+    "Fresh readiness is a snapshot, not an atomic guarantee that no camera IRQ arrives after checking. Existing masked queue/NVM rules remain separately scoped.",
+    "Original native timer counts are preserved; no calibrated milliseconds are inferred.",
+    "Sony M1 queue critical section (74 instruction cycles) and native projection section (365 cycles) remain inherited bounds, not a new total M2 worst-case timing measurement.",
+    "Original RF queue acceptance/local completion is not lamp acknowledgement or RF exposure completion.",
+    "Protected bytes and declared RAM/ISR closures do not establish arbitrary indirect-corruption safety, hardware SRAM identity or all power-loss behavior.",
+    "No physical device, camera, lamp, USB update, boot or HSS exposure was tested by this review."
+  ],
+  "host_tool_only_delta": {
+    "path": "shared/repack_variants.py",
+    "sha256": "b3a1585db4906a21fc3153048a7dc82ab6e7e9a9555d1d0c2d7ab236c463fe80",
+    "change": "Default stock path prefers source-root inputs when present; explicit source always wins and invalid local input fails its fingerprint.",
+    "device_code_changed": false,
+    "old_new_repacker_four_exe_hex_image_exact": true,
+    "source_report_rebound": true,
+    "path_priority_tests": 3,
+    "existing_repack_tests": 12,
+    "evidence_sha256": "ae13b794ded0fd39a1b6d9d6401036fe6b56798b00c1024d87c4162abf6f6502"
+  }
+}

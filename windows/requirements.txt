@@ -1,0 +1,2 @@
+# Python 3.9+ standard library only. / 仅需 Python 3.9+ 标准库。
+# External tools / 外部工具: NSIS 3.13 and 7-Zip 26.04 x64 (pinned).

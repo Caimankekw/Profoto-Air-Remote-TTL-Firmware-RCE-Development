@@ -1,0 +1,453 @@
+{
+  "schema_version": 1,
+  "status": "STATIC_CANDIDATE_REVIEW_ONLY",
+  "reviewed_at": "2026-10-15",
+  "scope": "Olympus TTL-O A4 candidate PIC18 keyboard acquisition, event state machine and normal-mode handlers",
+  "source": {
+    "binary": "o_a4_candidate_decode.base4002.bin",
+    "listing": "o_a4_candidate_listing.txt",
+    "base_address": "0x4002",
+    "length_bytes": 49150,
+    "sha256": "AF0D4BC4A0DFA54F85D05599D9E7AE3B691317CF7F4ECBE6AD29F51ED29D8EF4",
+    "address_unit": "PIC18 byte address",
+    "first_word": "unknown; supplied candidate begins at 0x4002",
+    "confidence": "Instructions below are internally consistent static candidate evidence, not hardware validation."
+  },
+  "limitations": [
+    {
+      "zh": "物理键标签由处理语义推断，未在 Olympus 实物上按键验证。",
+      "en": "Physical key labels are inferred from handler semantics and have not been verified on Olympus hardware."
+    },
+    {
+      "zh": "250/650 是计数阈值，尚未确认真实时间单位；不得直接标成毫秒。",
+      "en": "250/650 are counter thresholds; the real time unit is unconfirmed and must not be labeled milliseconds."
+    },
+    {
+      "zh": "候选解码与首字未知仍限制结论；本文件不是补丁、刷写许可或整机验证。",
+      "en": "Candidate decoding and the unknown initial word limit the conclusions; this is not a patch, flashing authorization or full-device validation."
+    },
+    {
+      "zh": "尚未闭合 flags bit5/bit6 的全部配置来源、非普通UI状态的完整行为以及模拟多键电压别名。",
+      "en": "All writers of flags bits 5/6, complete non-normal UI behavior and analog multi-key voltage aliasing remain unresolved."
+    }
+  ],
+  "entry_flow": {
+    "main_loop": "0x57C0..0x57F6",
+    "update_function": "0x5806",
+    "scan_call": "0x58D8 -> 0x5036",
+    "consumer_call": "0x58DC -> 0x9DF4",
+    "acquisition_gate": "0x5036..0x5044 calls 0x732C with pointer 0x00AF; returns if result zero",
+    "scanner": "0x5036..0x51EA updates all 12 slots, then resets/rearms scan timer through 0x8846 -> 0xA174 -> 0x883C",
+    "consumer": "0x9DF4..0x9E18 processes ONE slot per call: slot=0x100+4*RAM[0x080], CALL 0x596E, increment index and wrap at 12"
+  },
+  "acquisition": {
+    "slot_base": "0x100",
+    "slot_stride": 4,
+    "count": 12,
+    "adc_high_byte_register": "0xFC4 (ACCESS 0xC4)",
+    "adc_field": "(SFR[0xFC2] >> 2) & 0x0F",
+    "adc_gate": "SFR[0xF9E].bit6 == 1",
+    "digital_active_level": 0,
+    "slots": [
+      {
+        "slot": "0x100",
+        "offset": "0x00",
+        "call": "0x5056",
+        "source": "PORTB.bit7 == 0",
+        "label_candidate": "MODE (TTL/MAN)",
+        "label_confidence": "high semantic; no physical test",
+        "press": "0x5C12..0x5C34 -> 0x6A62 when RAM[0x081]==0; otherwise 0xA4F4",
+        "release": "No normal action in 0x87BA",
+        "hold": "0x6E32..0x6E50 increments RAM[0x086]; after >5 enters UI state RAM[0x082]=1"
+      },
+      {
+        "slot": "0x104",
+        "offset": "0x04",
+        "call": "0x50B2",
+        "source": "adc_field==0 && 0x13<FC4<0x53 && adc_gate",
+        "label_candidate": "CHANNEL",
+        "label_confidence": "high semantic; no physical test",
+        "press": "0x5C5A..0x5C66 -> 0x8454",
+        "release": "No normal action in 0x87BA",
+        "hold": "0x6E02..0x6E0E -> 0x8454"
+      },
+      {
+        "slot": "0x108",
+        "offset": "0x08",
+        "call": "0x5082",
+        "source": "adc_field==1 && 0x53<FC4<0xC0 && adc_gate",
+        "label_candidate": "SYNC",
+        "label_confidence": "medium semantic; field values not externally labeled",
+        "press": "0x5C38..0x5C56 -> 0x8F00 only when struct[0]!=0 and RAM[0x081]==0; otherwise 0xA4F4",
+        "release": "No normal action in 0x87BA",
+        "hold": "No normal action in 0x6DD0"
+      },
+      {
+        "slot": "0x10C",
+        "offset": "0x0C",
+        "call": "0x50D8",
+        "source": "adc_field==1 && FC4>0xBF && adc_gate",
+        "label_candidate": "Group A select",
+        "label_confidence": "high semantic; no physical test",
+        "press": "0x5C6A..0x5C78 -> 0x98D8 with W=1",
+        "release": "No normal action in 0x87BA",
+        "hold": "No normal action in 0x6DD0"
+      },
+      {
+        "slot": "0x110",
+        "offset": "0x10",
+        "call": "0x5104",
+        "source": "adc_field==1 && 0x13<FC4<0x53 && adc_gate",
+        "label_candidate": "Group B select",
+        "label_confidence": "high semantic; no physical test",
+        "press": "0x5C7C..0x5C8A -> 0x98D8 with W=2",
+        "release": "No normal action in 0x87BA",
+        "hold": "No normal action in 0x6DD0"
+      },
+      {
+        "slot": "0x114",
+        "offset": "0x14",
+        "call": "0x5124",
+        "source": "PORTA.bit2 == 0 && RAM[0x083]==0",
+        "label_candidate": "Group C select",
+        "label_confidence": "high semantic; no physical test",
+        "press": "0x5C8E..0x5C9C -> 0x98D8 with W=3",
+        "release": "No normal action in 0x87BA",
+        "hold": "No normal action in 0x6DD0"
+      },
+      {
+        "slot": "0x118",
+        "offset": "0x18",
+        "call": "0x514E",
+        "source": "adc_field==0 && FC4>0xBF && adc_gate",
+        "label_candidate": "MODEL",
+        "label_confidence": "high semantic inference; no physical test",
+        "press": "0x5CA0..0x5CC2 -> indirect function pointer RAM[0x063..0x065]",
+        "release": "No normal action in 0x87BA",
+        "hold": "No normal action in 0x6DD0"
+      },
+      {
+        "slot": "0x11C",
+        "offset": "0x1C",
+        "call": "0x517E",
+        "source": "adc_field==0 && 0x53<FC4<0xC0 && adc_gate",
+        "label_candidate": "HEAD",
+        "label_confidence": "high semantic inference; no physical test",
+        "press": "0x5CC4..0x5CEA -> indirect function pointer RAM[0x066..0x068], then 0x5CEC..0x5D38 rearm timer",
+        "release": "No normal action in 0x87BA",
+        "hold": "No normal action in 0x6DD0"
+      },
+      {
+        "slot": "0x120",
+        "offset": "0x20",
+        "call": "0x519E",
+        "source": "PORTB.bit1 == 0 && RAM[0x084]==0",
+        "label_candidate": "+",
+        "label_confidence": "high, explicit signed delta",
+        "press": "0x5D0A..0x5D1E -> 0x4A8E -> 0xA174 -> 0x5D30; timer only",
+        "release": "0x87BA..0x87CA -> 0x86D6, W=0x01",
+        "hold": "0x6DD0..0x6DE6 -> 0xA84A (suppress release), 0x86D6 W=0x0A"
+      },
+      {
+        "slot": "0x124",
+        "offset": "0x24",
+        "call": "0x51B2",
+        "source": "PORTB.bit0 == 0",
+        "label_candidate": "-",
+        "label_confidence": "high, explicit signed delta",
+        "press": "0x5D20..0x5D2A -> shared 0x5D16 timer path",
+        "release": "0x87CE..0x87DC -> 0x86D6, W=0xFF (-1)",
+        "hold": "0x6DEA..0x6DFE -> 0xA84A (suppress release), 0x86D6 W=0xF6 (-10)"
+      },
+      {
+        "slot": "0x128",
+        "offset": "0x28",
+        "call": "0x51C6",
+        "source": "PORTB.bit6 == 0",
+        "label_candidate": "TEST",
+        "label_confidence": "low/medium semantic; explicit flash-output proof not completed",
+        "press": "0x5CF6..0x5D06 -> 0xA60C -> 0xA3C4",
+        "release": "No normal action in 0x87BA",
+        "hold": "No normal action in 0x6DD0"
+      },
+      {
+        "slot": "0x12C",
+        "offset": "0x2C",
+        "call": "0x51DA",
+        "source": "PORTE.bit1 == 0",
+        "label_candidate": "ON/OFF",
+        "label_confidence": "medium semantic; low-level power proof not completed",
+        "press": "No normal action in 0x5C12",
+        "release": "0x87E0..0x87F6 resets timer RAM[0x03B:0x03C]",
+        "hold": "0x6E12..0x6E2E checks timer at 0x03B then -> 0x8A04"
+      }
+    ]
+  },
+  "sample_filter": {
+    "function": "0x92FC",
+    "pointer_args": "RAM[0x01E:0x01F]",
+    "input_arg": "RAM[0x020]",
+    "formula": "slot[0] = (old & 0x80) | (((old << 1) | (input == 1 ? 1 : 0)) & 0x7F)",
+    "affected_bytes": [
+      0
+    ],
+    "evidence": "0x9302..0x930C tests input==1; 0x931A..0x9322 preserves old bit7; 0x9326 stores only slot[0]",
+    "return_flow": "RCALL 0x932A address helper; RETURN at 0x9328"
+  },
+  "event_state_machine": {
+    "function": "0x596E",
+    "slot_pointer": "RAM[0x1E9:0x1EA]",
+    "layout": {
+      "+0": "7-bit sample history plus confirmed-down latch bit7",
+      "+1": "event/suppression flags",
+      "+2": "timestamp low byte, not plain elapsed",
+      "+3": "timestamp high byte including sentinel bit15"
+    },
+    "flags": {
+      "bit0": "initial press dispatched",
+      "bit1": "250-count callback dispatched",
+      "bit2": "650-count callback dispatched",
+      "bit3": "release dispatched",
+      "bit4": "suppress release callback",
+      "bit5": "suppress both timed callbacks",
+      "bit6": "suppress 650 callback",
+      "bit7": "repeat/rearm marker set by 0x9934; not read inside 0x596E"
+    },
+    "press": {
+      "condition": "bit7 clear and (history&7)==7",
+      "evidence": "0x5A04..0x5A42",
+      "action": "clear flag3; if flag0 clear, save timestamp, set flag0, CALL 0x80F4; finally set history bit7"
+    },
+    "hold": {
+      "condition": "history==0xFF",
+      "evidence": "0x596E..0x59FE",
+      "threshold250": "elapsed>=0x00FA, flag5 clear, flag1 clear -> set flag1 -> 0xABC2 (RETURN-only stub)",
+      "threshold650": "elapsed>=0x028A, flag5/flag6/flag2 clear -> set flag2 -> tail GOTO 0x9ED6"
+    },
+    "release": {
+      "condition": "history.bit7 set and (history&7)==0",
+      "evidence": "0x5A44..0x5A8C",
+      "action": "if flag3/flag4 clear, set flag3 and CALL 0x83B0; regardless of callback, flags=0x08, timestamp=0, history=0",
+      "return_flow": "RETLW 0 at 0x5A8C"
+    },
+    "dispatch": {
+      "press": "0x80F4 -> 0xA838 eligibility guard; rejected -> 0xA84A; accepted normal UI state RAM[0x082]==0 -> 0x8110 -> tail GOTO 0x5C12",
+      "release": "0x83B0 -> UI state RAM[0x082]==0 -> 0x83B2 -> CALL 0x87BA; at 0x83FC clears RAM[0x086], RETURN",
+      "hold650": "0x9ED6 -> 0xA3E0 -> 0x9934 rearm; RAM[0x082]==0 -> 0x9EE8 -> tail GOTO 0x6DD0",
+      "other_ui_states": "0x80F4/0x83B0 dispatch to 0x9C04/0xA8FE and 0xA5C4/0xA5DC/0xA5F4. Not fully mapped."
+    },
+    "consume": "No separate pop/read-and-clear API confirmed. Synchronous callbacks plus latched flags; full clear occurs at release.",
+    "repeat": {
+      "function": "0x9934",
+      "evidence": "0x9934..0x9950",
+      "action": "flags &= 0xBB (clear bits2/6); set bit7; rewrite timestamp. Called by every 650 handler, allowing another 650-count period while held; flag1 stays set."
+    },
+    "suppress_release": {
+      "function": "0xA84A",
+      "action": "slot[1].bit4=1 only; no history/timestamp clearing",
+      "return_flow": "RETLW 0 at 0xA85A"
+    },
+    "timestamp": {
+      "save": "0xA4DA -> 0xAB2E reads RAM[0x075:0x076]; 0x8E00 -> 0xAA52 normalizes to 15 bits, 0 becomes 1; result BB:BC stored by 0x5AB8",
+      "elapsed": "0x98AA input CC:CD=&slot[2] -> 0x669C. saved==0 =>0; saved.bit15=>0xFFFF; otherwise (normalize(now)-saved)&0x7FFF.",
+      "overflow_side_effect": "At delta>=0x5DC1 (24001), 0x6708..0x672A can replace saved value with bit15-marked coarse representation; current call still returns delta and subsequent call returns 0xFFFF.",
+      "units": "unconfirmed counter ticks"
+    }
+  },
+  "mode_and_callbacks": {
+    "config_pointer": "RAM[0x07E:0x07F]",
+    "config_base": "0x0199",
+    "config_pointer_initialization": "0x57A2 MOVLW 0x99; 0x57A4 MOVWF 0xF3,BANKED; 0x57A6 MOVLW 1; 0x57A8 MOVWF 0xF4,BANKED; 0x57AA CALL 0x5520. At 0x5520/0x5524, MOVFF 0x0F3->0x07E and 0x0F4->0x07F. Thus pointer=0x0199. Only these two direct writes to 0x07E/0x07F were found in the listing.",
+    "concrete_fields": {"mode":"0x0199","sync_candidate":"0x019B","group_compensation":"0x019D..0x019F","channel":"0x01A1"},
+    "config_read_helper": "0x5666 reads config[0]; 0x849C adds config pointer to FSR2",
+    "mode_toggle": {
+      "function": "0x6A62",
+      "evidence": "0x6A74..0x6A8C writes config[0] = (old==1 ? 0 : 1) when RAM[0x081]==0. RAM[0x081]!=0 path writes 1.",
+      "followup": "0x6A8E clears relative aggregate RAM[0x061]; 0x6AA0 calls pointer RAM[0x06C..0x06E] to select power callback; updates timers/display path.",
+      "semantic_inference": "config[0]==0 strongly matches TTL group compensation; config[0]==1 strongly matches MAN relative adjustment. Physical display-label proof is separate.",
+      "caveat": "Normal key dispatcher with RAM[0x081]!=0 routes to 0xA4F4, not directly to 0x6A62."
+    },
+    "other_fields": {
+      "+2": "0x8F00 changes 2<->3 only when config[0]==1; likely SYNC, not the TTL/MAN field",
+      "+4,+5,+6": "signed group compensation values, limited to -20..20",
+      "+8": "0x8454 cycles 1..8 when config[0]!=0; high-confidence CHANNEL"
+    },
+    "selection": {
+      "function": "0x98D8",
+      "storage": "RAM[0x060]",
+      "behavior": "W=1/2/3; if equal to current selection selects 7, otherwise selects W; tail-calls 0x609A.",
+      "setup": "0x609A stores selection and installs pointers. 0x6148 calls RAM[0x06C..0x06E] then tail GOTO 0x84A6.",
+      "callbacks": [
+        {
+          "selection": 1,
+          "group": "A",
+          "model": "0x892C",
+          "head": "0x91DA",
+          "power_setup": "0x9B54",
+          "power_when_mode0": "0x8A4C",
+          "power_when_mode1": "0x90AE",
+          "relative_ram": "0x036"
+        },
+        {
+          "selection": 2,
+          "group": "B",
+          "model": "0x854A",
+          "head": "0x8F3E",
+          "power_setup": "0x9B28",
+          "power_when_mode0": "0x814E",
+          "power_when_mode1": "0x9072",
+          "relative_ram": "0x037"
+        },
+        {
+          "selection": 3,
+          "group": "C",
+          "model": "0x8402",
+          "head": "0x8DC0",
+          "power_setup": "0x9AFC",
+          "power_when_mode0": "0x8BAA",
+          "power_when_mode1": "0x9036",
+          "relative_ram": "0x038"
+        },
+        {
+          "selection": 7,
+          "group": "all",
+          "model": "0x9C2E",
+          "head": "0x9AA4",
+          "power_setup": "0x9B80",
+          "power_when_mode0": "0xABC0 (RETURN stub)",
+          "power_when_mode1": "0x6930",
+          "relative_ram": "0x036..0x038"
+        }
+      ],
+      "pointer_layout": {
+        "0x063..0x065": "MODEL candidate callback",
+        "0x066..0x068": "HEAD candidate callback",
+        "0x069..0x06B": "power callback",
+        "0x06C..0x06E": "power callback setup"
+      }
+    },
+    "model_path": "Per-group callbacks modify RAM[0x03F].bit0/1/2 using corresponding enable bit RAM[0x02C]; 0x8722 combines 3F & 2C into display/state flags; tail 0x8974 builds command with MOVLW 0x8D at 0x8996.",
+    "head_path": "Per-group callbacks toggle RAM[0x02C].bit0/1/2; all callback toggles 0<->7; updates 0x8722 and tail 0x9EB2 -> 0x89BC. No direct opcode 0x8C claim is made.",
+    "plus_minus": {
+      "central_handler": "0x86D6",
+      "argument": "W signed byte delta; saved in RAM[0x0EA]",
+      "release_delta": {
+        "plus": 1,
+        "minus": -1
+      },
+      "hold_delta": {
+        "plus": 10,
+        "minus": -10
+      },
+      "function_pointer": "RAM[0x069..0x06B] called via PUSH/TOSL/TOSH/TOSU/RETURN trampoline",
+      "mode0": "0x8A4C/0x814E/0x8BAA add signed delta to config+4/+5/+6 only if group enabled in RAM[0x02C]. Clamp via 0x90EA using upper=0x14/lower=0xEC (-20..20); emit through 0x876E.",
+      "mode1": "0x90AE/0x9072/0x9036 add signed delta to RAM[0x036]/[0x037]/[0x038], gated by RAM[0x02C] group enable; 0x6930 does all three. Clamp via 0x69BC -> 0x90EA using upper=0x63/lower=0x9D (-99..99).",
+      "return_flow": "mode1 after indirect callback: 0x8716..0x871A adds delta to RAM[0x061] then RETURN; mode0 after callback: if selection==7 RETURN at 0x86F4, else tail GOTO 0x7B14",
+      "limits": "Signed add occurs before clamp. Unit 0.1 EV is a semantic inference, not directly proved by this keyboard trace."
+    }
+  },
+  "preimage_windows": [
+    {
+      "address": "0x5520",
+      "end_exclusive": "0x5528",
+      "bytes": "F3 C0 7E F0 F4 C0 7F F0"
+    },
+    {
+      "address": "0x57A2",
+      "end_exclusive": "0x57AE",
+      "bytes": "99 0E F3 6F 01 0E F4 6F 90 EC 2A F0"
+    },
+    {
+      "address": "0x5036",
+      "end_exclusive": "0x5046",
+      "bytes": "AF 0E 22 6E 23 6A 96 EC 39 F0 00 09 01 E1 12 00"
+    },
+    {
+      "address": "0x92FC",
+      "end_exclusive": "0x9334",
+      "bytes": "16 D8 DF 50 23 6E 20 04 03 E1 21 6A 21 2A 01 D0 21 6A 23 50 23 24 21 10 22 6E 22 C0 21 F0 7F 0E 21 16 23 50 80 0B 21 10 02 D8 DF 6E 12 00 1E C0 D9 FF 1F C0 DA FF 12 00"
+    },
+    {
+      "address": "0x596E",
+      "end_exclusive": "0x5974",
+      "bytes": "9B D8 DE 28 48 E1"
+    },
+    {
+      "address": "0x5A04",
+      "end_exclusive": "0x5A14",
+      "bytes": "50 D8 DF BE 1D D0 4D D8 DF 50 07 0B 07 0A 18 E1"
+    },
+    {
+      "address": "0x5A44",
+      "end_exclusive": "0x5A58",
+      "bytes": "30 D8 DF AE 12 00 2D D8 DF 50 EB 6F 07 0E EB 17 D8 A4 07 0C"
+    },
+    {
+      "address": "0x5A76",
+      "end_exclusive": "0x5A8E",
+      "bytes": "01 01 0A D8 08 0E DF 6E 20 EE 02 F0 0C D8 DE 6A DD 6A 0E D8 DF 6A 00 0C"
+    },
+    {
+      "address": "0x5C12",
+      "end_exclusive": "0x5C38",
+      "bytes": "00 0E 00 01 F2 19 0F E1 01 0E F3 19 0C E1 81 51 04 E0 2D 6A 7A EC 52 F0 02 D0 31 EC 35 F0 0A EC 3B F0 1C EF 55 F0"
+    },
+    {
+      "address": "0x6A62",
+      "end_exclusive": "0x6A8E",
+      "bytes": "00 01 81 51 06 E0 7E C0 D9 FF 7F C0 DA FF 01 0E 0C D0 7E C0 D9 FF 7F C0 DA FF DE 04 01 0E D8 B4 00 0E 7E C0 D9 FF 7F C0 DA FF DF 6E"
+    },
+    {
+      "address": "0x8F00",
+      "end_exclusive": "0x8F3E",
+      "bytes": "7E C0 D9 FF 7F C0 DA FF DE 04 15 E1 20 EE 02 F0 4E EC 42 F0 02 0E DE 18 06 E1 20 EE 02 F0 4E EC 42 F0 03 0E 07 D0 81 51 06 E1 20 EE 02 F0 4E EC 42 F0 02 0E DF 6E A1 EC 36 F0 AC EF 3C F0"
+    },
+    {
+      "address": "0x98D8",
+      "end_exclusive": "0x9906",
+      "bytes": "23 6E 7E C0 D9 FF 7F C0 DA FF DE 04 06 E1 79 EC 35 F0 BA EC 50 F0 98 EC 2E F0 23 50 00 01 60 19 03 E1 07 0E 4D EF 30 F0 23 50 4D EF 30 F0"
+    },
+    {
+      "address": "0x609A",
+      "end_exclusive": "0x60A2",
+      "bytes": "21 6E 21 C0 60 F0 49 D0"
+    },
+    {
+      "address": "0x87BA",
+      "end_exclusive": "0x87E0",
+      "bytes": "20 0E 00 01 EB 19 06 E1 01 0E EC 19 03 E1 01 0E 6B EF 43 F0 24 0E EB 19 06 E1 01 0E EC 19 03 E1 FF 0E 6B EF 43 F0"
+    },
+    {
+      "address": "0x6DD0",
+      "end_exclusive": "0x6E02",
+      "bytes": "20 0E 01 01 E5 19 09 E1 01 0E E6 19 06 E1 3A D8 25 EC 54 F0 0A 0E 6B EF 43 F0 24 0E E5 19 09 E1 01 0E E6 19 06 E1 2E D8 25 EC 54 F0 F6 0E 6B EF 43 F0"
+    },
+    {
+      "address": "0x86D6",
+      "end_exclusive": "0x86E0",
+      "bytes": "00 01 EA 6F 33 EC 2B F0 0D E1"
+    },
+    {
+      "address": "0x9DF4",
+      "end_exclusive": "0x9E1A",
+      "bytes": "00 01 80 51 04 0D 00 0E F3 24 01 01 E9 6F 01 0E F4 20 EA 6F B7 EC 2C F0 00 01 80 2B 0C 0E 80 19 D8 B4 80 6B 12 00"
+    },
+    {
+      "address": "0x9934",
+      "end_exclusive": "0x9954",
+      "bytes": "0F D8 BB 0E DF 16 0C D8 00 0E DB 8E 6D EC 52 F0 20 EE 02 F0 BD 51 D9 26 BE 51 DA 22 5C EF 2D F0"
+    },
+    {
+      "address": "0xA84A",
+      "end_exclusive": "0xA85C",
+      "bytes": "20 EE 01 F0 1E 50 D9 26 1F 50 DA 22 00 0E DB 88 00 0C"
+    }
+  ],
+  "validation": {
+    "method": "Read-only static listing analysis, independent state-machine/timestamp review, and byte preimages extracted from supplied decoded candidate.",
+    "checks": "PASS: UTF-8 JSON parse, source SHA-256, 19 preimage windows byte-for-byte match, 12 unique slots and all 12 CALL 0x92FC sites.",
+    "encoding_note": "Files are UTF-8; Windows PowerShell Get-Content requires -Encoding UTF8 to avoid interpreting Chinese text with the system ANSI code page.",
+    "hardware_execution": false,
+    "firmware_modified": false
+  }
+}

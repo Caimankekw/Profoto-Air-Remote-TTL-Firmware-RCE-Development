@@ -1,0 +1,94 @@
+{
+  "model_tag": "F",
+  "model": "Air Remote TTL-F",
+  "stock_revision": "A5",
+  "state_base": 1664,
+  "state_span": 384,
+  "window_counts": 200,
+  "stable_counts": 10,
+  "clock_mask": 32767,
+  "code_limit": 63488,
+  "nv_enabled": true,
+  "hardware_proven": true,
+  "ram_proven": true,
+  "clock_proven": true,
+  "native_interfaces_proven": true,
+  "native_admission_proven": true,
+  "native_nv_gate_proven": true,
+  "persistence": {
+    "hardware_proven": true,
+    "ram_proven": true,
+    "pages_proven": true,
+    "isr_context_proven": true,
+    "flash_bytes": 131072,
+    "erase_bytes": 1024,
+    "write_bytes": 2,
+    "eecon1": 4006,
+    "eecon2": 4007,
+    "wprog_bit": 5
+  },
+  "protected_ranges": [
+    {
+      "start": 16648,
+      "end": 16836,
+      "label": "F original interrupt entry and dispatch 4108..41C4"
+    },
+    {
+      "start": 23874,
+      "end": 24170,
+      "label": "F original camera SPI ISR handler 5D42..5E6A"
+    },
+    {
+      "start": 24908,
+      "end": 25332,
+      "label": "F original foreground camera state machine 614C..62F4"
+    },
+    {
+      "start": 42506,
+      "end": 42542,
+      "label": "F original RF queue admission A60A..A62E"
+    }
+  ],
+  "proofs": {
+    "stock_and_native_interfaces": "F/F_A5_adapter_evidence.json",
+    "hardware_common_capabilities": "shared/identity_report.json",
+    "bounded_normal_object_RAM_allocation": "shared/ram_allocation_audit.json",
+    "clock_and_ISR": "F/F_A5_clock_irq_evidence.json",
+    "table_and_flash_ISR_noninterference": "F/F_A5_clock_irq_evidence.json#irq_table_nvm_audit",
+    "native_primitives_replay": "F/native_backend_test_report.json",
+    "stock_core_hooks_replay_without_NV": "F/integrated_hooks_test_report.json"
+  },
+  "qualification_limits": [
+    "Clock units are recovered native counts, not an independently measured millisecond claim.",
+    "RAM non-overlap is a bounded normal-object/legal-index audit, not arbitrary-memory-corruption proof.",
+    "Final NV-enabled linked-image replay is bound by qualification; the builder repeats it before output.",
+    "No USB, installation, boot, radio or physical HSS test has been performed on TTL-F."
+  ],
+  "offline_qualification_complete": true,
+  "validation": {
+    "native_hook_preimages": true,
+    "instruction_boundaries": true,
+    "private_ram_allocation": true,
+    "native_calling_conventions": true,
+    "radio_queue_backpressure": true,
+    "original_hss_paths_preserved": true,
+    "persistence_backend": true,
+    "core_policy_tests": true,
+    "native_adapter_tests": true
+  },
+  "qualification": {
+    "status": "OFFLINE_VALIDATED_EXPERIMENTAL",
+    "release": "AIR2-P8-M2",
+    "date": "2026-10-15",
+    "image_sha256": "edf60a81b787b0548f481133f899fc3f58b7f5a1ce4d5194cb90826600e6e1e5",
+    "integration_cases": 78,
+    "boot_regression_cases": 24,
+    "evidence": [
+      "shared/final_validation_m2.json",
+      "shared/HSS_PRESERVATION_M2.json"
+    ],
+    "scope": "Actual linked instruction replay, mount UI regressions and stock/container preservation. No physical boot, RF acknowledgment, exposure or zero-latency guarantee.",
+    "profile_metadata_note": "Final builders require this reviewed image and replay it again; evidence pointers avoid reciprocal report/profile hashes."
+  },
+  "device_boot_verified": false
+}

@@ -18,6 +18,8 @@ The original `A60A` requests **16**, not 17, from admission `9562`: `requested <
 
 The source identity and container range are pinned in `model.json`, copied unchanged from the stock profile. The analysis image spans `[0x4000,0x1FC00)`. Its first word `[0x4000,0x4002)` remains unknown; placeholder zeros are not recovered instructions. The reference codec reads `[0x4002,0x10000)`. High-tail FF interpretation on `[0x10000,0x1FC00)` relies on matching opaque encoded bytes to a known FF reference, not independent decoding. The observed last non-FF byte below `0x10000` ends at `0xB2E0` exclusive; this is not proof of executable boundaries or free flash ownership. All windows in `provenance.json` lie inside the decoded interval.
 
+The original HEX spans `[0x4000,0x1FC10)` and `[0x1FFF0,0x20000)`. Its 32 bytes beyond the analysis image and its address gap are not covered by the partial plaintext. This is not a complete firmware decode.
+
 The evidence index gives original workspace-relative source identities and SHA-256 hashes, plus exact half-open byte windows and hashes over the local stock analysis image. These paths are historical provenance, not bundled runtime dependencies. Candidate linear listings may decode data as instructions, so only reviewed windows are summarized. The full manufacturer updater, HEX/BIN images, large listings and device captures are not included.
 
 No EXE, device, USB or network action was run to produce this package. The HSS algorithm, real time unit, bootloader behavior and all indirect RAM ownership are not reconstructed. Existing AIR2 qualification claims are not imported into this original-only contract.

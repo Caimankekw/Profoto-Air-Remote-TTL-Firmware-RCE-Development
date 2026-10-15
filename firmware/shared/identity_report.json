@@ -1,0 +1,555 @@
+{
+  "scope": "Read-only offline identity/capability audit. No EXE execution, no USB, no original edits.",
+  "date": "2026-10-15",
+  "conclusion": "Strong common peripheral-map family evidence for PIC18F/LF47J13 or PIC18F/LF47J53 intended targets; exact silicon part unproven. Required RAM and erase geometry are shared by every local-header match including 46 variants.",
+  "exact_chip_identity_proven": false,
+  "capability_evidence_level": "static image + independently matched device definitions + primary family datasheets; not physical-device readback",
+  "common_sfr_signature": {
+    "CCP8CON": "0xf06",
+    "CCPTMRS2": "0xf50",
+    "ANCON0": "0xf48",
+    "ANCON1": "0xf49",
+    "RPOR13": "0xecd",
+    "RPINR2": "0xee2",
+    "PORTD": "0xf83",
+    "TRISD": "0xf95",
+    "TRISE": "0xf96"
+  },
+  "all_matching_installed_headers": [
+    {
+      "device": "18F46J13",
+      "config_start": "0xfff8",
+      "flash_bytes": 65536,
+      "container_layout_match": false,
+      "ram_680_7ff_physical_gpr": true,
+      "erase_block_bytes_primary_family_document": 1024,
+      "header": "analysis/tools/gputils-portable/1.5.2-extracted/header/p18f46j13.inc",
+      "linker": "analysis/tools/gputils-portable/1.5.2-extracted/lkr/18f46j13_g.lkr"
+    },
+    {
+      "device": "18F46J53",
+      "config_start": "0xfff8",
+      "flash_bytes": 65536,
+      "container_layout_match": false,
+      "ram_680_7ff_physical_gpr": true,
+      "erase_block_bytes_primary_family_document": 1024,
+      "header": "analysis/tools/gputils-portable/1.5.2-extracted/header/p18f46j53.inc",
+      "linker": "analysis/tools/gputils-portable/1.5.2-extracted/lkr/18f46j53_g.lkr"
+    },
+    {
+      "device": "18F47J13",
+      "config_start": "0x1fff8",
+      "flash_bytes": 131072,
+      "container_layout_match": true,
+      "ram_680_7ff_physical_gpr": true,
+      "erase_block_bytes_primary_family_document": 1024,
+      "header": "analysis/tools/gputils-portable/1.5.2-extracted/header/p18f47j13.inc",
+      "linker": "analysis/tools/gputils-portable/1.5.2-extracted/lkr/18f47j13_g.lkr"
+    },
+    {
+      "device": "18F47J53",
+      "config_start": "0x1fff8",
+      "flash_bytes": 131072,
+      "container_layout_match": true,
+      "ram_680_7ff_physical_gpr": true,
+      "erase_block_bytes_primary_family_document": 1024,
+      "header": "analysis/tools/gputils-portable/1.5.2-extracted/header/p18f47j53.inc",
+      "linker": "analysis/tools/gputils-portable/1.5.2-extracted/lkr/18f47j53_g.lkr"
+    },
+    {
+      "device": "18LF46J13",
+      "config_start": "0xfff8",
+      "flash_bytes": 65536,
+      "container_layout_match": false,
+      "ram_680_7ff_physical_gpr": true,
+      "erase_block_bytes_primary_family_document": 1024,
+      "header": "analysis/tools/gputils-portable/1.5.2-extracted/header/p18lf46j13.inc",
+      "linker": "analysis/tools/gputils-portable/1.5.2-extracted/lkr/18lf46j13_g.lkr"
+    },
+    {
+      "device": "18LF46J53",
+      "config_start": "0xfff8",
+      "flash_bytes": 65536,
+      "container_layout_match": false,
+      "ram_680_7ff_physical_gpr": true,
+      "erase_block_bytes_primary_family_document": 1024,
+      "header": "analysis/tools/gputils-portable/1.5.2-extracted/header/p18lf46j53.inc",
+      "linker": "analysis/tools/gputils-portable/1.5.2-extracted/lkr/18lf46j53_g.lkr"
+    },
+    {
+      "device": "18LF47J13",
+      "config_start": "0x1fff8",
+      "flash_bytes": 131072,
+      "container_layout_match": true,
+      "ram_680_7ff_physical_gpr": true,
+      "erase_block_bytes_primary_family_document": 1024,
+      "header": "analysis/tools/gputils-portable/1.5.2-extracted/header/p18lf47j13.inc",
+      "linker": "analysis/tools/gputils-portable/1.5.2-extracted/lkr/18lf47j13_g.lkr"
+    },
+    {
+      "device": "18LF47J53",
+      "config_start": "0x1fff8",
+      "flash_bytes": 131072,
+      "container_layout_match": true,
+      "ram_680_7ff_physical_gpr": true,
+      "erase_block_bytes_primary_family_document": 1024,
+      "header": "analysis/tools/gputils-portable/1.5.2-extracted/header/p18lf47j53.inc",
+      "linker": "analysis/tools/gputils-portable/1.5.2-extracted/lkr/18lf47j53_g.lkr"
+    }
+  ],
+  "header_match_scope": "Every p18*.inc in installed gputils 1.5.2 extracted header directory; not an exhaustive survey of every PIC ever manufactured.",
+  "models": {
+    "N": {
+      "profile": "analysis/air_remote_ttl_multi_air2/shared/stock/N/profile.json",
+      "source_sha256_verified": "4fa0d7c1ae8201910e0586eef30feadb9230e3c30c7b67b8dc4c2d344dea5591",
+      "partial_plaintext_sha256_verified": "d8a58e3bbaeee752b31e698c287c474b4ab027fb29939720e1441a39cb3f0aba",
+      "mask_sha256_verified": "81fe4da4f8a15728c97bc6de35fae71572d44f39a927dce22a9ca300b5d2558b",
+      "config_1fff8_hex": "98 F7 3D F8 63 FA 04 F9",
+      "config_is_container_data_not_device_readback": true,
+      "decoded_init_range": [
+        "0x4baa",
+        "0x4c7a"
+      ],
+      "sfr_evidence": [
+        {
+          "pc": "0x4bae",
+          "bytes": "96 8E",
+          "instruction": "BSF 0x96, 7, ACCESS",
+          "absolute_register": "0xf96",
+          "candidate_name": "TRISE",
+          "bsr_before": null
+        },
+        {
+          "pc": "0x4bb6",
+          "bytes": "48 8B",
+          "instruction": "BSF 0x48, 5, BANKED",
+          "absolute_register": "0xf48",
+          "candidate_name": "ANCON0",
+          "bsr_before": 15
+        },
+        {
+          "pc": "0x4bbc",
+          "bytes": "83 86",
+          "instruction": "BSF 0x83, 3, ACCESS",
+          "absolute_register": "0xf83",
+          "candidate_name": "PORTD",
+          "bsr_before": 15
+        },
+        {
+          "pc": "0x4bbe",
+          "bytes": "95 96",
+          "instruction": "BCF 0x95, 3, ACCESS",
+          "absolute_register": "0xf95",
+          "candidate_name": "TRISD",
+          "bsr_before": 15
+        },
+        {
+          "pc": "0x4bcc",
+          "bytes": "06 17",
+          "instruction": "ANDWF 0x06, F, BANKED",
+          "absolute_register": "0xf06",
+          "candidate_name": "CCP8CON",
+          "bsr_before": 15
+        },
+        {
+          "pc": "0x4bd8",
+          "bytes": "50 17",
+          "instruction": "ANDWF 0x50, F, BANKED",
+          "absolute_register": "0xf50",
+          "candidate_name": "CCPTMRS2",
+          "bsr_before": 15
+        },
+        {
+          "pc": "0x4be8",
+          "bytes": "49 87",
+          "instruction": "BSF 0x49, 3, BANKED",
+          "absolute_register": "0xf49",
+          "candidate_name": "ANCON1",
+          "bsr_before": 15
+        },
+        {
+          "pc": "0x4bf0",
+          "bytes": "CD 6F",
+          "instruction": "MOVWF 0xCD, BANKED",
+          "absolute_register": "0xecd",
+          "candidate_name": "RPOR13",
+          "bsr_before": 14
+        },
+        {
+          "pc": "0x4c4e",
+          "bytes": "E2 6F",
+          "instruction": "MOVWF 0xE2, BANKED",
+          "absolute_register": "0xee2",
+          "candidate_name": "RPINR2",
+          "bsr_before": 14
+        }
+      ],
+      "nvm_pages_all_known_ff": true,
+      "high_flash_descriptor_argument_evidence": {
+        "range": [
+          "0x6088",
+          "0x609e"
+        ],
+        "bytes": "0F 68 FB 0E 10 6E 01 0E 11 6E 12 6A 13 6A 04 0E 14 6E E2 EC 3F F0",
+        "little_endian_address_argument": "FF FB 01 00 = 0x0001FBFF",
+        "record_count_arg": 0,
+        "record_width_arg": 4,
+        "callee": "0x7fc4",
+        "interpretation": "stock native-journal initializer uses flash above0xFFFF; further supports128KB intended target over46 variants"
+      }
+    },
+    "S": {
+      "profile": "analysis/air_remote_ttl_multi_air2/shared/stock/S/profile.json",
+      "source_sha256_verified": "707b65d9cb6ea6c320976e5a6244de05b1f0856ab9c7ddc5008fe739337b9737",
+      "partial_plaintext_sha256_verified": "abed888029102baea3a3f003ee40d8ab27119a3b1c3ff988342dbfaf8437984b",
+      "mask_sha256_verified": "81fe4da4f8a15728c97bc6de35fae71572d44f39a927dce22a9ca300b5d2558b",
+      "config_1fff8_hex": "98 F7 3D F8 63 FA 04 F9",
+      "config_is_container_data_not_device_readback": true,
+      "decoded_init_range": [
+        "0x4d42",
+        "0x4e60"
+      ],
+      "sfr_evidence": [
+        {
+          "pc": "0x4d4c",
+          "bytes": "96 9E",
+          "instruction": "BCF 0x96, 7, ACCESS",
+          "absolute_register": "0xf96",
+          "candidate_name": "TRISE",
+          "bsr_before": null
+        },
+        {
+          "pc": "0x4d72",
+          "bytes": "48 8B",
+          "instruction": "BSF 0x48, 5, BANKED",
+          "absolute_register": "0xf48",
+          "candidate_name": "ANCON0",
+          "bsr_before": 15
+        },
+        {
+          "pc": "0x4d76",
+          "bytes": "95 86",
+          "instruction": "BSF 0x95, 3, ACCESS",
+          "absolute_register": "0xf95",
+          "candidate_name": "TRISD",
+          "bsr_before": 15
+        },
+        {
+          "pc": "0x4d7c",
+          "bytes": "06 17",
+          "instruction": "ANDWF 0x06, F, BANKED",
+          "absolute_register": "0xf06",
+          "candidate_name": "CCP8CON",
+          "bsr_before": 15
+        },
+        {
+          "pc": "0x4d88",
+          "bytes": "50 17",
+          "instruction": "ANDWF 0x50, F, BANKED",
+          "absolute_register": "0xf50",
+          "candidate_name": "CCPTMRS2",
+          "bsr_before": 15
+        },
+        {
+          "pc": "0x4d98",
+          "bytes": "83 88",
+          "instruction": "BSF 0x83, 4, ACCESS",
+          "absolute_register": "0xf83",
+          "candidate_name": "PORTD",
+          "bsr_before": 15
+        },
+        {
+          "pc": "0x4d9a",
+          "bytes": "49 87",
+          "instruction": "BSF 0x49, 3, BANKED",
+          "absolute_register": "0xf49",
+          "candidate_name": "ANCON1",
+          "bsr_before": 15
+        },
+        {
+          "pc": "0x4da2",
+          "bytes": "CD 6F",
+          "instruction": "MOVWF 0xCD, BANKED",
+          "absolute_register": "0xecd",
+          "candidate_name": "RPOR13",
+          "bsr_before": 14
+        },
+        {
+          "pc": "0x4dfa",
+          "bytes": "E2 6F",
+          "instruction": "MOVWF 0xE2, BANKED",
+          "absolute_register": "0xee2",
+          "candidate_name": "RPINR2",
+          "bsr_before": 14
+        }
+      ],
+      "nvm_pages_all_known_ff": true,
+      "high_flash_descriptor_argument_evidence": {
+        "range": [
+          "0x6468",
+          "0x647e"
+        ],
+        "bytes": "6D 69 FB 0E 6E 6F 01 0E 6F 6F 70 6B 71 6B 04 0E 72 6F AF EC 41 F0",
+        "little_endian_address_argument": "FF FB 01 00 = 0x0001FBFF",
+        "record_count_arg": 0,
+        "record_width_arg": 4,
+        "callee": "0x835e",
+        "interpretation": "stock native-journal initializer uses flash above0xFFFF; further supports128KB intended target over46 variants"
+      }
+    },
+    "F": {
+      "profile": "analysis/air_remote_ttl_multi_air2/shared/stock/F/profile.json",
+      "source_sha256_verified": "455b3f8eb74c2a598d5bd679d3450e9850860eae8de84362da71edb4896e4e6a",
+      "partial_plaintext_sha256_verified": "403b13737bb8c6874d320266319ade0c6bae16aed91f79a41330a181b9355d91",
+      "mask_sha256_verified": "81fe4da4f8a15728c97bc6de35fae71572d44f39a927dce22a9ca300b5d2558b",
+      "config_1fff8_hex": "98 F7 3D F8 63 FA 04 F9",
+      "config_is_container_data_not_device_readback": true,
+      "decoded_init_range": [
+        "0x4c4a",
+        "0x4d50"
+      ],
+      "sfr_evidence": [
+        {
+          "pc": "0x4c6e",
+          "bytes": "06 17",
+          "instruction": "ANDWF 0x06, F, BANKED",
+          "absolute_register": "0xf06",
+          "candidate_name": "CCP8CON",
+          "bsr_before": 15
+        },
+        {
+          "pc": "0x4c7a",
+          "bytes": "50 17",
+          "instruction": "ANDWF 0x50, F, BANKED",
+          "absolute_register": "0xf50",
+          "candidate_name": "CCPTMRS2",
+          "bsr_before": 15
+        },
+        {
+          "pc": "0x4c88",
+          "bytes": "95 98",
+          "instruction": "BCF 0x95, 4, ACCESS",
+          "absolute_register": "0xf95",
+          "candidate_name": "TRISD",
+          "bsr_before": 15
+        },
+        {
+          "pc": "0x4c8a",
+          "bytes": "83 88",
+          "instruction": "BSF 0x83, 4, ACCESS",
+          "absolute_register": "0xf83",
+          "candidate_name": "PORTD",
+          "bsr_before": 15
+        },
+        {
+          "pc": "0x4c8c",
+          "bytes": "49 87",
+          "instruction": "BSF 0x49, 3, BANKED",
+          "absolute_register": "0xf49",
+          "candidate_name": "ANCON1",
+          "bsr_before": 15
+        },
+        {
+          "pc": "0x4c94",
+          "bytes": "CD 6F",
+          "instruction": "MOVWF 0xCD, BANKED",
+          "absolute_register": "0xecd",
+          "candidate_name": "RPOR13",
+          "bsr_before": 14
+        },
+        {
+          "pc": "0x4cc2",
+          "bytes": "48 8D",
+          "instruction": "BSF 0x48, 6, BANKED",
+          "absolute_register": "0xf48",
+          "candidate_name": "ANCON0",
+          "bsr_before": 15
+        },
+        {
+          "pc": "0x4cc4",
+          "bytes": "96 82",
+          "instruction": "BSF 0x96, 1, ACCESS",
+          "absolute_register": "0xf96",
+          "candidate_name": "TRISE",
+          "bsr_before": 15
+        },
+        {
+          "pc": "0x4cec",
+          "bytes": "E2 6F",
+          "instruction": "MOVWF 0xE2, BANKED",
+          "absolute_register": "0xee2",
+          "candidate_name": "RPINR2",
+          "bsr_before": 14
+        }
+      ],
+      "nvm_pages_all_known_ff": true,
+      "high_flash_descriptor_argument_evidence": {
+        "range": [
+          "0x6aac",
+          "0x6ac2"
+        ],
+        "bytes": "B2 69 FB 0E B3 6F 01 0E B4 6F B5 6B B6 6B 04 0E B7 6F 34 EC 44 F0",
+        "little_endian_address_argument": "FF FB 01 00 = 0x0001FBFF",
+        "record_count_arg": 0,
+        "record_width_arg": 4,
+        "callee": "0x8868",
+        "interpretation": "stock native-journal initializer uses flash above0xFFFF; further supports128KB intended target over46 variants"
+      }
+    },
+    "O": {
+      "profile": "analysis/air_remote_ttl_multi_air2/shared/stock/O/profile.json",
+      "source_sha256_verified": "80ae4cac56c6bb7c363062d3ed7927373e4b7a907df8abbc2fed6731621a52b5",
+      "partial_plaintext_sha256_verified": "84645f098eeab93dd41d150015c7c642207037b7605b937b0a13388df1805976",
+      "mask_sha256_verified": "81fe4da4f8a15728c97bc6de35fae71572d44f39a927dce22a9ca300b5d2558b",
+      "config_1fff8_hex": "98 F7 3D F8 63 FA 04 F9",
+      "config_is_container_data_not_device_readback": true,
+      "decoded_init_range": [
+        "0x569c",
+        "0x5756"
+      ],
+      "sfr_evidence": [
+        {
+          "pc": "0x56a0",
+          "bytes": "96 9E",
+          "instruction": "BCF 0x96, 7, ACCESS",
+          "absolute_register": "0xf96",
+          "candidate_name": "TRISE",
+          "bsr_before": null
+        },
+        {
+          "pc": "0x56aa",
+          "bytes": "48 8B",
+          "instruction": "BSF 0x48, 5, BANKED",
+          "absolute_register": "0xf48",
+          "candidate_name": "ANCON0",
+          "bsr_before": 15
+        },
+        {
+          "pc": "0x56b0",
+          "bytes": "83 86",
+          "instruction": "BSF 0x83, 3, ACCESS",
+          "absolute_register": "0xf83",
+          "candidate_name": "PORTD",
+          "bsr_before": 15
+        },
+        {
+          "pc": "0x56b2",
+          "bytes": "95 96",
+          "instruction": "BCF 0x95, 3, ACCESS",
+          "absolute_register": "0xf95",
+          "candidate_name": "TRISD",
+          "bsr_before": 15
+        },
+        {
+          "pc": "0x56c0",
+          "bytes": "06 17",
+          "instruction": "ANDWF 0x06, F, BANKED",
+          "absolute_register": "0xf06",
+          "candidate_name": "CCP8CON",
+          "bsr_before": 15
+        },
+        {
+          "pc": "0x56cc",
+          "bytes": "50 17",
+          "instruction": "ANDWF 0x50, F, BANKED",
+          "absolute_register": "0xf50",
+          "candidate_name": "CCPTMRS2",
+          "bsr_before": 15
+        },
+        {
+          "pc": "0x56de",
+          "bytes": "49 87",
+          "instruction": "BSF 0x49, 3, BANKED",
+          "absolute_register": "0xf49",
+          "candidate_name": "ANCON1",
+          "bsr_before": 15
+        },
+        {
+          "pc": "0x56e6",
+          "bytes": "CD 6F",
+          "instruction": "MOVWF 0xCD, BANKED",
+          "absolute_register": "0xecd",
+          "candidate_name": "RPOR13",
+          "bsr_before": 14
+        },
+        {
+          "pc": "0x5742",
+          "bytes": "E2 6F",
+          "instruction": "MOVWF 0xE2, BANKED",
+          "absolute_register": "0xee2",
+          "candidate_name": "RPINR2",
+          "bsr_before": 14
+        }
+      ],
+      "nvm_pages_all_known_ff": true,
+      "high_flash_descriptor_argument_evidence": {
+        "range": [
+          "0x5e42",
+          "0x5e58"
+        ],
+        "bytes": "B9 69 FB 0E BA 6F 01 0E BB 6F BC 6B BD 6B 04 0E BE 6F 2D EC 41 F0",
+        "little_endian_address_argument": "FF FB 01 00 = 0x0001FBFF",
+        "record_count_arg": 0,
+        "record_width_arg": 4,
+        "callee": "0x825a",
+        "interpretation": "stock native-journal initializer uses flash above0xFFFF; further supports128KB intended target over46 variants"
+      }
+    }
+  },
+  "common_capabilities": {
+    "core_ram_start": "0x680",
+    "core_ram_end_exclusive": "0x800",
+    "core_ram_bytes": 384,
+    "core_ram_physical_gpr_all_matched_candidates": true,
+    "core_ram_stock_noninterference_proven_here": false,
+    "bank_800_bff_physical_gpr_all_matched_candidates": true,
+    "flash_erase_block_bytes": 1024,
+    "erase_alignment_bytes": 1024,
+    "page_bases": [
+      "0xF800",
+      "0xFC00"
+    ],
+    "page_end_exclusive": [
+      "0xFC00",
+      "0x10000"
+    ],
+    "pages_disjoint_for_all_matched_candidates": true,
+    "pages_overlap_64k_configuration_if_46_variant": true,
+    "container_128k_configuration_at": "0x1FFF8",
+    "flash_control": {
+      "EECON1": "0xFA6",
+      "EECON2": "0xFA7",
+      "WR_bit": 1,
+      "WREN_bit": 2,
+      "WRERR_bit": 3,
+      "FREE_bit": 4,
+      "WPROG_bit": 5,
+      "word_programming_bytes_WPROG_1": 2,
+      "block_programming_bytes_WPROG_0": 64,
+      "word_programming_requires_even_address": true,
+      "word_programming_requires_erased_location": true,
+      "word_programming_second_TBLWT_must_not_postincrement": true
+    }
+  },
+  "primary_documents": [
+    {
+      "family": "PIC18F/LF26/27/46/47J13",
+      "url": "https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ProductDocuments/DataSheets/30009974C.pdf",
+      "facts": "Table1 printedp2:46=64K,47=128K,3760B SRAM. Fig6-6p83:600..7FF and800..BFF GPR. Section7.4p106:1024B FREE erase,TBLPTR<9:0> ignored.",
+      "flash_write_details": "Table6-2p85/Table6-4p89 EECON addresses; Register7-1p103 bitpositions and2B/64B; section7.5.2p109 word-write sequence."
+    },
+    {
+      "family": "PIC18F/LF26/27/46/47J53",
+      "url": "https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ProductDocuments/DataSheets/30009964C.pdf",
+      "facts": "Table1 printedp2:46=64K,47=128K,nominal3.8K SRAM. Table6-1p77 config1FFF8 for47. Fig6-6p85 banks6..11 GPR. Section7.4p109:1024B FREE erase,TBLPTR<9:0> ignored.",
+      "flash_write_details": "Table6-2p87/Table6-4p91 EECON addresses; Register7-1p106 bitpositions and2B/64B; section7.5.2p112 word-write sequence."
+    }
+  ],
+  "limits": [
+    "The remaining J13/J53 and F/LF ambiguity does not change required RAM or erase geometry.",
+    "46 variants match peripheral map and common RAM/erase capability, but their physical config isFFF8..FFFF, conflicting with stock container intended config1FFF8..1FFFF. Their exclusion is static target-layout evidence, not a silicon-ID measurement.",
+    "Do not set a field named physical_chip_identity_verified=true from this report.",
+    "Physical RAM presence is separate from stock/bootloader/interrupt noninterference; that belongs to memory audit.",
+    "C11 prior strong47J53 candidate was reference only; N/S/F/O initialization was checked independently."
+  ]
+}

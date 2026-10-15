@@ -37,12 +37,12 @@ void wrap_destination(uint8 dest, uint8 payload[12]) {
 /* VERIFIED two different original command families. */
 void group_relative_7174(uint8 group, int8 step) {
     if (RAM[0x028] != 0) return;
-    opcode = lookup(step, {+1:0x06, -1:0x07, +10:0x0d, -10:0x0e});
+    opcode = lookup(step, {+1:0x06, -1:0x07, +10:0x0d, -10:0x0e}, default=0);
     native_command_build_and_send_7174(group, opcode);
 }
 void alternate_step_864C(uint8 group, int8 step) {
     if (RAM[0x028] != 0) return;
-    opcode = lookup(step, {+1:0x04, -1:0x05, +10:0x0b, -10:0x0c});
+    opcode = lookup(step, {+1:0x04, -1:0x05, +10:0x0b, -10:0x0c}, default=0);
     native_command_build_and_send_864C(group, opcode);
 }
 

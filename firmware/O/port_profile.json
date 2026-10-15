@@ -1,0 +1,117 @@
+{
+  "model_tag": "O",
+  "model_name": "Air Remote TTL-O",
+  "original_version": "A4",
+  "state_base": 1664,
+  "state_span": 384,
+  "window_counts": 200,
+  "stable_counts": 10,
+  "clock_mask": 32767,
+  "code_limit": 63488,
+  "nv_enabled": true,
+  "ram_proven": true,
+  "hardware_proven": true,
+  "clock_proven": true,
+  "native_interfaces_proven": true,
+  "native_input_gate_proven": true,
+  "native_radio_gate_proven": true,
+  "native_nv_gate_proven": true,
+  "native_mode_restore_proven": true,
+  "vm_idle_sfr": {
+    "0xF81": 4,
+    "0xFF0": 0,
+    "0xF9E": 0,
+    "0xFA4": 0
+  },
+  "proof_scope": "Bounded original-firmware normal-path analysis and instruction replay; no physical boot, RF or hardware SRAM verification.",
+  "proof_references": {
+    "hardware": "../shared/identity_report.json",
+    "ram": "../shared/ram_allocation_audit.json",
+    "clock": "o_a4_candidate_listing.txt:7624..769A; keyboard_contract.json",
+    "input": "keyboard_contract.json; hook_contract.json; test_model_integration.py",
+    "native_interfaces": "native_contract.py; test_native_backend.py; test_native_adapter.py",
+    "mode_restore": "mode_transition_contract.json; test_mode_transition.py",
+    "irq_context": "ram_nvm_contract.json; mode_transition_contract.json; test_nv_fresh_gate.py",
+    "native_queue": "test_native_backend.py; test_native_adapter.py"
+  },
+  "native_readiness": {
+    "normal_ui": "RAM082 == 0 and original A838 returns1",
+    "camera_idle": "RAM040 == 1, RAM19A == 0, RAM081 == 0, RAM02D == 0",
+    "radio_idle": "RAM02A == 0, original pending061 == 0, original queue count097 == 0",
+    "nv_extra": "original startup085 == 0; all12 key histories == 0; core gesture018 and TX028 == 0; cursor089 == 0; live F81.2 == 1 and pending FF0.1/F9E.5/FA4.5 == 0, including the masked per-operation recheck",
+    "mode_restore": "Checked original6A62, bounded native2A suppression, native callback set609A, original deferred startup085 recomputed once by core boot projection"
+  },
+  "persistence": {
+    "hardware_proven": true,
+    "ram_proven": true,
+    "pages_proven": true,
+    "isr_context_proven": true,
+    "flash_bytes": 131072,
+    "erase_bytes": 1024,
+    "write_bytes": 2,
+    "eecon1": 4006,
+    "eecon2": 4007,
+    "wprog_bit": 5,
+    "new_pages": [
+      [
+        63488,
+        64512
+      ],
+      [
+        64512,
+        65536
+      ]
+    ],
+    "original_journal_preserved": [
+      129024,
+      130048
+    ],
+    "proof_scope": "Family capability, original known-FF allocation and closed application ISR paths; no device flash operation performed."
+  },
+  "protected_ranges": [
+    {
+      "start": 16648,
+      "end": 16760,
+      "label": "Original Olympus interrupt entry and return"
+    },
+    {
+      "start": 27234,
+      "end": 27378,
+      "label": "Original Olympus mode transition implementation"
+    },
+    {
+      "start": 40734,
+      "end": 40770,
+      "label": "Original Olympus native 16-byte radio enqueue"
+    }
+  ],
+  "hardware_boot_verified": false,
+  "rf_verified_on_device": false,
+  "offline_qualification_complete": true,
+  "validation": {
+    "native_hook_preimages": true,
+    "instruction_boundaries": true,
+    "private_ram_allocation": true,
+    "native_calling_conventions": true,
+    "radio_queue_backpressure": true,
+    "original_hss_paths_preserved": true,
+    "persistence_backend": true,
+    "core_policy_tests": true,
+    "native_adapter_tests": true
+  },
+  "qualification": {
+    "status": "OFFLINE_VALIDATED_EXPERIMENTAL",
+    "release": "AIR2-P8-M2",
+    "date": "2026-10-15",
+    "image_sha256": "67b3db05f412dfb33c1c7173693d4bf71b720a59265cd5b3feb2b7563a13ae95",
+    "integration_cases": 78,
+    "boot_regression_cases": 24,
+    "evidence": [
+      "shared/final_validation_m2.json",
+      "shared/HSS_PRESERVATION_M2.json"
+    ],
+    "scope": "Actual linked instruction replay, mount UI regressions and stock/container preservation. No physical boot, RF acknowledgment, exposure or zero-latency guarantee.",
+    "profile_metadata_note": "Final builders require this reviewed image and replay it again; evidence pointers avoid reciprocal report/profile hashes."
+  },
+  "device_boot_verified": false
+}
