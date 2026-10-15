@@ -1,0 +1,416 @@
+{
+  "schema": "original-source-map-v1",
+  "address_unit": "PIC18 byte address",
+  "range_convention": "start inclusive, end exclusive; selected evidence spans, not automatically function extents",
+  "stock_partial_sha256": "abed888029102baea3a3f003ee40d8ab27119a3b1c3ff988342dbfaf8437984b",
+  "stock_dense_bytes": 113664,
+  "scope": "Short entry bytes and hashes only; no firmware image or full listing included. Semantic labels do not prove physical behavior.",
+  "anchors": [
+    {
+      "id": "S-boot-4102",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 9
+      },
+      "start": "0x4102",
+      "end_exclusive": "0x4106",
+      "entry_hex": "29ef21f0",
+      "range_sha256": "291b148034726c29860385d799e2b621c5bf54d66088d4329106535f5c33e359",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "Reset branch to4252.",
+      "archival_source": "S/A6.candidate_listing.txt"
+    },
+    {
+      "id": "S-boot-4252",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 9
+      },
+      "start": "0x4252",
+      "end_exclusive": "0x4256",
+      "entry_hex": "baef30f0",
+      "range_sha256": "47afa598b0b7842529d970ffc1b640af926793705e876f0343eeef80bc8a39ad",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "Reset trampoline to6174.",
+      "archival_source": "S/A6.candidate_listing.txt"
+    },
+    {
+      "id": "S-boot-6174",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 9
+      },
+      "start": "0x6174",
+      "end_exclusive": "0x622A",
+      "entry_hex": "b80ef66e600ef76e",
+      "range_sha256": "1ef687cb0f820be2f1664b86c39b43163fe376104a01d5f829d6042734e0ce62",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "ROM copy/zero fill, then branch4D42.",
+      "archival_source": "S/sony_native_contract.py"
+    },
+    {
+      "id": "S-boot-4E94",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 9
+      },
+      "start": "0x4E94",
+      "end_exclusive": "0x4ED2",
+      "entry_hex": "0400b9ec34f01bd8",
+      "range_sha256": "d39963b126a97fa8b4a17ed6e91cc2a17f019c76399364ed7be6b57bca1f4c84",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "Observed foreground call order and config0193 service.",
+      "archival_source": "S/A6.candidate_listing.txt"
+    },
+    {
+      "id": "S-clock-6972",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 25
+      },
+      "start": "0x6972",
+      "end_exclusive": "0x69DA",
+      "entry_hex": "06ec51f06bc075f0",
+      "range_sha256": "cca63b43ab49c908d64e1e082dd59137429e15c7cb277eda22e50af21f8b6e60",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "Strict delta>divisor kernel; previous100,divisor108,tick106 all16-bit.",
+      "archival_source": "S/A6.candidate_listing.txt"
+    },
+    {
+      "id": "S-keys-930E",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 37
+      },
+      "start": "0x930E",
+      "end_exclusive": "0x933E",
+      "entry_hex": "17d8df50706f6d05",
+      "range_sha256": "463e75ca106dd52cb020e8c067b6b422a66c887e6e27fdd476ef793931b40a77",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "Exact history shift; preserve bit7, append sample==1.",
+      "archival_source": "S/sony_native_contract.py"
+    },
+    {
+      "id": "S-keys-5348",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 37
+      },
+      "start": "0x5348",
+      "end_exclusive": "0x548A",
+      "entry_hex": "a0d8de284be1020e",
+      "range_sha256": "50f8680564188a8fbd7b1aa553182aadd395581f9fb75216dfd606f6d1197037",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "Debounce/event machine;3 matching samples and250/650 thresholds.",
+      "archival_source": "S/display/keys/README.md"
+    },
+    {
+      "id": "S-keys-A0C8",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 37
+      },
+      "start": "0xA0C8",
+      "end_exclusive": "0xA0E0",
+      "entry_hex": "d951040d150ef324",
+      "range_sha256": "bb901c1462a72a3435c6cfcc80ba844af58606085635848323f5a108c4546232",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "Round-robin service; key pointer2A4:2A5, original5348 call atA0DA.",
+      "archival_source": "S/sony_native_contract.py"
+    },
+    {
+      "id": "S-keys-80F2",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 37
+      },
+      "start": "0x80F2",
+      "end_exclusive": "0x811A",
+      "entry_hex": "68ec4ff076ec50f0",
+      "range_sha256": "5d93cfd86f4d8f12bd70240b43507289dccfcdc7c0c0c626c65e442f289c99f8",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "Ordinary press path tail GOTO595A at8116.",
+      "archival_source": "S/display/keys/README.md"
+    },
+    {
+      "id": "S-ui-5CD8",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 55
+      },
+      "start": "0x5CD8",
+      "end_exclusive": "0x5DA4",
+      "entry_hex": "6e6f6ec0c1f049d0",
+      "range_sha256": "6ef8d9e9c6c4726a4e927982d5544bc1910278b30fd1a2a9130c5c96d69c16d2",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "Group1/2/3/7 and selected callback binding.",
+      "archival_source": "S/sony_native_contract.py"
+    },
+    {
+      "id": "S-ui-6DDE",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 55
+      },
+      "start": "0x6DDE",
+      "end_exclusive": "0x6E68",
+      "entry_hex": "48ec4bf021e137d8",
+      "range_sha256": "275e52b8c37f8c2c260c0660d677c040b7302182e4b77605f203f218722bbdff",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "Original numeric refresh entry; selected evidence span, not asserted function extent.",
+      "archival_source": "S/display/sony_display_abi.json"
+    },
+    {
+      "id": "S-ui-7584",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 55
+      },
+      "start": "0x7584",
+      "end_exclusive": "0x758C",
+      "entry_hex": "020e736f71af03d0",
+      "range_sha256": "b0f9b9ac4912934facc052335e32fa95a980e7002467a766a5d92830c4d086c1",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "Signed-tenths formatter entry; body not reproduced.",
+      "archival_source": "S/display/sony_display_abi.json"
+    },
+    {
+      "id": "S-ui-51DE",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 55
+      },
+      "start": "0x51DE",
+      "end_exclusive": "0x5348",
+      "entry_hex": "0001df5102e081b2",
+      "range_sha256": "e04459c06d26e16c78f4af77815755d04ad604db108787ffd755a68d14714c54",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "Original UI snapshot/comparison/dirty/serializer service.",
+      "archival_source": "S/A6.candidate_listing.txt"
+    },
+    {
+      "id": "S-ui-9690",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 55
+      },
+      "start": "0x9690",
+      "end_exclusive": "0x969C",
+      "entry_hex": "d2c0d9ffd3c0daff",
+      "range_sha256": "4d7535a01a7b13313a8cdc426723e43585ba60d7a2b24f954aa8de87132eaebb",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "Mode getter reads native model pointerD2:D3.",
+      "archival_source": "S/display/sony_display_abi.json"
+    },
+    {
+      "id": "S-radio-A158",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 75
+      },
+      "start": "0xA158",
+      "end_exclusive": "0xA17C",
+      "entry_hex": "6fec51f00001776f",
+      "range_sha256": "ce5d6f65b3acef73b601e4781de870d011b8e820de97e82f19e0e13352cb081f",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "Original marker0+16 queue; no interrupt lock in this routine.",
+      "archival_source": "S/radio/abi_preimages.json"
+    },
+    {
+      "id": "S-radio-7490",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 75
+      },
+      "start": "0x7490",
+      "end_exclusive": "0x749E",
+      "entry_hex": "9c6f0001d85101e0",
+      "range_sha256": "0d9e808514fe2295b83cd60a076d9cb06223deaf8ce3aea0d78d0d7bde7fb508",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "Relative-command entry/busy gate; selected evidence span.",
+      "archival_source": "S/radio/abi_preimages.json"
+    },
+    {
+      "id": "S-radio-9516",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 75
+      },
+      "start": "0x9516",
+      "end_exclusive": "0x9526",
+      "entry_hex": "7a6f7ac07bf02c0e",
+      "range_sha256": "aca2d3bf70c0cece52b86bf5edd62cbbfed0890f02a4e3bae3ae76dabfac8359",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "Frame-builder entry; selected evidence span.",
+      "archival_source": "S/radio/abi_preimages.json"
+    },
+    {
+      "id": "S-radio-668A",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 75
+      },
+      "start": "0x668A",
+      "end_exclusive": "0x66A0",
+      "entry_hex": "e60e6b6f6c6b000e",
+      "range_sha256": "b6436720d516c3b3630b06b70724b9e6911cdfef3e336ceafbabf146b01a9989",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "Queue descriptorE6,backing0400,capacity100.",
+      "archival_source": "S/radio/abi_preimages.json"
+    },
+    {
+      "id": "S-radio-5C08",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 75
+      },
+      "start": "0x5C08",
+      "end_exclusive": "0x5CD8",
+      "entry_hex": "410e6f6f010e706f",
+      "range_sha256": "c9c5c8dac5daadc4b1934d9faa1f2666ce8490e893742c0e143b06779d01f00f",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "Original queue consumer/service.",
+      "archival_source": "S/radio/README.md"
+    },
+    {
+      "id": "S-radio-5DA4",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 75
+      },
+      "start": "0x5DA4",
+      "end_exclusive": "0x5DB4",
+      "entry_hex": "65ec4bf04bec39f0",
+      "range_sha256": "e55c7d6568b473649658e1eba86f0a0568eb3e37ba5d94efc32a129d31e59b93",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "Normal serializer entry; selected evidence span.",
+      "archival_source": "S/radio/abi_preimages.json"
+    },
+    {
+      "id": "S-radio-AF70",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 75
+      },
+      "start": "0xAF70",
+      "end_exclusive": "0xAF72",
+      "entry_hex": "020c",
+      "range_sha256": "6ce59dd6d92067814f6e4f0a0f448bb2c1b88fd1304a1cd5f52f8874232747ab",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "Literal RETLW2; not an object getter.",
+      "archival_source": "S/radio/abi_preimages.json"
+    },
+    {
+      "id": "S-nvm-835E",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 102
+      },
+      "start": "0x835E",
+      "end_exclusive": "0x83AA",
+      "entry_hex": "6bc0d9ff6cc0daff",
+      "range_sha256": "1ff2a8b20c859c404caa108f3a89e0d13b2acb609e32d2aac753b06203f4b55b",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "Descriptor constructor.",
+      "archival_source": "S/sony_nvm_evidence.json"
+    },
+    {
+      "id": "S-nvm-81A6",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 102
+      },
+      "start": "0x81A6",
+      "end_exclusive": "0x81CE",
+      "entry_hex": "20ee06f06b51d926",
+      "range_sha256": "36a7c2f842bc8803f32e9c05e30623a06f0870f7e8088d766ba5ed5133d9707d",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "Slot-address arithmetic entry; full arithmetic replay summarized in NVM evidence.",
+      "archival_source": "S/sony_nvm_evidence.json"
+    },
+    {
+      "id": "S-nvm-9840",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 102
+      },
+      "start": "0x9840",
+      "end_exclusive": "0x9872",
+      "entry_hex": "7fc0f8ff7ec0f7ff",
+      "range_sha256": "45cc232c817f1d4d78c1f8cf5be508453929a6a47b950c3a712d31195c470bfd",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "Word write primitive.",
+      "archival_source": "S/sony_nvm_evidence.json"
+    },
+    {
+      "id": "S-nvm-9FE4",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 102
+      },
+      "start": "0x9FE4",
+      "end_exclusive": "0xA004",
+      "entry_hex": "6dc0f8ff6cc0f7ff",
+      "range_sha256": "84e258bd1ce2215fb079a0f4026fb236ca64105740e2f1c913159ed112de1728",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "Erase primitive.",
+      "archival_source": "S/sony_nvm_evidence.json"
+    },
+    {
+      "id": "S-hss-4108",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 116
+      },
+      "start": "0x4108",
+      "end_exclusive": "0x4252",
+      "entry_hex": "5882e1cf61f0e2cf",
+      "range_sha256": "6e6743be7f521115e0456a4c574805be9a0033b744df3ecc3ab134d6f5cd95b6",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "ISR dispatch and restore;4250 RETFIE FAST.",
+      "archival_source": "S/radio/static_isr_audit.json"
+    },
+    {
+      "id": "S-hss-6BB0",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 116
+      },
+      "start": "0x6BB0",
+      "end_exclusive": "0x6DDE",
+      "entry_hex": "8fc08cf090c08df0",
+      "range_sha256": "cfa5b1819f2ffad57228a130dfb8b328bd06d63b44030bb9570c9cb0b599b49a",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "Observed foreground camera protocol region.",
+      "archival_source": "shared/HSS_PRESERVATION_M2.json"
+    },
+    {
+      "id": "S-hss-A586",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 116
+      },
+      "start": "0xA586",
+      "end_exclusive": "0xA5E8",
+      "entry_hex": "c20e00016f6f010e",
+      "range_sha256": "fa8cbee2ebf229c6f4cba7da21f04ca15aa3d4313c8977920323b823e523b987",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "Observed exclusive-radio service region.",
+      "archival_source": "shared/HSS_PRESERVATION_M2.json"
+    },
+    {
+      "id": "S-hss-5BC4",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 116
+      },
+      "start": "0x5BC4",
+      "end_exclusive": "0x5BD8",
+      "entry_hex": "690e365c010e3758",
+      "range_sha256": "45714881670a1820064d1b17f943dd988e8c4013645c02b65c50b8380c71ab2b",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "Observed timer interval gate361..449; no physical units asserted.",
+      "archival_source": "S/radio/static_isr_audit.json"
+    }
+  ]
+}

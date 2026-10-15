@@ -1,0 +1,124 @@
+{
+  "schema": "original-provenance-v1",
+  "prepared_date": "2026-10-16",
+  "model": "Air Remote TTL-S",
+  "revision": "A6",
+  "source_updater": {
+    "filename": "Air-Remote-TTL-S-Firmware-A6.exe",
+    "sha256": "707b65d9cb6ea6c320976e5a6244de05b1f0856ab9c7ddc5008fe739337b9737",
+    "bytes": 3652240,
+    "executed": false
+  },
+  "method": "Selected original facts were manually reconciled with local stock bytes and disassembly; addresses, entry bytes and span hashes were re-read from stock. AIR2 behavior and qualification fields were excluded.",
+  "archival_inputs_note": "Relative names identify earlier local research inputs, not required files in this public branch. Hashes identify that evidence snapshot. Published source_map and original_contract carry the selected facts; local firmware reproduction requires a separately obtained matching original updater.",
+  "archival_inputs": [
+    {
+      "archival_relative_path": "analysis/air_remote_ttl_multi_air2/shared/stock/S/profile.json",
+      "sha256": "2189d96bc02a3c2e0b7e295fd7278053620320fe8e4bfe507e1834f5dc0fd98e",
+      "bytes": 1420,
+      "distributed": false
+    },
+    {
+      "archival_relative_path": "analysis/air_remote_ttl_multi_air2/S/sony_native_contract.py",
+      "sha256": "bf8d431c013299b90805221c349e7eddb93466757ea9f12b4d82ff56c84e9181",
+      "bytes": 6778,
+      "distributed": false
+    },
+    {
+      "archival_relative_path": "analysis/air_remote_ttl_multi_air2/S/sony_nvm_evidence.json",
+      "sha256": "6d9c6d67c06a8d0d0fe80b5c9d16eaf2749a81b8efc7ddf5b7e308e62c519f94",
+      "bytes": 1086,
+      "distributed": false
+    },
+    {
+      "archival_relative_path": "analysis/air_remote_ttl_multi_air2/S/verify_native_nvm.py",
+      "sha256": "94107ef2457008566c0d758132e3e8cca9a69d61547d148d13e1992e63012853",
+      "bytes": 2819,
+      "distributed": false
+    },
+    {
+      "archival_relative_path": "analysis/air_remote_ttl_multi_air2/S/display/sony_display_abi.json",
+      "sha256": "9af8490bde9a9e823c4437f8f19775ef00100730e5a10018fff05283e8050688",
+      "bytes": 5614,
+      "distributed": false
+    },
+    {
+      "archival_relative_path": "analysis/air_remote_ttl_multi_air2/S/display/keys/README.md",
+      "sha256": "54a9c135d70bb357a2d16af273a77177ab3b693ce604f68b639b24d80f9b5311",
+      "bytes": 5678,
+      "distributed": false
+    },
+    {
+      "archival_relative_path": "analysis/air_remote_ttl_multi_air2/S/radio/README.md",
+      "sha256": "5603f37ed00daceb07e6e075a1d57dbf8ade06b994927d01e51679697716d285",
+      "bytes": 6153,
+      "distributed": false
+    },
+    {
+      "archival_relative_path": "analysis/air_remote_ttl_multi_air2/S/radio/abi_preimages.json",
+      "sha256": "912131525435fdb8b8d4b8eb529d9b121826079a6c6735fc37ccb113ac9dcc89",
+      "bytes": 2030,
+      "distributed": false
+    },
+    {
+      "archival_relative_path": "analysis/air_remote_ttl_multi_air2/S/radio/static_isr_audit.json",
+      "sha256": "ba805feaebe959233964a8e76a8d226c7eaf842bc096d9012ac12636f7036707",
+      "bytes": 1466,
+      "distributed": false
+    },
+    {
+      "archival_relative_path": "analysis/air_remote_ttl_multi_air2/S/A6.candidate_listing.txt",
+      "sha256": "0dd5f3623402512348eb04ccfb837ad2d4a223f99bb5ad92a95b32a6b1270cc3",
+      "bytes": 1045236,
+      "distributed": false
+    },
+    {
+      "archival_relative_path": "analysis/air_remote_ttl_multi_air2/shared/HSS_PRESERVATION_M2.json",
+      "sha256": "e8510edcc317a190558352fae7b8c0706ccc1e9100c70e1d35ad7ceae0c43989",
+      "bytes": 12847,
+      "distributed": false
+    }
+  ],
+  "published_scope": [
+    "human-written bounded pseudocode",
+    "original RAM and interface contract",
+    "short stock entry signatures and range hashes",
+    "explicit uncertainty boundaries"
+  ],
+  "excluded": [
+    "updater executable",
+    "BIN/HEX images",
+    "large disassembly listings",
+    "device captures",
+    "absolute paths",
+    "development adapters/hooks/new features"
+  ],
+  "verification": {
+    "stock_sha_matches_profile": true,
+    "mask_sha_matches_profile": true,
+    "all_published_anchor_ranges_known": true,
+    "executed_updater": false,
+    "hardware_accessed": false,
+    "new_hardware_behavior_claimed": false
+  },
+  "legacy_candidate_comparison": {
+    "range": [
+      "0x4000",
+      "0x10000"
+    ],
+    "bytes": 49152,
+    "sha256": "b5d7c9b199cc1a705514c028d609e31bb8b6fb55813cdc2ab1fcba898be7cee5",
+    "shared_stock_range": [
+      "0x4000",
+      "0x1FC00"
+    ],
+    "shared_stock_bytes": 113664,
+    "shared_stock_sha256": "abed888029102baea3a3f003ee40d8ab27119a3b1c3ff988342dbfaf8437984b",
+    "known_overlap": [
+      "0x4002",
+      "0x10000"
+    ],
+    "known_overlap_identical": true,
+    "first_word": "Both zero placeholders; unknown. Different full-file hashes reflect different lengths/ranges."
+  }
+}
