@@ -1,0 +1,12 @@
+.DS_Store
+Thumbs.db
+__pycache__/
+*.py[cod]
+inputs/
+build/
+outputs/
+artifacts/
+*.exe
+*.hex
+*.partial.bin
+*.zip
