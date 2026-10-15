@@ -28,18 +28,19 @@ void native_mode_synopsis(void) {
 
 void native_step_86D6(int8 delta) {
     RAM[0x0EA] = delta;
+    uint8 initial_mode = native_mode_5666(); /* mode tested before callback */
     native_indirect_power_callback_at_069();
     /* Mode0: enabled group adds delta then clamps config+4/+5/+6
      * (019D..019F) to -20..20 with90EA. Mode1: enabled group adds then
      * clamps relative036..038 to -99..99 via69BC ->90EA.
      * Head enable mask02C and Model bits03F are distinct fields. */
-    if (native_mode_5666() == 1) RAM[0x061] += delta;
+    if (initial_mode != 0) RAM[0x061] += delta; /* legal MAN value is 1 */
     else if (RAM[0x060] != 7) native_ttl_followup_7B14();
 }
 
 void glyph_write(uint8 destination, uint8 glyph_index) { /* A10E..A130 */
     RAM[destination] = (RAM[destination] & 0x80)
-        | (native_glyph_table(glyph_index) & 0x7f);
+        | native_glyph_table(glyph_index);   /* original has no extra &7F */
 }
 void native_row_outline(uint8 row, int8 value) {
     /* 742E: B7=8A flags; B8=row8B/8D/8F; B9=signed value.
