@@ -1,0 +1,45 @@
+{
+  "result": "PASS",
+  "real_original_instruction_cases": 1272,
+  "scope": "Logical descriptor and address arithmetic only; no flash writes or hardware",
+  "constructor": "835E",
+  "address_function": "81A6",
+  "original_descriptor": {
+    "ram": "01A5..01AB",
+    "end": "01FBFF",
+    "slot_count_byte": 0,
+    "effective_slot_count": 256,
+    "record_bytes": 4
+  },
+  "original_logical_page": [
+    "01F800",
+    "01FC00"
+  ],
+  "flash_write_entry": "9840",
+  "flash_erase_entry": "9FE4",
+  "interrupt_caveat": "Both helpers unconditionally set FD0 bit7 and FF2 bit7 on return",
+  "physical_erase_page_size_proven": false,
+  "new_persistence_address_allocated": null,
+  "slot_examples": [
+    {
+      "index": 0,
+      "first_byte": 130044,
+      "last_byte": 130047
+    },
+    {
+      "index": 1,
+      "first_byte": 130040,
+      "last_byte": 130043
+    },
+    {
+      "index": 254,
+      "first_byte": 129028,
+      "last_byte": 129031
+    },
+    {
+      "index": 255,
+      "first_byte": 129024,
+      "last_byte": 129027
+    }
+  ]
+}

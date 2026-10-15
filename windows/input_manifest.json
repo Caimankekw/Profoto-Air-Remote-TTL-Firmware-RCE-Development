@@ -1,0 +1,19 @@
+{
+  "format": "air2-m2-windows-tools-v1",
+  "name": "AIR2-P8-M2",
+  "nsis": {
+    "version": "3.13",
+    "tree_files": 441,
+    "tree_sha256": "f84b8de354a2e9b5933de86bfe863fe2ad66119473e4cb24bdf151e81be5b853",
+    "tree_algorithm": "SHA256 of ASCII JSON with sort_keys=true and separators=(',',':'), mapping relative POSIX file paths to {size,sha256}; all regular files in the complete unmodified NSIS directory",
+    "copying_sha256": "388357c1215ff403c5ebde3a5ecd273e68f8b79a579996775245d1ee65442aba"
+  },
+  "seven_zip": {
+    "version": "26.04 x64",
+    "7z.exe": "95fff19b73eff77c87c0d7bd32822e43fb90dd2932459f962eb532d8dfb6ba53",
+    "7z.dll": "899cd73d7fc60e1c1c35c7de0f5bed3dc69bfe2cecbd48014d868a347970a0b1"
+  },
+  "vendor_notice_sha256": "7d41f0e5609df0750aa07c9a1fb3c9cd7d1ce917d7b51c498db212c25854e1ce",
+  "model_pins": "../model.json and ../release_profile.json",
+  "source_archive": "Explicit --source-sha256; per-brand exact source ZIP validated by ../tools/package_source.py"
+}

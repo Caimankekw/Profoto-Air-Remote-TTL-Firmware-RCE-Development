@@ -1,0 +1,410 @@
+{
+  "model": "Air Remote TTL-F",
+  "revision": "A5",
+  "status": "STATIC_REVERSE_ENGINEERING_NOT_FLASHABLE",
+  "source_plain_sha256": "403b13737bb8c6874d320266319ade0c6bae16aed91f79a41330a181b9355d91",
+  "base": 16384,
+  "original_program_end": 45792,
+  "functions": {
+    "startup_data_init": {
+      "start": 24430,
+      "end_exclusive": 24684,
+      "first8_hex": "500ef66e760ef76e",
+      "range_sha256": "0394985f9ba65b42e87866df522375e309c79eba10526e234bf6675d94d80a2d",
+      "meaning": "Copies const objects and zero-initializes RAM through 0x67f"
+    },
+    "main_init": {
+      "start": 19514,
+      "end_exclusive": 19844,
+      "first8_hex": "828094908280c080",
+      "range_sha256": "c22a9f4e303a01264316d71d0b0c7b9f5982fcf269305ccfbc757e6fbe2ca15c",
+      "meaning": "Initializes ports, camera/radio/UI state; avoid replacing"
+    },
+    "main_loop": {
+      "start": 19844,
+      "end_exclusive": 19910,
+      "first8_hex": "040028ec38f01dd8",
+      "range_sha256": "fe6e59936fb763d28fb8feb3d6a21352768e087f2d58ace5abfbd8287989cce0",
+      "meaning": "Calls 596e UI each loop among camera/radio service calls"
+    },
+    "ui_service": {
+      "start": 22894,
+      "end_exclusive": 23222,
+      "first8_hex": "00017d5102e081b2",
+      "range_sha256": "eb12bd8a2c49fffc946d667b42e256f00b6fb79f73150b7b097e44bcee3ce8bc",
+      "meaning": "Calls rawscan48ea and eventscanA50e; services LCD and sleep"
+    },
+    "raw_key_sample": {
+      "start": 18666,
+      "end_exclusive": 19098,
+      "first8_hex": "a80e9eec4df070ec",
+      "range_sha256": "282af8e3c049eef22b25c31b34acba2285cef32313c7ff210b3459344f409dc5",
+      "meaning": "Sample digital/ADC keys into 12 four-byte object history slots"
+    },
+    "key_history_append": {
+      "start": 38848,
+      "end_exclusive": 38896,
+      "first8_hex": "17d8df50b56fb205",
+      "range_sha256": "4fdde0a25a08cc2ca0bb36945a496abc70122797ce20d49d4ca1e2c4cbad8a2a",
+      "meaning": "B0:B1 object pointer, B2 boolean; update byte0 = old.bit7 | ((old<<1)|bool)&7f"
+    },
+    "key_event_service": {
+      "start": 42254,
+      "end_exclusive": 42290,
+      "first8_hex": "7851040d0a0ef324",
+      "range_sha256": "cf57c060ee09bbcb09f4e6a7dd758a3e7c29099c29803d462185d4d6561108e5",
+      "meaning": "RAM78 advances one key/call, modulo12; BANK2D0:D1=010a+4*index; calls581a"
+    },
+    "key_object_process": {
+      "start": 22554,
+      "end_exclusive": 22894,
+      "first8_hex": "9bd8de2848e1020e",
+      "range_sha256": "e906a5b2966cfd9f0a0a74311c5d22e852a1fd69515ce583978b07b236f16adf",
+      "meaning": "8-sample history/debounce; press/release/held callback dispatch"
+    },
+    "press_dispatch": {
+      "start": 34560,
+      "end_exclusive": 34650,
+      "first8_hex": "faec54f099ec52f0",
+      "range_sha256": "93c7f5e0c051893a3a6f57151219748124f7bbf75ddd37d9d85866ae2f3b6557",
+      "meaning": "Input EC:ED object; context RAM7a routes normal screen through5e6a"
+    },
+    "normal_press": {
+      "start": 24170,
+      "end_exclusive": 24430,
+      "first8_hex": "0a0e0001ea1906e1",
+      "range_sha256": "6bbd54a98963d36954480b288ee9274687762a48c802efea6b6ec3520c1d2414",
+      "meaning": "MODE/group/HEAD/MODEL/TEST and plusminus activity"
+    },
+    "release_dispatch": {
+      "start": 35430,
+      "end_exclusive": 35512,
+      "first8_hex": "1cd0e5c0e3f0e6c0",
+      "range_sha256": "b7422353c161d0f0550c45c79205b591f51c57a9cc08f61617d25e0da2952ead",
+      "meaning": "Input E5:E6 object; routes context normal to8d34"
+    },
+    "normal_release": {
+      "start": 36148,
+      "end_exclusive": 36222,
+      "first8_hex": "2a0e0001e31906e1",
+      "range_sha256": "ab1a174cde83b2f5e0707386d26ed658c3f065b764ecef86a284229d428a4beb",
+      "meaning": "Plus/minus call8d7e with signed1/-1"
+    },
+    "normal_hold": {
+      "start": 28902,
+      "end_exclusive": 29034,
+      "first8_hex": "2a0e0201cc1909e1",
+      "range_sha256": "09063dc2014bdbce1fbbf8a5a01789477f770abaacf68091e195ee7b4efc9c10",
+      "meaning": "Plus/minus call8d7e signed10/-10"
+    },
+    "mode_toggle": {
+      "start": 32468,
+      "end_exclusive": 32576,
+      "first8_hex": "e36f22c0d9ff23c0",
+      "range_sha256": "fdf06e3ed3698a2309f9b5a66fe95cf70072295927aa6f54d88a68a3a3102542",
+      "meaning": "Toggles config[0], clears transient relative state, refreshes callbacks/display"
+    },
+    "selected_group_toggle": {
+      "start": 40638,
+      "end_exclusive": 40684,
+      "first8_hex": "c66f22c0d9ff23c0",
+      "range_sha256": "9052e46e7f8756375aa2179c711f9b029bf175c13d0b7fb4d30625abc762bac3",
+      "meaning": "W=1/2/3; same group becomes7ALL; invokes6492"
+    },
+    "select_group_and_callbacks": {
+      "start": 25746,
+      "end_exclusive": 25950,
+      "first8_hex": "b36fb3c060f049d0",
+      "range_sha256": "0ea511d2c138bab26ce85b2434e44f16f475bbd37ae2fac14a3c78e8b34d5ab1",
+      "meaning": "Stores selected60 and changes MODEL/HEAD/power callback table"
+    },
+    "apply_power_step": {
+      "start": 36222,
+      "end_exclusive": 36296,
+      "first8_hex": "e26f4dec2bf00de1",
+      "range_sha256": "6e173954818b547836a594b69f6452c1c1f95ebee503be890f6cd6c9db9565ae",
+      "meaning": "W int8 step stored E2; invokes callback69..6b; MAN accumulates pending61"
+    },
+    "config_get_mode": {
+      "start": 22170,
+      "end_exclusive": 22182,
+      "first8_hex": "22c0d9ff23c0daff",
+      "range_sha256": "2ee25d77d8cf8eecb973bc0faffda61a04aa223c18b688241529dc09268a811b",
+      "meaning": "W=*(RAM22:23); mode0TTL/mode1MAN established from callback selection"
+    },
+    "config_offset_ptr": {
+      "start": 35584,
+      "end_exclusive": 35594,
+      "first8_hex": "2250d9262350da22",
+      "range_sha256": "c8f1d4fbb892168babdbd672860442e78280b04b5d50e4d0526e451a00c4d136",
+      "meaning": "FSR2 holds offset; adds config pointer22:23"
+    },
+    "display_refresh": {
+      "start": 40052,
+      "end_exclusive": 40102,
+      "first8_hex": "00018f838f878781",
+      "range_sha256": "1f72068cef46e563b3eb853490b4c3b561fa36d1f051c01112b28a6c20608307",
+      "meaning": "Updates global mode/sync/channel/three values/model markers"
+    },
+    "display_value_gate": {
+      "start": 36734,
+      "end_exclusive": 36798,
+      "first8_hex": "be6f0001be5106e1",
+      "range_sha256": "c7e0783b8f86e9ddef66acc78548d762a38c83e36d657b89afacd22694f79eda",
+      "meaning": "W enabled; BC row address/BD value; hides native MAN expiry"
+    },
+    "display_signed_tenths": {
+      "start": 31442,
+      "end_exclusive": 31562,
+      "first8_hex": "020eb86fb6af03d0",
+      "range_sha256": "3e8866a060d99df6f48a39fb2d1746276c23947d5253b97c0725e8c794fb7878",
+      "meaning": "B4=87,B5=88/8a/8c,B6 signedtenths; mutates B6 if negative"
+    },
+    "lcd_glyph_write": {
+      "start": 42682,
+      "end_exclusive": 42706,
+      "first8_hex": "b1510ad8b251a3ec",
+      "range_sha256": "6f5df439316c7df7262d7168123fa1ef093d2db3c517303106b8aec17b5594f7",
+      "meaning": "B1 destination RAM byte, B2 glyph index; preserves bit7"
+    },
+    "lcd_sign_write": {
+      "start": 28286,
+      "end_exclusive": 28448,
+      "first8_hex": "b029b16319d0b051",
+      "range_sha256": "e3c1064a66a7cb2cce57a529c1f9b86abe49b721871134a8f6b083e8e3d9a424",
+      "meaning": "B0 baseflags,B1 rowdigitaddress,B2 sign code"
+    },
+    "packet_destination_wrap": {
+      "start": 39422,
+      "end_exclusive": 39478,
+      "first8_hex": "bf6fbfc0c0f09e0e",
+      "range_sha256": "c193b5c1067f95c4aa678279cfe44d01611858d9d03665604c80b6708294af0c",
+      "meaning": "W dest; BD:BE payload12; output C0..CF=dest,FF,FF,FF,payload12"
+    },
+    "packet_enqueue": {
+      "start": 42506,
+      "end_exclusive": 42542,
+      "first8_hex": "6eec53f00001bc6f",
+      "range_sha256": "d49ba73b6080aae9cbec83b36e6f9eb540eb045b367fcfb2ba70c8dfb56cf6a9",
+      "meaning": "BB pointer in bank0; type-selected12/16 length; requires queue space"
+    },
+    "packet_copy_to_uart_ring": {
+      "start": 34006,
+      "end_exclusive": 34102,
+      "first8_hex": "b6c0b9f06eec53f0",
+      "range_sha256": "24057cb591005614e7be75b56fe4361bbfc4ac7e9c79791be9cba0cca00d938e",
+      "meaning": "B6 payloadpointer; A6DC length; ring control92; legacytype0 adds XOR checksum"
+    },
+    "packet_prefix_append": {
+      "start": 34196,
+      "end_exclusive": 34282,
+      "first8_hex": "6fec33f067ec59f0",
+      "range_sha256": "a19e8f9e7950a007ade98108d5ff4e90cb51517cd281c7c5034eed5a1baa2e64",
+      "meaning": "BB:BC outputptr; selects RSGT1/RSGT5 using native radio object"
+    },
+    "group_relative_command": {
+      "start": 29044,
+      "end_exclusive": 29132,
+      "first8_hex": "db6f285001e01200",
+      "range_sha256": "d437f69e95b7e8b33b6411a6457a715532356f143e78c96490cab733fd1bd6b9",
+      "meaning": "W group,DA signedstep; maps1,-1,10,-10 to06/07/0D/0E and nativepacket"
+    },
+    "alternate_step_command": {
+      "start": 34380,
+      "end_exclusive": 34470,
+      "first8_hex": "db6f285001e01200",
+      "range_sha256": "87ec24d32eda4fd329c20000ce08df370fbdf356af5851fb64f51c827527f64b",
+      "meaning": "W group,DA signedstep; maps1,-1,10,-10 to04/05/0B/0C; do not conflate with7174"
+    },
+    "native_radio_type": {
+      "start": 45774,
+      "end_exclusive": 45776,
+      "first8_hex": "020c120012001200",
+      "range_sha256": "6ce59dd6d92067814f6e4f0a0f448bb2c1b88fd1304a1cd5f52f8874232747ab",
+      "meaning": "RETLW2 fixes F to RSGT1 with16bytebody"
+    },
+    "native_tick_getter": {
+      "start": 45570,
+      "end_exclusive": 45580,
+      "first8_hex": "06c1b0f007c1b1f0",
+      "range_sha256": "7f29a593d9027970dcbceb325670fb871550c44a914fbeaede31cb87eee10d48",
+      "meaning": "Copy106:107 toB0:B1; unlikeAB22 does not normalize to15bits/nonzero"
+    },
+    "native_signed_clamp": {
+      "start": 38608,
+      "end_exclusive": 38700,
+      "first8_hex": "18d8b251800ab56f",
+      "range_sha256": "54ff90a8c2d769d639078381b628e03345ac1c0ab5dc9ce1c1922b42d8510be6",
+      "meaning": "B0:B1 data ptr; B2 upper(+99),B3 lower(-99), confirmed by original-instruction replay"
+    }
+  },
+  "keys": {
+    "MODE": 266,
+    "SYNC": 270,
+    "CHANNEL": 274,
+    "A": 278,
+    "B": 282,
+    "C": 286,
+    "MODEL": 290,
+    "HEAD": 294,
+    "PLUS": 298,
+    "MINUS": 302,
+    "TEST": 306,
+    "AUX_CAMERA_INPUT": 310
+  },
+  "group_callbacks": {
+    "1": {
+      "model": 36518,
+      "head": 39254,
+      "select_mode": 41174,
+      "ttl_power": 37222,
+      "man_power": 38548
+    },
+    "2": {
+      "model": 35758,
+      "head": 37994,
+      "select_mode": 41130,
+      "ttl_power": 34650,
+      "man_power": 38488
+    },
+    "3": {
+      "model": 35594,
+      "head": 37420,
+      "select_mode": 41086,
+      "ttl_power": 37154,
+      "man_power": 38428
+    },
+    "7": {
+      "model": 41262,
+      "head": 40866,
+      "select_mode": 41218,
+      "ttl_power": 45750,
+      "man_power": 28448
+    }
+  },
+  "ram": {
+    "config_pointer": [
+      34,
+      35
+    ],
+    "config_object": 396,
+    "mode_offset": 0,
+    "mode_encoding": {
+      "TTL": 0,
+      "MAN": 1
+    },
+    "config_fec_abc_offsets": [
+      4,
+      5,
+      6
+    ],
+    "config_channel_offset": 8,
+    "selected_group": 96,
+    "manual_relative_abc": [
+      47,
+      48,
+      49
+    ],
+    "pending_relative_steps": 97,
+    "head_mask": 41,
+    "model_mask": 56,
+    "model_callback": [
+      99,
+      102
+    ],
+    "head_callback": [
+      102,
+      105
+    ],
+    "power_callback": [
+      105,
+      108
+    ],
+    "mode_callback": [
+      108,
+      111
+    ],
+    "key_index": 120,
+    "key_object_range": [
+      266,
+      314
+    ],
+    "ui_context": 122,
+    "display_buffer": [
+      135,
+      146
+    ],
+    "original_static_init_max_exclusive": 1664,
+    "radio_tx_ring": {
+      "descriptor": 146,
+      "buffer": 1280,
+      "capacity": 100,
+      "offsets": {
+        "write": 0,
+        "read": 1,
+        "count": 2,
+        "capacity": 3,
+        "bufferLE16": 4
+      },
+      "constructor_evidence": "6CC4..6CD6 ->95A0",
+      "replay_evidence": "A60A produces marker0+16body; index92 andcount94 increase17"
+    },
+    "native_tick": {
+      "lo": 262,
+      "hi": 263,
+      "units": "native counts; physical time not yet independently proved",
+      "divider": 264,
+      "default_divider": 1500,
+      "init_evidence": "AF34->99C6 W30; 7050 integrates timerF23:F24"
+    }
+  },
+  "allocation_conflicts_with_C11_P8": [
+    "200..266 cleared/live native RAM",
+    "267..2b8 copied const object data",
+    "2c0..2d7 live key/other locals",
+    "300..386 copied object callback structures",
+    "330..35f inside native callback object"
+  ],
+  "unresolved": [
+    "Do not allocate new RAM solely because initializers stop at680; indirect ring/pointer bounds still need audit",
+    "Original software stack extent and interrupt scratch overlap not fully established",
+    "New absolute formatter and six-group projection model need implementation and instruction replay",
+    "AIR2 cmd11 must use native radio framing/type/queue lifecycle; direct old C11 UART injection would bypass native stack",
+    "Persistent write pages, native runtime checksum coverage and final NVM allocation still need verification",
+    "A2 mode changes must synchronize camera-origin mode changes and retain original HSS text and timing entrypoints",
+    "Complete first-key chord arbitration must use native object debounce and avoid consuming repeated +- events"
+  ],
+  "reusable_from_P8": [
+    "User-visible policy and six canonical target semantics",
+    "Host reference model/test expectations for pages/modes/bounds",
+    "AIR2 protocol payload only after native framing verification"
+  ],
+  "not_reusable_from_P8": [
+    "Every C11 original function address",
+    "C11 static RAM allocation",
+    "C11 raw scanner and debounce ABI",
+    "C11 original LCD/radio direct-helper ABI",
+    "Canon HSS baseline and camera command hooks",
+    "C11 header CRC xor residue"
+  ],
+  "static_checks": {
+    "passed": 14,
+    "checks": [
+      "MODE specific object dispatch to7ed4",
+      "A target selector1",
+      "B target selector2",
+      "C target selector3",
+      "MODELCB pointer63",
+      "HEADCB pointer66",
+      "key index modulo12",
+      "plus release1",
+      "minus releaseFF",
+      "plus held10",
+      "minus heldF6",
+      "radio prefix strings",
+      "F radio type2 fixed",
+      "reserved config tail unchanged in analysis"
+    ],
+    "does_not_execute_firmware": true
+  }
+}

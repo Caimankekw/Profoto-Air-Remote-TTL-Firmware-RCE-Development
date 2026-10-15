@@ -1,0 +1,93 @@
+{
+  "model_tag": "S",
+  "revision": "A6",
+  "state_base": 1664,
+  "state_span": 384,
+  "window_counts": 200,
+  "stable_counts": 10,
+  "clock_mask": 32767,
+  "page_hint_on_chord": true,
+  "release_redraw": true,
+  "code_limit": 63488,
+  "nv_enabled": true,
+  "ram_proven": true,
+  "hardware_proven": true,
+  "clock_proven": true,
+  "native_interfaces_proven": true,
+  "native_input_gate_proven": true,
+  "native_radio_gate_proven": true,
+  "native_nv_gate_proven": true,
+  "native_mode_restore_proven": true,
+  "persistence": {
+    "hardware_proven": true,
+    "ram_proven": true,
+    "pages_proven": true,
+    "isr_context_proven": true,
+    "flash_bytes": 131072,
+    "erase_bytes": 1024,
+    "write_bytes": 2,
+    "eecon1": 4006,
+    "eecon2": 4007,
+    "wprog_bit": 5
+  },
+  "protected_ranges": [
+    {
+      "start": 16648,
+      "end": 16978,
+      "label": "Sony original interrupt/camera dispatch and context restore"
+    },
+    {
+      "start": 27568,
+      "end": 28126,
+      "label": "Sony original foreground camera protocol region"
+    },
+    {
+      "start": 23560,
+      "end": 23768,
+      "label": "Sony original RF queue consumer/service"
+    },
+    {
+      "start": 42374,
+      "end": 42472,
+      "label": "Sony original RSUU timing/exclusive service"
+    }
+  ],
+  "evidence": {
+    "ram": "../shared/ram_allocation_audit.json: bounded legal native object/index model; not exhaustive corrupt-state proof",
+    "hardware": "../shared/identity_report.json: common F/LF47J13/J53 capabilities, exact chip not physically read",
+    "clock": "A710/6972, foreground-only 106:107 clock; 7FFF mask matches original key timestamp. Counts are not a measured wall-clock guarantee.",
+    "input": "DD=0, DC=0, original AB0C input gate; native keys/history retained",
+    "radio": "radio/fast_empty_queue.py and test_fast_empty_queue.py: empty native 100-byte queue, original camera gates and pending flags; 74-cycle maximum masked commit",
+    "nvm": "Same readonly radio quiet plus input ready and all 11 latest key samples released; shared core stable gate then masked fresh recheck before each flash command. Flash may briefly stall CPU; physical HSS equivalence awaits testing.",
+    "native_periodic_save": "Original 954E compares settings and writes journal periodically; original journal at 1F800..1FBFF retained. New journal F800/FC00 is separate.",
+    "isr_context": "4108 saves FSR1/FSR2, PRODL/H, TBLPTRU/H/L and TABLAT to 61..6A; 4226..424A restores them, 4250 RETFIE FAST restores W/STATUS/BSR. New persistence uses protected FSR2, not unpreserved FSR0 across enabled interrupts.",
+    "scope": "Bounded actual-code replay, stock-byte and container preservation. No physical boot, RF acknowledgment, exposure or zero-latency guarantee."
+  },
+  "offline_qualification_complete": true,
+  "validation": {
+    "native_hook_preimages": true,
+    "instruction_boundaries": true,
+    "private_ram_allocation": true,
+    "native_calling_conventions": true,
+    "radio_queue_backpressure": true,
+    "original_hss_paths_preserved": true,
+    "persistence_backend": true,
+    "core_policy_tests": true,
+    "native_adapter_tests": true
+  },
+  "qualification": {
+    "status": "OFFLINE_VALIDATED_EXPERIMENTAL",
+    "release": "AIR2-P8-M2",
+    "date": "2026-10-15",
+    "image_sha256": "e159e3accf1271af66e52b11b626433d5cd7136c8b2717b44f441b4730bbf287",
+    "integration_cases": 78,
+    "boot_regression_cases": 24,
+    "evidence": [
+      "shared/final_validation_m2.json",
+      "shared/HSS_PRESERVATION_M2.json"
+    ],
+    "scope": "Actual linked instruction replay, mount UI regressions and stock/container preservation. No physical boot, RF acknowledgment, exposure or zero-latency guarantee.",
+    "profile_metadata_note": "Final builders require this reviewed image and replay it again; evidence pointers avoid reciprocal report/profile hashes."
+  },
+  "device_boot_verified": false
+}
