@@ -53,3 +53,9 @@ python -B tools/package_source.py --out "artifacts"
 冻结 M2 记录本型号在普通/优化 Python 下各通过 78 项整合、24 项启动恢复和 102 项专项检查。跨型号证据包含 1,024 个正常无线帧对照，以及每型号 26 条轨迹/178 步与 Canon 匹配；忙态准入仍有差异，均为有边界的软件检查。既有独立源码包重建已精确复现 EXE/HEX/局部镜像。本次还会对各分支归档独立重建并静态核对封包，结果见 Release 验证文件；封包不运行安装程序、更新器或设备。
 
 请阅读[免责声明](DISCLAIMER.zh-CN.md)、[许可范围](NOTICE.zh-CN.md)、[LICENSE](LICENSE)及[更新记录](CHANGELOG.zh-CN.md)。AGPL 仅覆盖原创内容，厂商固件和混合二进制保留各自条款。
+
+## macOS 更新包
+
+原生 Mac 封包说明与源码见 [macos/README.zh-CN.md](macos/README.zh-CN.md)。Mac 包保留原厂 GUI 与 USB 加载器，置入与现有 Windows 版完全相同的固件 HEX，以 ad-hoc 签名重建外层应用资源密封，再生成 APFS/UDZO DMG。它不具备原厂 Developer ID 签名或 Apple 公证。GUI 为 Intel x86_64，Apple Silicon 需要 Rosetta；尚未验证 macOS 实机刷写。
+
+Mac 封包源码标签为 `fujifilm-air2-m2-20261016-mac`；原固件发布标签和 Windows 附件保持不变。新 Mac 源码包包含完整固件及封包源码。请查看现有 Release 中专属 Mac 使用说明和验证附件。
