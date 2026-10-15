@@ -1,0 +1,448 @@
+{
+  "schema": 1,
+  "target": "Air Remote TTL-F A5",
+  "range_convention": "program byte addresses, [start,end_exclusive)",
+  "stock_identity": "../model.json",
+  "image_sha256": "403b13737bb8c6874d320266319ade0c6bae16aed91f79a41330a181b9355d91",
+  "known_mask_sha256": "81fe4da4f8a15728c97bc6de35fae71572d44f39a927dce22a9ca300b5d2558b",
+  "decode_limits": {
+    "unknown_first_word": [
+      "0x4000",
+      "0x4002"
+    ],
+    "direct_reference_codec_interval": [
+      "0x4002",
+      "0x10000"
+    ],
+    "opaque_ff_fingerprint_interval": [
+      "0x10000",
+      "0x1FC00"
+    ],
+    "image_end_exclusive": "0x1FC00",
+    "high_tail_not_independently_decoded": true
+  },
+  "source_policy": "Source files are historical workspace-relative identifiers, not bundled dependencies. Some contain AIR2 work; only explicitly selected original instruction facts are used here. Hashes bind the cited source revision, not endorsement of every source claim.",
+  "sources": [
+    {
+      "path": "analysis/air_remote_ttl_multi_air2/F/F_A5_adapter_evidence.json",
+      "sha256": "74d21fee8ea2936af93e6745cf16fc9b8eedff628473d84a5112500746fec9f6",
+      "bundled": false
+    },
+    {
+      "path": "analysis/air_remote_ttl_multi_air2/F/F_A5_clock_irq_evidence.json",
+      "sha256": "35fb2dab36e910699ed01aa35e41f06cd28ba1bc7af7a4f9390298468592bac7",
+      "bundled": false
+    },
+    {
+      "path": "analysis/air_remote_ttl_multi_air2/F/c11_codec_candidate.listing.txt",
+      "sha256": "fed8ff7e939619311a6f17608c9f9f97335b9b3b372a11249f7aaf948e0bd4c1",
+      "bundled": false
+    },
+    {
+      "path": "analysis/air_remote_ttl_multi_air2/F/build_evidence.py",
+      "sha256": "39cfc46503d3c4557c3d9fcabbe847624ede7a75c7f3a346feb222b366545655",
+      "bundled": false
+    },
+    {
+      "path": "analysis/air_remote_ttl_multi_air2/F/audit_clock_irq.py",
+      "sha256": "5a2d02eaf9bc048d3c118eea0f5601b14bfcd276700d29d1fd4d81623571e5fd",
+      "bundled": false
+    },
+    {
+      "path": "analysis/air_remote_ttl_multi_air2/F/F_A5_clock_irq_report.zh-en.txt",
+      "sha256": "25f28141dd0a2afb4b7987107d87f31fccccd3b7c2b9ed4527ff5bbc5038f45c",
+      "bundled": false
+    },
+    {
+      "path": "analysis/air_remote_ttl_multi_air2/shared/stock/F/profile.json",
+      "sha256": "dddc9bc8222141a576ef079ea33f172352b7562f320c18c41820bb360501114b",
+      "bundled": false
+    },
+    {
+      "path": "analysis/air_remote_ttl_multi_air2/shared/inspect_variants.py",
+      "sha256": "443a50b30a5b897c46a3a46eaac068a5d7ad18d9547bd412a84bd85bd0b7acdb",
+      "bundled": false
+    },
+    {
+      "path": "analysis/air_remote_ttl_multi_air2/shared/helpers/reference_codec.py",
+      "sha256": "1cec5771dbf0f8430170bed9f17c8cd14045954f0b9c19c98373c9178ac37bcf",
+      "bundled": false
+    }
+  ],
+  "anchors": [
+    {
+      "id": "startup_data_init",
+      "start": "0x5F6E",
+      "end_exclusive": "0x606C",
+      "sha256": "0394985f9ba65b42e87866df522375e309c79eba10526e234bf6675d94d80a2d",
+      "source": "analysis/air_remote_ttl_multi_air2/F/F_A5_adapter_evidence.json",
+      "locator": "functions.startup_data_init"
+    },
+    {
+      "id": "main_init",
+      "start": "0x4C3A",
+      "end_exclusive": "0x4D84",
+      "sha256": "c22a9f4e303a01264316d71d0b0c7b9f5982fcf269305ccfbc757e6fbe2ca15c",
+      "source": "analysis/air_remote_ttl_multi_air2/F/F_A5_adapter_evidence.json",
+      "locator": "functions.main_init"
+    },
+    {
+      "id": "main_loop",
+      "start": "0x4D84",
+      "end_exclusive": "0x4DC6",
+      "sha256": "fe6e59936fb763d28fb8feb3d6a21352768e087f2d58ace5abfbd8287989cce0",
+      "source": "analysis/air_remote_ttl_multi_air2/F/F_A5_adapter_evidence.json",
+      "locator": "functions.main_loop"
+    },
+    {
+      "id": "ui_service",
+      "start": "0x596E",
+      "end_exclusive": "0x5AB6",
+      "sha256": "eb12bd8a2c49fffc946d667b42e256f00b6fb79f73150b7b097e44bcee3ce8bc",
+      "source": "analysis/air_remote_ttl_multi_air2/F/F_A5_adapter_evidence.json",
+      "locator": "functions.ui_service"
+    },
+    {
+      "id": "raw_key_sample",
+      "start": "0x48EA",
+      "end_exclusive": "0x4A9A",
+      "sha256": "282af8e3c049eef22b25c31b34acba2285cef32313c7ff210b3459344f409dc5",
+      "source": "analysis/air_remote_ttl_multi_air2/F/F_A5_adapter_evidence.json",
+      "locator": "functions.raw_key_sample"
+    },
+    {
+      "id": "key_history_append",
+      "start": "0x97C0",
+      "end_exclusive": "0x97F0",
+      "sha256": "4fdde0a25a08cc2ca0bb36945a496abc70122797ce20d49d4ca1e2c4cbad8a2a",
+      "source": "analysis/air_remote_ttl_multi_air2/F/F_A5_adapter_evidence.json",
+      "locator": "functions.key_history_append"
+    },
+    {
+      "id": "key_event_service",
+      "start": "0xA50E",
+      "end_exclusive": "0xA532",
+      "sha256": "cf57c060ee09bbcb09f4e6a7dd758a3e7c29099c29803d462185d4d6561108e5",
+      "source": "analysis/air_remote_ttl_multi_air2/F/F_A5_adapter_evidence.json",
+      "locator": "functions.key_event_service"
+    },
+    {
+      "id": "key_object_process",
+      "start": "0x581A",
+      "end_exclusive": "0x596E",
+      "sha256": "e906a5b2966cfd9f0a0a74311c5d22e852a1fd69515ce583978b07b236f16adf",
+      "source": "analysis/air_remote_ttl_multi_air2/F/F_A5_adapter_evidence.json",
+      "locator": "functions.key_object_process"
+    },
+    {
+      "id": "normal_press",
+      "start": "0x5E6A",
+      "end_exclusive": "0x5F6E",
+      "sha256": "6bbd54a98963d36954480b288ee9274687762a48c802efea6b6ec3520c1d2414",
+      "source": "analysis/air_remote_ttl_multi_air2/F/F_A5_adapter_evidence.json",
+      "locator": "functions.normal_press"
+    },
+    {
+      "id": "normal_release",
+      "start": "0x8D34",
+      "end_exclusive": "0x8D7E",
+      "sha256": "ab1a174cde83b2f5e0707386d26ed658c3f065b764ecef86a284229d428a4beb",
+      "source": "analysis/air_remote_ttl_multi_air2/F/F_A5_adapter_evidence.json",
+      "locator": "functions.normal_release"
+    },
+    {
+      "id": "normal_hold",
+      "start": "0x70E6",
+      "end_exclusive": "0x716A",
+      "sha256": "09063dc2014bdbce1fbbf8a5a01789477f770abaacf68091e195ee7b4efc9c10",
+      "source": "analysis/air_remote_ttl_multi_air2/F/F_A5_adapter_evidence.json",
+      "locator": "functions.normal_hold"
+    },
+    {
+      "id": "mode_toggle",
+      "start": "0x7ED4",
+      "end_exclusive": "0x7F40",
+      "sha256": "fdf06e3ed3698a2309f9b5a66fe95cf70072295927aa6f54d88a68a3a3102542",
+      "source": "analysis/air_remote_ttl_multi_air2/F/F_A5_adapter_evidence.json",
+      "locator": "functions.mode_toggle"
+    },
+    {
+      "id": "selected_group_toggle",
+      "start": "0x9EBE",
+      "end_exclusive": "0x9EEC",
+      "sha256": "9052e46e7f8756375aa2179c711f9b029bf175c13d0b7fb4d30625abc762bac3",
+      "source": "analysis/air_remote_ttl_multi_air2/F/F_A5_adapter_evidence.json",
+      "locator": "functions.selected_group_toggle"
+    },
+    {
+      "id": "select_group_and_callbacks",
+      "start": "0x6492",
+      "end_exclusive": "0x655E",
+      "sha256": "0ea511d2c138bab26ce85b2434e44f16f475bbd37ae2fac14a3c78e8b34d5ab1",
+      "source": "analysis/air_remote_ttl_multi_air2/F/F_A5_adapter_evidence.json",
+      "locator": "functions.select_group_and_callbacks"
+    },
+    {
+      "id": "apply_power_step",
+      "start": "0x8D7E",
+      "end_exclusive": "0x8DC8",
+      "sha256": "6e173954818b547836a594b69f6452c1c1f95ebee503be890f6cd6c9db9565ae",
+      "source": "analysis/air_remote_ttl_multi_air2/F/F_A5_adapter_evidence.json",
+      "locator": "functions.apply_power_step"
+    },
+    {
+      "id": "config_get_mode",
+      "start": "0x569A",
+      "end_exclusive": "0x56A6",
+      "sha256": "2ee25d77d8cf8eecb973bc0faffda61a04aa223c18b688241529dc09268a811b",
+      "source": "analysis/air_remote_ttl_multi_air2/F/F_A5_adapter_evidence.json",
+      "locator": "functions.config_get_mode"
+    },
+    {
+      "id": "display_refresh",
+      "start": "0x9C74",
+      "end_exclusive": "0x9CA6",
+      "sha256": "1f72068cef46e563b3eb853490b4c3b561fa36d1f051c01112b28a6c20608307",
+      "source": "analysis/air_remote_ttl_multi_air2/F/F_A5_adapter_evidence.json",
+      "locator": "functions.display_refresh"
+    },
+    {
+      "id": "display_value_gate",
+      "start": "0x8F7E",
+      "end_exclusive": "0x8FBE",
+      "sha256": "c7e0783b8f86e9ddef66acc78548d762a38c83e36d657b89afacd22694f79eda",
+      "source": "analysis/air_remote_ttl_multi_air2/F/F_A5_adapter_evidence.json",
+      "locator": "functions.display_value_gate"
+    },
+    {
+      "id": "display_signed_tenths",
+      "start": "0x7AD2",
+      "end_exclusive": "0x7B4A",
+      "sha256": "3e8866a060d99df6f48a39fb2d1746276c23947d5253b97c0725e8c794fb7878",
+      "source": "analysis/air_remote_ttl_multi_air2/F/F_A5_adapter_evidence.json",
+      "locator": "functions.display_signed_tenths"
+    },
+    {
+      "id": "lcd_glyph_write",
+      "start": "0xA6BA",
+      "end_exclusive": "0xA6D2",
+      "sha256": "6f5df439316c7df7262d7168123fa1ef093d2db3c517303106b8aec17b5594f7",
+      "source": "analysis/air_remote_ttl_multi_air2/F/F_A5_adapter_evidence.json",
+      "locator": "functions.lcd_glyph_write"
+    },
+    {
+      "id": "lcd_sign_write",
+      "start": "0x6E7E",
+      "end_exclusive": "0x6F20",
+      "sha256": "e3c1064a66a7cb2cce57a529c1f9b86abe49b721871134a8f6b083e8e3d9a424",
+      "source": "analysis/air_remote_ttl_multi_air2/F/F_A5_adapter_evidence.json",
+      "locator": "functions.lcd_sign_write"
+    },
+    {
+      "id": "packet_destination_wrap",
+      "start": "0x99FE",
+      "end_exclusive": "0x9A36",
+      "sha256": "c193b5c1067f95c4aa678279cfe44d01611858d9d03665604c80b6708294af0c",
+      "source": "analysis/air_remote_ttl_multi_air2/F/F_A5_adapter_evidence.json",
+      "locator": "functions.packet_destination_wrap"
+    },
+    {
+      "id": "packet_enqueue",
+      "start": "0xA60A",
+      "end_exclusive": "0xA62E",
+      "sha256": "d49ba73b6080aae9cbec83b36e6f9eb540eb045b367fcfb2ba70c8dfb56cf6a9",
+      "source": "analysis/air_remote_ttl_multi_air2/F/F_A5_adapter_evidence.json",
+      "locator": "functions.packet_enqueue"
+    },
+    {
+      "id": "packet_copy_to_uart_ring",
+      "start": "0x84D6",
+      "end_exclusive": "0x8536",
+      "sha256": "24057cb591005614e7be75b56fe4361bbfc4ac7e9c79791be9cba0cca00d938e",
+      "source": "analysis/air_remote_ttl_multi_air2/F/F_A5_adapter_evidence.json",
+      "locator": "functions.packet_copy_to_uart_ring"
+    },
+    {
+      "id": "packet_prefix_append",
+      "start": "0x8594",
+      "end_exclusive": "0x85EA",
+      "sha256": "a19e8f9e7950a007ade98108d5ff4e90cb51517cd281c7c5034eed5a1baa2e64",
+      "source": "analysis/air_remote_ttl_multi_air2/F/F_A5_adapter_evidence.json",
+      "locator": "functions.packet_prefix_append"
+    },
+    {
+      "id": "group_relative_command",
+      "start": "0x7174",
+      "end_exclusive": "0x71CC",
+      "sha256": "d437f69e95b7e8b33b6411a6457a715532356f143e78c96490cab733fd1bd6b9",
+      "source": "analysis/air_remote_ttl_multi_air2/F/F_A5_adapter_evidence.json",
+      "locator": "functions.group_relative_command"
+    },
+    {
+      "id": "alternate_step_command",
+      "start": "0x864C",
+      "end_exclusive": "0x86A6",
+      "sha256": "87ec24d32eda4fd329c20000ce08df370fbdf356af5851fb64f51c827527f64b",
+      "source": "analysis/air_remote_ttl_multi_air2/F/F_A5_adapter_evidence.json",
+      "locator": "functions.alternate_step_command"
+    },
+    {
+      "id": "native_radio_type",
+      "start": "0xB2CE",
+      "end_exclusive": "0xB2D0",
+      "sha256": "6ce59dd6d92067814f6e4f0a0f448bb2c1b88fd1304a1cd5f52f8874232747ab",
+      "source": "analysis/air_remote_ttl_multi_air2/F/F_A5_adapter_evidence.json",
+      "locator": "functions.native_radio_type"
+    },
+    {
+      "id": "native_tick_getter",
+      "start": "0xB202",
+      "end_exclusive": "0xB20C",
+      "sha256": "7f29a593d9027970dcbceb325670fb871550c44a914fbeaede31cb87eee10d48",
+      "source": "analysis/air_remote_ttl_multi_air2/F/F_A5_adapter_evidence.json",
+      "locator": "functions.native_tick_getter"
+    },
+    {
+      "id": "native_signed_clamp",
+      "start": "0x96D0",
+      "end_exclusive": "0x972C",
+      "sha256": "54ff90a8c2d769d639078381b628e03345ac1c0ab5dc9ce1c1922b42d8510be6",
+      "source": "analysis/air_remote_ttl_multi_air2/F/F_A5_adapter_evidence.json",
+      "locator": "functions.native_signed_clamp"
+    },
+    {
+      "id": "clock_audit_0",
+      "start": "0x4108",
+      "end_exclusive": "0x41C4",
+      "sha256": "7bb2c448b2766387b393c1f54abb74bce110dbebce22a9ba407689be56c97660",
+      "source": "analysis/air_remote_ttl_multi_air2/F/F_A5_clock_irq_evidence.json",
+      "locator": "anchors[0]: complete IRQ"
+    },
+    {
+      "id": "clock_audit_1",
+      "start": "0x4D82",
+      "end_exclusive": "0x4DD6",
+      "sha256": "fde922a82e6acec603b1e2a1c1040536a2c20f5029f6cd70c851110a92dc4046",
+      "source": "analysis/air_remote_ttl_multi_air2/F/F_A5_clock_irq_evidence.json",
+      "locator": "anchors[1]: main loop, wake latch consumption and UI order"
+    },
+    {
+      "id": "clock_audit_4",
+      "start": "0x7050",
+      "end_exclusive": "0x70E6",
+      "sha256": "4cb1ddfbb4abb99c51c31edffaf2d1ce21b5195faec8de1a8a6339467458544b",
+      "source": "analysis/air_remote_ttl_multi_air2/F/F_A5_clock_irq_evidence.json",
+      "locator": "anchors[4]: native counter divider and fine/coarse tick update"
+    },
+    {
+      "id": "clock_audit_6",
+      "start": "0x9BAC",
+      "end_exclusive": "0x9BDE",
+      "sha256": "ee7d4621594d255b87cecac4c46032e7895a3ede761e8f65624cc51705ec6516",
+      "source": "analysis/air_remote_ttl_multi_air2/F/F_A5_clock_irq_evidence.json",
+      "locator": "anchors[6]: original NVM word-write sequence"
+    },
+    {
+      "id": "clock_audit_7",
+      "start": "0x99C6",
+      "end_exclusive": "0x99FE",
+      "sha256": "156594937376611859af11e5f495450418de63a56cdc16c78c2bb810f44269cb",
+      "source": "analysis/air_remote_ttl_multi_air2/F/F_A5_clock_irq_evidence.json",
+      "locator": "anchors[7]: divider selection"
+    },
+    {
+      "id": "clock_audit_8",
+      "start": "0xA476",
+      "end_exclusive": "0xA49C",
+      "sha256": "5ef73322a6c44e15a961cd6fae5f989249b94c004e3fe2fe170296dac0dba7f3",
+      "source": "analysis/air_remote_ttl_multi_air2/F/F_A5_clock_irq_evidence.json",
+      "locator": "anchors[8]: return camera state to 1"
+    },
+    {
+      "id": "clock_audit_9",
+      "start": "0xA3DE",
+      "end_exclusive": "0xA404",
+      "sha256": "4e1a32059084e587e849a9e012eac944558d2636e831f90ec23670599974f744",
+      "source": "analysis/air_remote_ttl_multi_air2/F/F_A5_clock_irq_evidence.json",
+      "locator": "anchors[9]: original erase sequence and control-bit-clear helper"
+    },
+    {
+      "id": "clock_audit_10",
+      "start": "0xAE22",
+      "end_exclusive": "0xAE38",
+      "sha256": "16d7aed6cada7adfab24d03c5a98fbd44e5510a5d0dde5b3dd36fdcdf849996a",
+      "source": "analysis/air_remote_ttl_multi_air2/F/F_A5_clock_irq_evidence.json",
+      "locator": "anchors[10]: IRQ writes shared RAM0FE; exclude it from wrapper restoration"
+    },
+    {
+      "id": "clock_audit_13",
+      "start": "0xAF34",
+      "end_exclusive": "0xAF46",
+      "sha256": "cd9bcc91e8266e11bf0eef6c79b2c0b177e8b5a340236c6b4844681cf971d356",
+      "source": "analysis/air_remote_ttl_multi_air2/F/F_A5_clock_irq_evidence.json",
+      "locator": "anchors[13]: startup timer initialization"
+    },
+    {
+      "id": "clock_audit_14",
+      "start": "0xAFB2",
+      "end_exclusive": "0xAFC4",
+      "sha256": "808ee0f41ffa96bc16c9b9a571c4931987b2e480f39b10f02b9e998cfff8a548",
+      "source": "analysis/air_remote_ttl_multi_air2/F/F_A5_clock_irq_evidence.json",
+      "locator": "anchors[14]: IRQ RX producer uses queue 01A5"
+    },
+    {
+      "id": "radio_admission",
+      "start": "0x9562",
+      "end_exclusive": "0x95A0",
+      "sha256": "b73f29f7d34c9aca00c51d053404c636afd072c31185081eac7c2f719b7ac666",
+      "source": "analysis/air_remote_ttl_multi_air2/F/c11_codec_candidate.listing.txt",
+      "locator": "byte addresses 0x9562..0x95A0; candidate listing reviewed for this window only"
+    },
+    {
+      "id": "wire_body_length",
+      "start": "0xA6DC",
+      "end_exclusive": "0xA6FE",
+      "sha256": "7c60a8b2378ddba11bfb358acb4990fd70fe41587eebf0af59d345abdc267adf",
+      "source": "analysis/air_remote_ttl_multi_air2/F/c11_codec_candidate.listing.txt",
+      "locator": "byte addresses 0xA6DC..0xA6FE; candidate listing reviewed for this window only"
+    },
+    {
+      "id": "native_journal_descriptor",
+      "start": "0x6AAC",
+      "end_exclusive": "0x6AC2",
+      "sha256": "b774dabbbc930dbd0f9fbc65951ba755d5982cd277b25842e98aa2f37ae5d7fe",
+      "source": "analysis/air_remote_ttl_multi_air2/F/c11_codec_candidate.listing.txt",
+      "locator": "byte addresses 0x6AAC..0x6AC2; candidate listing reviewed for this window only"
+    },
+    {
+      "id": "camera_irq_boundary",
+      "start": "0x5D42",
+      "end_exclusive": "0x5E6A",
+      "sha256": "30b34de1331a12eed3872232de3619916c272815cb61adcacf19ef8abf912cec",
+      "source": "analysis/air_remote_ttl_multi_air2/F/c11_codec_candidate.listing.txt",
+      "locator": "byte addresses 0x5D42..0x5E6A; candidate listing reviewed for this window only"
+    },
+    {
+      "id": "camera_foreground_boundary",
+      "start": "0x614C",
+      "end_exclusive": "0x62F4",
+      "sha256": "78ada0fcacb7fd08f3a73131ddc8f839a6ad98f28bcdc18c463f9c3224be6914",
+      "source": "analysis/air_remote_ttl_multi_air2/F/c11_codec_candidate.listing.txt",
+      "locator": "byte addresses 0x614C..0x62F4; candidate listing reviewed for this window only"
+    },
+    {
+      "id": "native_blank_off_helpers",
+      "start": "0xAFD4",
+      "end_exclusive": "0xAFF4",
+      "sha256": "2360279a90472fe4667cb929e7c9f09431d4788335b67c7ec12761b0c7df9562",
+      "source": "analysis/air_remote_ttl_multi_air2/F/c11_codec_candidate.listing.txt",
+      "locator": "byte addresses 0xAFD4..0xAFF4; candidate listing reviewed for this window only"
+    }
+  ],
+  "validation": {
+    "all_windows_inside_direct_decode_interval": true,
+    "all_window_mask_bytes_known": true,
+    "available_original_preimage_hashes_and_bytes_matched": true,
+    "no_binary_or_large_listing_bundled": true
+  }
+}

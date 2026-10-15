@@ -1,0 +1,154 @@
+{
+  "schema": 1,
+  "target": "Air Remote TTL-F A5",
+  "scope": "Selected original firmware behavior only; explanatory C-like pseudocode, not manufacturer source or compilable firmware",
+  "address_unit": "PIC18 program byte addresses; ranges half-open",
+  "evidence_index": "provenance.json",
+  "verified": {
+    "keys": {
+      "objects_start": "0x010A",
+      "objects_end_exclusive": "0x013A",
+      "stride": 4,
+      "count": 12,
+      "sample": "0x48EA",
+      "history": "0x97C0",
+      "poll": "0xA50E",
+      "state_machine": "0x581A",
+      "normal_press": "0x5E6A",
+      "release": "0x8D34",
+      "hold": "0x70E6",
+      "power": "0x8D7E",
+      "release_deltas": [
+        1,
+        -1
+      ],
+      "hold_deltas": [
+        10,
+        -10
+      ]
+    },
+    "clock": {
+      "update": "0x7050",
+      "raw_tick": "0x0106:0x0107",
+      "divider": "0x0108:0x0109",
+      "default_divider": 1500,
+      "raw_getter": "0xB202",
+      "normalized_getter": "0xAB22",
+      "unit": "native counts; physical time unconfirmed",
+      "fine_rule": "while elapsed>divider; update previous sample only if n>0; discard residual",
+      "coarse_rule": "increment once if unsigned16(fine-last_coarse_fine)>=1001"
+    },
+    "ui": {
+      "mode_entry": "0x7ED4",
+      "mode": {
+        "TTL": 0,
+        "MAN": 1
+      },
+      "config_pointer": "0x0022:0x0023",
+      "config_object": "0x018C",
+      "fec_abc": [
+        "0x0190",
+        "0x0191",
+        "0x0192"
+      ],
+      "relative_abc": [
+        "0x002F",
+        "0x0030",
+        "0x0031"
+      ],
+      "selection": "0x0060",
+      "groups": [
+        1,
+        2,
+        3,
+        7
+      ],
+      "selection_entry": "0x9EBE -> 0x6492",
+      "head_mask": "0x0029",
+      "model_mask": "0x0038",
+      "formatter": "0x7AD2",
+      "sign": "0x6E7E",
+      "glyph": "0xA6BA",
+      "glyph_preserves_bit7": true
+    },
+    "radio": {
+      "type_entry": "0xB2CE",
+      "type": 2,
+      "prefix": "RSGT1",
+      "body_length": 16,
+      "admission": "0x9562",
+      "enqueue": "0xA60A",
+      "tx": {
+        "descriptor": "0x0092",
+        "buffer": "0x0500",
+        "capacity": 100
+      },
+      "rx": {
+        "descriptor": "0x01A5",
+        "buffer": "0x0480",
+        "capacity": 50
+      },
+      "stock_check": "requested<=31 and count+requested<100",
+      "stock_requested": 16,
+      "actual_bytes_appended": 17,
+      "marker": 0
+    },
+    "startup_nv": {
+      "data_init": "0x5F6E",
+      "main_init": "0x4C3A",
+      "journal_descriptor_window": [
+        "0x6AAC",
+        "0x6AC2"
+      ],
+      "journal_end": "0x1FBFF",
+      "record_width": 4,
+      "word_write": [
+        "0x9BAC",
+        "0x9BDE"
+      ],
+      "erase_window": [
+        "0xA3DE",
+        "0xA404"
+      ],
+      "interrupt_policy": "clear FD0.7/FF2.7 then unconditionally set both; no saved-state restore"
+    },
+    "camera_hss_boundaries": {
+      "irq": [
+        "0x4108",
+        "0x41C4"
+      ],
+      "camera_irq": [
+        "0x5D42",
+        "0x5E6A"
+      ],
+      "foreground": [
+        "0x614C",
+        "0x62F4"
+      ],
+      "full_hss_algorithm_recovered": false
+    }
+  },
+  "inferred": [
+    "Physical key labels and radio sleep/suspend interpretation"
+  ],
+  "unknown": [
+    "Complete HSS algorithm and electrical timing",
+    "Physical clock frequency; native counts are not established milliseconds",
+    "Bootloader behavior and flash ownership outside audited original application",
+    "Full indirect RAM ownership and unproven interrupt nesting",
+    "Physical key labels and all analog multi-key behavior",
+    "Complete F key state-machine internals not reconstructed in this publication",
+    "Purpose of every original initialized byte at RAM600..67F"
+  ],
+  "not_stock": [
+    "AIR2 six-group or absolute-power UI",
+    "AIR2 17-byte preflight before original enqueue",
+    "Saved interrupt-enable restoration in replacement Flash backend",
+    "Canon HSS implementation"
+  ],
+  "publication_actions": {
+    "updater_executed": false,
+    "hardware_accessed": false,
+    "network_used": false
+  }
+}
