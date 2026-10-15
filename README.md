@@ -54,3 +54,9 @@ The self-extracting EXE and portable ZIP include the modified GUI updater, match
 The frozen M2 validation records 78 integrated cases, 24 startup restoration cases and 23 model-specific cases for this model, under normal and optimized Python. Cross-model evidence contains 1,024 normal radio-frame matches and 26 operation traces / 178 steps per model compared with Canon. Busy admission differs; these are bounded software checks. Existing independent archive rebuilds reproduced EXE/HEX/partial image exactly. This publication also rebuilds each branch archive and statically verifies its packages; release verification records the result. No installer/updater or hardware is executed in packaging.
 
 Read [DISCLAIMER](DISCLAIMER.md), [NOTICE](NOTICE.md), [LICENSE](LICENSE) and [CHANGELOG](CHANGELOG.md). AGPL covers authored work; vendor firmware and mixed binaries retain their respective terms.
+
+## macOS packages
+
+Native Mac packaging instructions and build source are in [macos/README.md](macos/README.md). The Mac package retains the vendor GUI and USB helper, embeds the exact existing Windows firmware HEX, and rebuilds the outer application seal with an ad-hoc signature before creating an APFS/UDZO DMG. It has no vendor Developer ID signature or Apple notarization. The GUI is Intel x86_64; Apple Silicon requires Rosetta. Hardware flashing has not been verified on macOS.
+
+Mac packaging source is identified by `olympus-air2-m2-20261016-mac`; the original firmware release tag and Windows attachments remain unchanged. The new Mac source archive includes the complete firmware and packaging sources. See the dedicated Mac instructions and verification assets in the existing release.
