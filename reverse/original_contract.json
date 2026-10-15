@@ -1,0 +1,197 @@
+{
+  "schema": 1,
+  "target": "Air Remote TTL-O A4",
+  "scope": "Selected original firmware behavior only; explanatory C-like pseudocode, not manufacturer source or compilable firmware",
+  "address_unit": "PIC18 program byte addresses; ranges half-open",
+  "evidence_index": "provenance.json",
+  "verified": {
+    "keys": {
+      "objects_start": "0x0100",
+      "objects_end_exclusive": "0x0130",
+      "stride": 4,
+      "count": 12,
+      "sample": "0x5036",
+      "history": "0x92FC",
+      "poll": "0x9DF4",
+      "state_machine": "0x596E",
+      "normal_press": "0x5C12",
+      "release": "0x87BA",
+      "hold": "0x6DD0",
+      "power": "0x86D6",
+      "release_deltas": [
+        1,
+        -1
+      ],
+      "hold_deltas": [
+        10,
+        -10
+      ],
+      "hold_thresholds_native_counts": [
+        250,
+        650
+      ],
+      "first_timed_callback": "0xABC2 RETURN stub"
+    },
+    "clock": {
+      "raw_tick": "0x0075:0x0076",
+      "raw_getter": "0xAB2E",
+      "normalizer": "0x8E00 -> 0xAA52",
+      "elapsed": "0x98AA -> 0x669C",
+      "normalization": "(raw&0x7FFF) or 1",
+      "saved_zero_result": 0,
+      "saved_bit15_result": 65535,
+      "coarse_sentinel_threshold": 24001,
+      "unit": "native counts; physical time unconfirmed"
+    },
+    "ui": {
+      "mode_entry": "0x6A62",
+      "mode": {
+        "TTL": 0,
+        "MAN": 1
+      },
+      "config_pointer": "0x007E:0x007F",
+      "config_object": "0x0199",
+      "fec_abc": [
+        "0x019D",
+        "0x019E",
+        "0x019F"
+      ],
+      "fec_range": [
+        -20,
+        20
+      ],
+      "relative_abc": [
+        "0x0036",
+        "0x0037",
+        "0x0038"
+      ],
+      "relative_range": [
+        -99,
+        99
+      ],
+      "selection": "0x0060",
+      "groups": [
+        1,
+        2,
+        3,
+        7
+      ],
+      "selection_entry": "0x98D8 -> 0x609A",
+      "head_mask": "0x002C",
+      "model_mask": "0x003F",
+      "formatter": "0x742E",
+      "sign": "0x688E",
+      "glyph": "0xA10E",
+      "glyph_preserves_bit7": true,
+      "native_expiry": "0x7F7E; MAN-only"
+    },
+    "radio": {
+      "type_entry": "0xABD8",
+      "type": 2,
+      "prefix": "RSGT1",
+      "body_length": 16,
+      "admission": "0x919E",
+      "enqueue": "0x9F1E",
+      "tx": {
+        "descriptor": "0x0095",
+        "buffer": "0x0300",
+        "capacity": 100
+      },
+      "rx": {
+        "descriptor": "0x01B2",
+        "buffer": "0x0215",
+        "capacity": 50
+      },
+      "stock_check": "requested<=31 and count+requested<100",
+      "stock_requested": 16,
+      "actual_bytes_appended": 17,
+      "marker": 0
+    },
+    "startup_nv": {
+      "data_init": "0x69CA",
+      "restore_before_config_init": [
+        "0x5796 -> 0x5E1C",
+        "0x57AA -> 0x5520"
+      ],
+      "unpack": "0xA66C",
+      "journal_start": "0x1F800",
+      "journal_end_exclusive": "0x1FC00",
+      "record_width": 4,
+      "packed_fields": [
+        [
+          0,
+          6
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          12,
+          6
+        ],
+        [
+          18,
+          1
+        ],
+        [
+          19,
+          2
+        ]
+      ],
+      "fec_bias": 20,
+      "restoration_calls_mode_toggle": false,
+      "word_write": [
+        "0x962C",
+        "0x965E"
+      ],
+      "erase_window": [
+        "0x9E1A",
+        "0x9E40"
+      ],
+      "interrupt_policy": "clear FD0.7/FF2.7 then unconditionally set both; no saved-state restore"
+    },
+    "camera_hss_boundaries": {
+      "irq": [
+        "0x4108",
+        "0x4178"
+      ],
+      "camera_irq": [
+        "0x67E8",
+        "0x688E"
+      ],
+      "camera_state": "0x0040",
+      "packet_buffer": [
+        "0x0247",
+        "0x026F"
+      ],
+      "full_hss_algorithm_recovered": false
+    }
+  },
+  "inferred": [
+    "Physical key labels",
+    "Delta unit interpretation; do not infer 0.1EV solely from keyboard trace"
+  ],
+  "unknown": [
+    "Complete HSS algorithm and electrical timing",
+    "Physical clock frequency; native counts are not established milliseconds",
+    "Bootloader behavior and flash ownership outside audited original application",
+    "Full indirect RAM ownership and unproven interrupt nesting",
+    "Physical key labels and all analog multi-key behavior",
+    "All sources of key flags5/6 and complete non-normal UI behavior"
+  ],
+  "not_stock": [
+    "AIR2 D/E/F page and absolute-power UI",
+    "AIR2 17-byte preflight before original enqueue",
+    "TTL expiry extension",
+    "Temporary radio inhibition around adapter mode transition",
+    "Post-boot projection of native pending flag085",
+    "Saved interrupt-enable restoration in replacement Flash backend",
+    "Canon HSS implementation"
+  ],
+  "publication_actions": {
+    "updater_executed": false,
+    "hardware_accessed": false,
+    "network_used": false
+  }
+}

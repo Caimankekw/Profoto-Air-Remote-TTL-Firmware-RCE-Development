@@ -1,0 +1,543 @@
+{
+  "schema": 1,
+  "target": "Air Remote TTL-O A4",
+  "range_convention": "program byte addresses, [start,end_exclusive)",
+  "stock_identity": "../model.json",
+  "image_sha256": "84645f098eeab93dd41d150015c7c642207037b7605b937b0a13388df1805976",
+  "known_mask_sha256": "81fe4da4f8a15728c97bc6de35fae71572d44f39a927dce22a9ca300b5d2558b",
+  "decode_limits": {
+    "unknown_first_word": [
+      "0x4000",
+      "0x4002"
+    ],
+    "direct_reference_codec_interval": [
+      "0x4002",
+      "0x10000"
+    ],
+    "opaque_ff_fingerprint_interval": [
+      "0x10000",
+      "0x1FC00"
+    ],
+    "image_end_exclusive": "0x1FC00",
+    "high_tail_not_independently_decoded": true
+  },
+  "source_policy": "Source files are historical workspace-relative identifiers, not bundled dependencies. Some contain AIR2 work; only explicitly selected original instruction facts are used here. Hashes bind the cited source revision, not endorsement of every source claim.",
+  "sources": [
+    {
+      "path": "analysis/air_remote_ttl_multi_air2/O/portability_evidence.json",
+      "sha256": "f55ad8963c96386c775741a58fa4c032f48ba7944ddc35655da7c97d61d15e0d",
+      "bundled": false
+    },
+    {
+      "path": "analysis/air_remote_ttl_multi_air2/O/keyboard_contract.json",
+      "sha256": "49e405019a388d7210fce3c3d6e622da212e1123f91f2ef2137a35f6092fd0e2",
+      "bundled": false
+    },
+    {
+      "path": "analysis/air_remote_ttl_multi_air2/O/ram_nvm_contract.json",
+      "sha256": "b8d4c7735a61a2591e2c19c68c3c9abad89c504d18a43afb93ed9fc82400902e",
+      "bundled": false
+    },
+    {
+      "path": "analysis/air_remote_ttl_multi_air2/O/mode_transition_contract.json",
+      "sha256": "9b19ec7dc8ea44d3b540dd285640a3b9cca53a94abaa60490f0342c6e3a54017",
+      "bundled": false
+    },
+    {
+      "path": "analysis/air_remote_ttl_multi_air2/O/o_a4_candidate_listing.txt",
+      "sha256": "cf48d3bf8f239cc916b9bda713a3b491329f88e01f5dde266760ca8a5d9e4802",
+      "bundled": false
+    },
+    {
+      "path": "analysis/air_remote_ttl_multi_air2/O/keyboard_review.md",
+      "sha256": "f1138afbc0998c27ec776b6da09b4dc82f34d2a9a6e4298b68b1b701e22a05a5",
+      "bundled": false
+    },
+    {
+      "path": "analysis/air_remote_ttl_multi_air2/O/ram_nvm_review.md",
+      "sha256": "bab642015595c3327a66cf8144d991eb439075714f1e8fda60bdf6039f6ed70f",
+      "bundled": false
+    },
+    {
+      "path": "analysis/air_remote_ttl_multi_air2/O/mode_transition_contract.md",
+      "sha256": "e75f1638ce3155ff809761a8ce0e406c3f05c358765cf3b94c19ee925db9800e",
+      "bundled": false
+    },
+    {
+      "path": "analysis/air_remote_ttl_multi_air2/O/native_contract.py",
+      "sha256": "29edfda4496fbba87eea71fc991c0afa128a6f2726bd0f1b2f205a26d53ddb1c",
+      "bundled": false
+    },
+    {
+      "path": "analysis/air_remote_ttl_multi_air2/shared/stock/O/profile.json",
+      "sha256": "cc114a343817ec56008599cceb73b0f041ab5217ac3dabfa8c60e53301839bba",
+      "bundled": false
+    },
+    {
+      "path": "analysis/air_remote_ttl_multi_air2/shared/inspect_variants.py",
+      "sha256": "443a50b30a5b897c46a3a46eaac068a5d7ad18d9547bd412a84bd85bd0b7acdb",
+      "bundled": false
+    },
+    {
+      "path": "analysis/air_remote_ttl_multi_air2/shared/helpers/reference_codec.py",
+      "sha256": "1cec5771dbf0f8430170bed9f17c8cd14045954f0b9c19c98373c9178ac37bcf",
+      "bundled": false
+    }
+  ],
+  "anchors": [
+    {
+      "id": "startup_initializer",
+      "start": "0x69CA",
+      "end_exclusive": "0x6A62",
+      "sha256": "9fc2f71290a98fff4f8c5671b65146d05958340542dc689b62792bbe6598143a",
+      "source": "analysis/air_remote_ttl_multi_air2/O/portability_evidence.json",
+      "locator": "entries[0]"
+    },
+    {
+      "id": "main_loop",
+      "start": "0x57C0",
+      "end_exclusive": "0x57F8",
+      "sha256": "195a828dc0776cfd6e8cb08600e36245c2b1aaa1b0a19a15afc431fe04428e99",
+      "source": "analysis/air_remote_ttl_multi_air2/O/portability_evidence.json",
+      "locator": "entries[1]"
+    },
+    {
+      "id": "key_sample",
+      "start": "0x5036",
+      "end_exclusive": "0x51F6",
+      "sha256": "1fe639a00a6eca8417fbcef4afee777f634f78921f0c830ae351a7eccc756521",
+      "source": "analysis/air_remote_ttl_multi_air2/O/portability_evidence.json",
+      "locator": "entries[2]"
+    },
+    {
+      "id": "manual_delta_entry",
+      "start": "0x86D6",
+      "end_exclusive": "0x8722",
+      "sha256": "07da54f179bb33dc01869259375157ffbec744bdb4dc0b34eef5f308a47fc589",
+      "source": "analysis/air_remote_ttl_multi_air2/O/portability_evidence.json",
+      "locator": "entries[4]"
+    },
+    {
+      "id": "group_select",
+      "start": "0x609A",
+      "end_exclusive": "0x6166",
+      "sha256": "78e8fb5c4ee03450113723fe40d761dd96e68e0b40eefce7b24719c54bd83b4d",
+      "source": "analysis/air_remote_ttl_multi_air2/O/portability_evidence.json",
+      "locator": "entries[5]"
+    },
+    {
+      "id": "native_mode_switch",
+      "start": "0x6A62",
+      "end_exclusive": "0x6AF2",
+      "sha256": "aaa0992101bedd197dc7d7b2c66a8e80e38e6a5a1d8f487ce87b34f881b76eef",
+      "source": "analysis/air_remote_ttl_multi_air2/O/portability_evidence.json",
+      "locator": "entries[6]"
+    },
+    {
+      "id": "native_row_gate",
+      "start": "0x876E",
+      "end_exclusive": "0x87BA",
+      "sha256": "43c7a95dfefcef1dc0b47641abdd9d0fff989a2f3b58c1c0fda5b8941a7b93be",
+      "source": "analysis/air_remote_ttl_multi_air2/O/portability_evidence.json",
+      "locator": "entries[7]"
+    },
+    {
+      "id": "native_signed_formatter",
+      "start": "0x742E",
+      "end_exclusive": "0x74AE",
+      "sha256": "da9760916f4909e6707644dcc928f15b056b0190df2b2bb563531e9a3afee075",
+      "source": "analysis/air_remote_ttl_multi_air2/O/portability_evidence.json",
+      "locator": "entries[8]"
+    },
+    {
+      "id": "native_glyph_write",
+      "start": "0xA10E",
+      "end_exclusive": "0xA130",
+      "sha256": "4985a800dc6ea35b114a0537be45f01d63dc69c977844d434f7e977a7d30ce0a",
+      "source": "analysis/air_remote_ttl_multi_air2/O/portability_evidence.json",
+      "locator": "entries[9]"
+    },
+    {
+      "id": "native_sign_write",
+      "start": "0x688E",
+      "end_exclusive": "0x6930",
+      "sha256": "028698bb5c293395b3151e2038f8123554a6982c15c3c13cfc3a86cd97bc67ee",
+      "source": "analysis/air_remote_ttl_multi_air2/O/portability_evidence.json",
+      "locator": "entries[10]"
+    },
+    {
+      "id": "native_decimal_clear",
+      "start": "0x94E6",
+      "end_exclusive": "0x94EE",
+      "sha256": "dacbb9ca5fed557c37e3de8142906d6d1e8c944a49b58b459cc9177f7e7d2c6d",
+      "source": "analysis/air_remote_ttl_multi_air2/O/portability_evidence.json",
+      "locator": "entries[11]"
+    },
+    {
+      "id": "native_packet_prefix",
+      "start": "0x82B0",
+      "end_exclusive": "0x8306",
+      "sha256": "93aeb43600d77f1a14594b5f03b3f68f79c4fd23c7ba83b1bede381925a95d97",
+      "source": "analysis/air_remote_ttl_multi_air2/O/portability_evidence.json",
+      "locator": "entries[12]"
+    },
+    {
+      "id": "native_payload_packet",
+      "start": "0x936C",
+      "end_exclusive": "0x93A4",
+      "sha256": "d5e29e53997a7dca411e713c417c4d9f138b7705c8ccead0cfb1d49186336f73",
+      "source": "analysis/air_remote_ttl_multi_air2/O/portability_evidence.json",
+      "locator": "entries[14]"
+    },
+    {
+      "id": "native_flash_word_write",
+      "start": "0x962C",
+      "end_exclusive": "0x965E",
+      "sha256": "c0a56a5747ba6c7ae75720881f310c9fd991e7548e547a57ff103143a225cc29",
+      "source": "analysis/air_remote_ttl_multi_air2/O/portability_evidence.json",
+      "locator": "entries[15]"
+    },
+    {
+      "id": "keyboard_window_3",
+      "start": "0x92FC",
+      "end_exclusive": "0x9334",
+      "sha256": "cfd90e3391dd364cfbcda6d984363e078163adede41fa47a24e6ccbaa5c3b5ae",
+      "source": "analysis/air_remote_ttl_multi_air2/O/keyboard_contract.json",
+      "locator": "preimage_windows[3]"
+    },
+    {
+      "id": "keyboard_window_4",
+      "start": "0x596E",
+      "end_exclusive": "0x5974",
+      "sha256": "cd3bbc45f2241e1b9c37a9dd95a7d45268c3c8799949d0cde5cb7701991aac6e",
+      "source": "analysis/air_remote_ttl_multi_air2/O/keyboard_contract.json",
+      "locator": "preimage_windows[4]"
+    },
+    {
+      "id": "keyboard_window_5",
+      "start": "0x5A04",
+      "end_exclusive": "0x5A14",
+      "sha256": "44d0a2445136b04541283e1604759e35cf2c6862a0b34ce337c869111e72f9d6",
+      "source": "analysis/air_remote_ttl_multi_air2/O/keyboard_contract.json",
+      "locator": "preimage_windows[5]"
+    },
+    {
+      "id": "keyboard_window_6",
+      "start": "0x5A44",
+      "end_exclusive": "0x5A58",
+      "sha256": "09ffadef32c87d88c55dabfe582549dce6a948005fdf0e3572d5913edeb4e949",
+      "source": "analysis/air_remote_ttl_multi_air2/O/keyboard_contract.json",
+      "locator": "preimage_windows[6]"
+    },
+    {
+      "id": "keyboard_window_7",
+      "start": "0x5A76",
+      "end_exclusive": "0x5A8E",
+      "sha256": "3102979f6cb5e6cc29ead2c7342dfde13f86cea5724f47c4a2b9ef62cd4bdfae",
+      "source": "analysis/air_remote_ttl_multi_air2/O/keyboard_contract.json",
+      "locator": "preimage_windows[7]"
+    },
+    {
+      "id": "keyboard_window_8",
+      "start": "0x5C12",
+      "end_exclusive": "0x5C38",
+      "sha256": "896015235f5f4d4ee6150e819302c4c2e298da785f5983545abd87bbc92ff596",
+      "source": "analysis/air_remote_ttl_multi_air2/O/keyboard_contract.json",
+      "locator": "preimage_windows[8]"
+    },
+    {
+      "id": "keyboard_window_11",
+      "start": "0x98D8",
+      "end_exclusive": "0x9906",
+      "sha256": "09a7e0e45108e88bb0d7bbd98c776af750cdae66eba62d70c960f9b11fbaf4c1",
+      "source": "analysis/air_remote_ttl_multi_air2/O/keyboard_contract.json",
+      "locator": "preimage_windows[11]"
+    },
+    {
+      "id": "keyboard_window_13",
+      "start": "0x87BA",
+      "end_exclusive": "0x87E0",
+      "sha256": "a1e5e247cea19a3384bfcf79625bf9083b16b0f7e490ad01a9303d5081e5b26a",
+      "source": "analysis/air_remote_ttl_multi_air2/O/keyboard_contract.json",
+      "locator": "preimage_windows[13]"
+    },
+    {
+      "id": "keyboard_window_14",
+      "start": "0x6DD0",
+      "end_exclusive": "0x6E02",
+      "sha256": "95dde27ffbf95e9ce9f5a530e80e21f07ff8670a8771374c3c9b2d20bc7772bb",
+      "source": "analysis/air_remote_ttl_multi_air2/O/keyboard_contract.json",
+      "locator": "preimage_windows[14]"
+    },
+    {
+      "id": "keyboard_window_16",
+      "start": "0x9DF4",
+      "end_exclusive": "0x9E1A",
+      "sha256": "dfef1b1e1a930a1e9f98da5d86483c7bccfbe2320861423dac2b262ea5767c5f",
+      "source": "analysis/air_remote_ttl_multi_air2/O/keyboard_contract.json",
+      "locator": "preimage_windows[16]"
+    },
+    {
+      "id": "keyboard_window_17",
+      "start": "0x9934",
+      "end_exclusive": "0x9954",
+      "sha256": "38593d3717e0a0ceecdf3b62d3cd58a8dc4752d1a40f7ed6af9479209a541564",
+      "source": "analysis/air_remote_ttl_multi_air2/O/keyboard_contract.json",
+      "locator": "preimage_windows[17]"
+    },
+    {
+      "id": "keyboard_window_18",
+      "start": "0xA84A",
+      "end_exclusive": "0xA85C",
+      "sha256": "7d5ba344a90b0d38239a9f14733a094c71bf620bfcc677b9beb5d63f22128500",
+      "source": "analysis/air_remote_ttl_multi_air2/O/keyboard_contract.json",
+      "locator": "preimage_windows[18]"
+    },
+    {
+      "id": "ring_init",
+      "start": "0x6774",
+      "end_exclusive": "0x67A2",
+      "sha256": "6c6b8ef25e5d95b05f82d791f4d4816715a1d31481a0140ac22e5b85b9c3e625",
+      "source": "analysis/air_remote_ttl_multi_air2/O/ram_nvm_contract.json",
+      "locator": "preimages[3]"
+    },
+    {
+      "id": "nvm_descriptor_init",
+      "start": "0x5E38",
+      "end_exclusive": "0x5E58",
+      "sha256": "c0486ff28b64cbbbefb46100fae118cbbaa5285590c111b8019e865dc39f8bcd",
+      "source": "analysis/air_remote_ttl_multi_air2/O/ram_nvm_contract.json",
+      "locator": "preimages[5]"
+    },
+    {
+      "id": "nvm_descriptor_store",
+      "start": "0x825A",
+      "end_exclusive": "0x82B0",
+      "sha256": "8f18bf8c95f86449d3c36300d5c2882c253baa8af332165f2312a3b5b53383b3",
+      "source": "analysis/air_remote_ttl_multi_air2/O/ram_nvm_contract.json",
+      "locator": "preimages[6]"
+    },
+    {
+      "id": "nvm_commit_entry",
+      "start": "0x97BC",
+      "end_exclusive": "0x97EC",
+      "sha256": "cc8f5d31609df29fb64ef51033c243af5ac6478222909eddc38d137e8570757f",
+      "source": "analysis/air_remote_ttl_multi_air2/O/ram_nvm_contract.json",
+      "locator": "preimages[7]"
+    },
+    {
+      "id": "nvm_erase_call",
+      "start": "0x53B8",
+      "end_exclusive": "0x53DE",
+      "sha256": "d706f1c84b26235d8ceb40bafc9214462773370e1c311893a58db8081db38344",
+      "source": "analysis/air_remote_ttl_multi_air2/O/ram_nvm_contract.json",
+      "locator": "preimages[8]"
+    },
+    {
+      "id": "nvm_wordwrite_call",
+      "start": "0x54B2",
+      "end_exclusive": "0x54BE",
+      "sha256": "b8bcce5b34e1c78404e2a85e2902d17a37573ccd70e16d946034c298ecf81dc6",
+      "source": "analysis/air_remote_ttl_multi_air2/O/ram_nvm_contract.json",
+      "locator": "preimages[9]"
+    },
+    {
+      "id": "flash_erase_unlock",
+      "start": "0x9E1A",
+      "end_exclusive": "0x9E40",
+      "sha256": "aca61e6377c2afec0b9119072bf529f48bca72e4817b84016f8a940448546097",
+      "source": "analysis/air_remote_ttl_multi_air2/O/ram_nvm_contract.json",
+      "locator": "preimages[11]"
+    },
+    {
+      "id": "nvm_address",
+      "start": "0x81A8",
+      "end_exclusive": "0x8202",
+      "sha256": "6eafddf3e2f89eb7e532928aa948c8d605d8b0cb527979b032b88bb6879821f9",
+      "source": "analysis/air_remote_ttl_multi_air2/O/ram_nvm_contract.json",
+      "locator": "preimages[12]"
+    },
+    {
+      "id": "irq_ring_entry",
+      "start": "0xA8EC",
+      "end_exclusive": "0xA8FE",
+      "sha256": "592ba7e8e53b2100b043333602514998c26ee28e5151bd78254304b41f8d212d",
+      "source": "analysis/air_remote_ttl_multi_air2/O/ram_nvm_contract.json",
+      "locator": "preimages[14]"
+    },
+    {
+      "id": "mode_redraw",
+      "start": "0x9A48",
+      "end_exclusive": "0x9A8E",
+      "sha256": "c2fc759facbf446cb53d1848cfe8671a5688b30ddccb67e270fce450dec62f49",
+      "source": "analysis/air_remote_ttl_multi_air2/O/mode_transition_contract.json",
+      "locator": "preimages[10]"
+    },
+    {
+      "id": "boot_init_pending",
+      "start": "0x558C",
+      "end_exclusive": "0x559E",
+      "sha256": "475ade84aec442567d9a68cfde159b8b29a2c300760ec93f85299996cfe21c2a",
+      "source": "analysis/air_remote_ttl_multi_air2/O/mode_transition_contract.json",
+      "locator": "preimages[11]"
+    },
+    {
+      "id": "boot_pending_send",
+      "start": "0x5946",
+      "end_exclusive": "0x5962",
+      "sha256": "5debeb641c6b6b042442b45f41a4a8d67f87688e19b3243620497e80b572d1bc",
+      "source": "analysis/air_remote_ttl_multi_air2/O/mode_transition_contract.json",
+      "locator": "preimages[12]"
+    },
+    {
+      "id": "nvm_boot_call_order",
+      "start": "0x5784",
+      "end_exclusive": "0x57AE",
+      "sha256": "48c6a1daeb54126a2d6aff402e058ea9a5fad37345d4bceb273be9dcff14f457",
+      "source": "analysis/air_remote_ttl_multi_air2/O/mode_transition_contract.json",
+      "locator": "preimages[13]"
+    },
+    {
+      "id": "nvm_restore",
+      "start": "0x5EB0",
+      "end_exclusive": "0x5EE4",
+      "sha256": "c2c52e5a733c293de49f56e40f6efa6bb7c0145a240c2c9fb56d05125cade256",
+      "source": "analysis/air_remote_ttl_multi_air2/O/mode_transition_contract.json",
+      "locator": "preimages[14]"
+    },
+    {
+      "id": "nvm_unpack",
+      "start": "0xA66C",
+      "end_exclusive": "0xA69C",
+      "sha256": "835c28752603f6d1d0f8c2cff5bb6d4dd05034a1284a66a4f502ac95afbc1308",
+      "source": "analysis/air_remote_ttl_multi_air2/O/mode_transition_contract.json",
+      "locator": "preimages[15]"
+    },
+    {
+      "id": "irq_dispatch",
+      "start": "0x4108",
+      "end_exclusive": "0x4178",
+      "sha256": "bcbfccb3e6481853cd80ea4021859f1e6a6e615fc3724a39e6351a934cd0f8fc",
+      "source": "analysis/air_remote_ttl_multi_air2/O/mode_transition_contract.json",
+      "locator": "preimages[16]"
+    },
+    {
+      "id": "camera_force_request",
+      "start": "0x466A",
+      "end_exclusive": "0x4688",
+      "sha256": "af6f77778902c5d317422a3fb0ae3a7e2c71972ce937b1371aefc1de590ae9d4",
+      "source": "analysis/air_remote_ttl_multi_air2/O/mode_transition_contract.json",
+      "locator": "preimages[17]"
+    },
+    {
+      "id": "camera_force_mode",
+      "start": "0x75AC",
+      "end_exclusive": "0x7614",
+      "sha256": "f1c181c4c708532b5672afc9de02e2fa77b014079c8db88b782ce7f21eb00a97",
+      "source": "analysis/air_remote_ttl_multi_air2/O/mode_transition_contract.json",
+      "locator": "preimages[18]"
+    },
+    {
+      "id": "camera_force_clear",
+      "start": "0x8A92",
+      "end_exclusive": "0x8AD8",
+      "sha256": "d56c789026f0914c1ee6124f08ac456f9b623d304bddb140f6f610c40dffad2a",
+      "source": "analysis/air_remote_ttl_multi_air2/O/mode_transition_contract.json",
+      "locator": "preimages[19]"
+    },
+    {
+      "id": "camera_state_init",
+      "start": "0x8D3E",
+      "end_exclusive": "0x8D76",
+      "sha256": "c08590df131431bcbf3dc6aaff28f850ba49a523c0aa6e889a2228e2400f6d18",
+      "source": "analysis/air_remote_ttl_multi_air2/O/mode_transition_contract.json",
+      "locator": "preimages[20]"
+    },
+    {
+      "id": "camera_irq",
+      "start": "0x67E8",
+      "end_exclusive": "0x688E",
+      "sha256": "f709938b471819f6951cd3b7a8bdd34cac3e034e2e8591d7e05a69962dfde40f",
+      "source": "analysis/air_remote_ttl_multi_air2/O/mode_transition_contract.json",
+      "locator": "preimages[21]"
+    },
+    {
+      "id": "camera_phase_clear",
+      "start": "0x4E22",
+      "end_exclusive": "0x4E58",
+      "sha256": "cdaa7e9880322949dab0a5ae7ca891ee118682cd47d02c1b9895527360631ef6",
+      "source": "analysis/air_remote_ttl_multi_air2/O/mode_transition_contract.json",
+      "locator": "preimages[22]"
+    },
+    {
+      "id": "stock_enqueue",
+      "start": "0x9F1E",
+      "end_exclusive": "0x9F42",
+      "sha256": "a3b7d9fd6aae5c55fb1ddd4709ace44ef22d2a50fa975cc5f814de3cb1b044c8",
+      "source": "analysis/air_remote_ttl_multi_air2/O/o_a4_candidate_listing.txt",
+      "locator": "byte addresses 0x9F1E..0x9F42; candidate listing reviewed for this window only"
+    },
+    {
+      "id": "stock_admission",
+      "start": "0x919E",
+      "end_exclusive": "0x91DA",
+      "sha256": "b4b4735e99b268acfc5c65fdcce0f890ca4c1936bbe4e2d21aa85e967ae42c44",
+      "source": "analysis/air_remote_ttl_multi_air2/O/o_a4_candidate_listing.txt",
+      "locator": "byte addresses 0x919E..0x91DA; candidate listing reviewed for this window only"
+    },
+    {
+      "id": "stock_type",
+      "start": "0xABD8",
+      "end_exclusive": "0xABDA",
+      "sha256": "6ce59dd6d92067814f6e4f0a0f448bb2c1b88fd1304a1cd5f52f8874232747ab",
+      "source": "analysis/air_remote_ttl_multi_air2/O/o_a4_candidate_listing.txt",
+      "locator": "byte addresses 0xABD8..0xABDA; candidate listing reviewed for this window only"
+    },
+    {
+      "id": "stock_body_length",
+      "start": "0x9F8A",
+      "end_exclusive": "0x9FA4",
+      "sha256": "353e0155c7c9d35792bc343e510acd87ab232f78ec67b6241bec82ee2d1dc293",
+      "source": "analysis/air_remote_ttl_multi_air2/O/o_a4_candidate_listing.txt",
+      "locator": "byte addresses 0x9F8A..0x9FA4; candidate listing reviewed for this window only"
+    },
+    {
+      "id": "elapsed_clock_window",
+      "start": "0x669C",
+      "end_exclusive": "0x672C",
+      "sha256": "29caf5a792701d8ce02e6f72b74eb2f69b7d85dd2b709d4322b4f60156bd7852",
+      "source": "analysis/air_remote_ttl_multi_air2/O/o_a4_candidate_listing.txt",
+      "locator": "byte addresses 0x669C..0x672C; candidate listing reviewed for this window only"
+    },
+    {
+      "id": "timestamp_raw",
+      "start": "0xAB2E",
+      "end_exclusive": "0xAB38",
+      "sha256": "62c87b7fdcf3003507acfd855d82da27c408ebfcd73444a6bbeae6edad25dde6",
+      "source": "analysis/air_remote_ttl_multi_air2/O/o_a4_candidate_listing.txt",
+      "locator": "byte addresses 0xAB2E..0xAB38; candidate listing reviewed for this window only"
+    },
+    {
+      "id": "normalizer_window",
+      "start": "0xAA52",
+      "end_exclusive": "0xAA66",
+      "sha256": "4fd9d996df005e72d23d3559be653a137306371a332f33e86172dff951fdee6a",
+      "source": "analysis/air_remote_ttl_multi_air2/O/o_a4_candidate_listing.txt",
+      "locator": "byte addresses 0xAA52..0xAA66; candidate listing reviewed for this window only"
+    },
+    {
+      "id": "manual_expiry_window",
+      "start": "0x7F7E",
+      "end_exclusive": "0x7FCE",
+      "sha256": "0c4da2edad5b9acda50acc596d396b2472296d1a14dfccfe6769bbafe63ba3c6",
+      "source": "analysis/air_remote_ttl_multi_air2/O/o_a4_candidate_listing.txt",
+      "locator": "byte addresses 0x7F7E..0x7FCE; candidate listing reviewed for this window only"
+    }
+  ],
+  "validation": {
+    "all_windows_inside_direct_decode_interval": true,
+    "all_window_mask_bytes_known": true,
+    "available_original_preimage_hashes_and_bytes_matched": true,
+    "no_binary_or_large_listing_bundled": true
+  }
+}
