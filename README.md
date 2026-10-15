@@ -1,22 +1,21 @@
-# Profoto Air Remote TTL · reverse engineering and AIR2
+# Air Remote TTL-N · Nikon C5 original firmware
 
 English | [简体中文](README.zh-CN.md)
 
-Developer: **[Caimankekw](https://github.com/Caimankekw)** · Authored work: [AGPL-3.0-only](LICENSE)
+Developer: **Caimankekw** · Authored analysis/tools: [AGPL-3.0-only](LICENSE)
 
-This repository contains original-firmware analysis and experimental AIR2 firmware development for Nikon, Sony, Fujifilm and Olympus Air Remote TTL transmitters. `main` is the navigation branch. Each brand has a separate original-analysis branch and a matching development branch. Canon remains in the [separate Canon repository](https://github.com/Caimankekw/Profoto-Air-Remote-TTL-Canon-Firmware-RCE-Development).
+This branch documents recovered portions of the **unmodified Nikon Air Remote TTL-N C5** firmware. [Reverse-engineering notes](reverse/README.md) contain annotated pseudocode, native function/RAM contracts and evidence. Unresolved helpers remain explicit. This is not a complete vendor source tree or a rebuildable original firmware project, and contains no AIR2 patches. For custom firmware, use [nikon-air2-m2](https://github.com/Caimankekw/Profoto-Air-Remote-TTL-Firmware-RCE-Development/tree/nikon-air2-m2); other brands are listed on [main](https://github.com/Caimankekw/Profoto-Air-Remote-TTL-Firmware-RCE-Development).
 
-| Camera mount | Original firmware analysis | Development | Windows packages |
-| --- | --- | --- | --- |
-| Nikon · TTL-N | [C5](https://github.com/Caimankekw/Profoto-Air-Remote-TTL-Firmware-RCE-Development/tree/nikon-c5) | [AIR2-P8-M2](https://github.com/Caimankekw/Profoto-Air-Remote-TTL-Firmware-RCE-Development/tree/nikon-air2-m2) | [Pre-release](https://github.com/Caimankekw/Profoto-Air-Remote-TTL-Firmware-RCE-Development/releases/tag/nikon-air2-m2-20261016) |
-| Sony · TTL-S | [A6](https://github.com/Caimankekw/Profoto-Air-Remote-TTL-Firmware-RCE-Development/tree/sony-a6) | [AIR2-P8-M2](https://github.com/Caimankekw/Profoto-Air-Remote-TTL-Firmware-RCE-Development/tree/sony-air2-m2) | [Pre-release](https://github.com/Caimankekw/Profoto-Air-Remote-TTL-Firmware-RCE-Development/releases/tag/sony-air2-m2-20261016) |
-| Fujifilm · TTL-F | [A5](https://github.com/Caimankekw/Profoto-Air-Remote-TTL-Firmware-RCE-Development/tree/fujifilm-a5) | [AIR2-P8-M2](https://github.com/Caimankekw/Profoto-Air-Remote-TTL-Firmware-RCE-Development/tree/fujifilm-air2-m2) | [Pre-release](https://github.com/Caimankekw/Profoto-Air-Remote-TTL-Firmware-RCE-Development/releases/tag/fujifilm-air2-m2-20261016) |
-| Olympus · TTL-O | [A4](https://github.com/Caimankekw/Profoto-Air-Remote-TTL-Firmware-RCE-Development/tree/olympus-a4) | [AIR2-P8-M2](https://github.com/Caimankekw/Profoto-Air-Remote-TTL-Firmware-RCE-Development/tree/olympus-air2-m2) | [Pre-release](https://github.com/Caimankekw/Profoto-Air-Remote-TTL-Firmware-RCE-Development/releases/tag/olympus-air2-m2-20261016) |
+## Read-only extraction
 
-Original-analysis branches contain annotated pseudocode, address/ABI evidence and a read-only extractor for a user-supplied stock updater. These are recovered portions, **not complete manufacturer C source**. They contain no AIR2 patch or distributable vendor firmware image. Development branches add the frozen AIR2-P8-M2 source, model-bound build entry point and Windows packaging sources. The shared dependency/test closure remains complete; the root build selects only its branch's model.
+Use Python 3.9 or later and an unmodified `Air-Remote-TTL-N-Firmware-C5.exe`:
 
-AIR2 adds absolute manual targets, ABC/DEF pages, C + HEAD page selection, C + MODEL manual-type selection, temporary AIR1 values and settings persistence. TTL ABC remains exposure compensation; DEF uses the remembered manual type. This is not six-group automatic TTL. Each model retains its own stock HSS; Canon HSS-P3 is not ported.
+```powershell
+python -B tools/inspect_original.py --original "C:\firmware\Air-Remote-TTL-N-Firmware-C5.exe" --output "build\stock"
+```
 
-**The four M2 ports are experimental pre-releases, with offline validation but no confirmed hardware boot, radio, camera exposure or power-loss validation.** Canon hardware results do not transfer to these models. Use only the updater matching the exact transmitter model. Read the [disclaimer](DISCLAIMER.md) and [license scope](NOTICE.md).
+The output directory must be new. [model.json](model.json) fixes the input identity; the required EXE SHA-256 is `4fa0d7c1ae8201910e0586eef30feadb9230e3c30c7b67b8dc4c2d344dea5591`. See [tool instructions](tools/README.md). Extraction does not run the updater, write hardware or produce a modified EXE.
 
-Each release supplies a Windows self-extracting package, portable ZIP, corresponding source archive, checksums, bilingual documentation and disclaimers. Windows packages include the matching unmodified recovery GUI and vendor notices. Extraction does not flash the device; updating is a manual operation in the GUI. Recovery is not guaranteed. Vendor firmware and updater components retain their own rights; AGPL applies to the project's authored work.
+Only `[0x4002,0x10000)` has the recovered generic byte transform. The first two plaintext bytes remain unknown placeholders. The higher FF tail is tied to a known opaque suffix fingerprint, not a general-purpose decoder for arbitrary tail content. The local partial BIN is an analysis artifact and must not be directly flashed.
+
+The HSS evidence covers identified stock call paths and intervals, not a complete recovered HSS algorithm or measured physical timing. See the [disclaimer](DISCLAIMER.md), [license scope](NOTICE.md) and [LICENSE](LICENSE). Vendor code retains its own rights.

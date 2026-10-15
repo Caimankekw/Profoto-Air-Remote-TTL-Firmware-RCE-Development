@@ -1,22 +1,21 @@
-# Profoto Air Remote TTL · 逆向与 AIR2 开发
+# Air Remote TTL-N · Nikon C5 原厂固件逆向
 
 [English](README.md) | 简体中文
 
-开发者：**[Caimankekw](https://github.com/Caimankekw)** · 原创内容：[AGPL-3.0-only](LICENSE)
+开发者：**Caimankekw** · 原创分析及工具：[AGPL-3.0-only](LICENSE)
 
-本仓库整理 Nikon、Sony、Fujifilm、Olympus 四款 Air Remote TTL 的原厂固件逆向和实验 AIR2 开发。`main` 为导航页；每品牌各有一个原厂逆向分支及一个开发分支。Canon 保留在[独立仓库](https://github.com/Caimankekw/Profoto-Air-Remote-TTL-Canon-Firmware-RCE-Development)。
+本分支整理**未修改的 Nikon Air Remote TTL-N C5** 已恢复逻辑。[逆向说明](reverse/README.zh-CN.md)包含注释伪代码、原函数/RAM 契约及证据，未恢复的辅助函数明确保留边界。不是厂商完整源码或可重编译原厂固件工程，不含 AIR2 补丁。自定义固件见 [nikon-air2-m2](https://github.com/Caimankekw/Profoto-Air-Remote-TTL-Firmware-RCE-Development/tree/nikon-air2-m2)；其他品牌见 [main](https://github.com/Caimankekw/Profoto-Air-Remote-TTL-Firmware-RCE-Development)。
 
-| 卡口 | 原厂固件逆向 | 开发分支 | Windows 更新包 |
-| --- | --- | --- | --- |
-| Nikon · TTL-N | [C5](https://github.com/Caimankekw/Profoto-Air-Remote-TTL-Firmware-RCE-Development/tree/nikon-c5) | [AIR2-P8-M2](https://github.com/Caimankekw/Profoto-Air-Remote-TTL-Firmware-RCE-Development/tree/nikon-air2-m2) | [Pre-release](https://github.com/Caimankekw/Profoto-Air-Remote-TTL-Firmware-RCE-Development/releases/tag/nikon-air2-m2-20261016) |
-| Sony · TTL-S | [A6](https://github.com/Caimankekw/Profoto-Air-Remote-TTL-Firmware-RCE-Development/tree/sony-a6) | [AIR2-P8-M2](https://github.com/Caimankekw/Profoto-Air-Remote-TTL-Firmware-RCE-Development/tree/sony-air2-m2) | [Pre-release](https://github.com/Caimankekw/Profoto-Air-Remote-TTL-Firmware-RCE-Development/releases/tag/sony-air2-m2-20261016) |
-| Fujifilm · TTL-F | [A5](https://github.com/Caimankekw/Profoto-Air-Remote-TTL-Firmware-RCE-Development/tree/fujifilm-a5) | [AIR2-P8-M2](https://github.com/Caimankekw/Profoto-Air-Remote-TTL-Firmware-RCE-Development/tree/fujifilm-air2-m2) | [Pre-release](https://github.com/Caimankekw/Profoto-Air-Remote-TTL-Firmware-RCE-Development/releases/tag/fujifilm-air2-m2-20261016) |
-| Olympus · TTL-O | [A4](https://github.com/Caimankekw/Profoto-Air-Remote-TTL-Firmware-RCE-Development/tree/olympus-a4) | [AIR2-P8-M2](https://github.com/Caimankekw/Profoto-Air-Remote-TTL-Firmware-RCE-Development/tree/olympus-air2-m2) | [Pre-release](https://github.com/Caimankekw/Profoto-Air-Remote-TTL-Firmware-RCE-Development/releases/tag/olympus-air2-m2-20261016) |
+## 只读提取
 
-逆向分支提供注释伪代码、地址/ABI 证据及只读提取工具，需自行提供原厂更新器。这是已恢复的局部逻辑，**不是厂商完整 C 源码**，不含 AIR2 修改或厂商固件镜像。开发分支额外提供冻结的 AIR2-P8-M2 源码、绑定本型号的构建入口及 Windows 封包代码。共享依赖与测试完整保留，根构建入口仅生成所属分支的型号。
+使用 Python 3.9 或更新版本，自行提供未修改的 `Air-Remote-TTL-N-Firmware-C5.exe`：
 
-AIR2 提供手动绝对功率、ABC/DEF 分页、C＋HEAD 翻页、C＋MODEL 切换手动类型、AIR1 数值到期清除及参数保存。TTL 的 ABC 仍为曝光补偿，DEF 按上次手动类型控制，不是六组自动 TTL。各型号保留自己的原厂 HSS，不移植 Canon HSS-P3。
+```powershell
+python -B tools/inspect_original.py --original "C:\firmware\Air-Remote-TTL-N-Firmware-C5.exe" --output "build\stock"
+```
 
-**四款 M2 均为实验预发布：已有离线验证，尚未确认实机启动、无线、相机曝光及掉电行为。** Canon 的实测结果不能视为其他卡口已通过。仅使用与引闪器型号完全匹配的更新器，并阅读[免责声明](DISCLAIMER.zh-CN.md)及[许可范围](NOTICE.zh-CN.md)。
+输出目录必须尚不存在。[model.json](model.json)固定输入身份，原厂 EXE SHA-256 为 `4fa0d7c1ae8201910e0586eef30feadb9230e3c30c7b67b8dc4c2d344dea5591`。详见[工具说明](tools/README.zh-CN.md)。工具不运行更新器、不写设备、不产生修改版 EXE。
 
-各 Release 提供 Windows 自解压安装包、便携 ZIP、对应源码、校验值、中英文说明和免责声明。Windows 包附对应原厂恢复 GUI 及第三方许可；解压不等于刷写，更新需在 GUI 手动执行。附带恢复程序不保证恢复成功。厂商固件和更新器保留原有权利，AGPL 适用于本项目原创内容。
+通用字节变换仅恢复 `[0x4002,0x10000)`；开头两字节未知，文件中为占位。高地址 FF 尾部依赖已知 opaque suffix 指纹，不代表任意尾部都可解码。生成的局部 BIN 仅供分析，不能直接刷写。
+
+HSS 证据覆盖已识别的原厂调用链与区间，不等于完整 HSS 算法或实测物理时序。请阅读[免责声明](DISCLAIMER.zh-CN.md)、[许可范围](NOTICE.zh-CN.md)及 [LICENSE](LICENSE)。厂商代码保留原有权利。

@@ -1,0 +1,206 @@
+{
+  "schema": "original-contract-v1",
+  "model": "Air Remote TTL-N",
+  "revision": "C5",
+  "addresses": "hex strings; PIC18 byte addresses, RAM uses native byte offsets",
+  "scope": "Observed original ABI and bounded semantic reconstruction only. No added AIR2 protocol/UI/persistence policy.",
+  "original_ui_groups": [
+    "A",
+    "B",
+    "C"
+  ],
+  "mode_values": {
+    "TTL": 0,
+    "MAN": 1
+  },
+  "selector_values": {
+    "A": 1,
+    "B": 2,
+    "C": 3,
+    "ALL": 7
+  },
+  "radio": {
+    "frame_bytes": 16,
+    "record_marker": 0,
+    "record_bytes": 17,
+    "queue_capacity_bytes": 100,
+    "backing_range": [
+      "0x0400",
+      "0x0464"
+    ],
+    "maximum_used_for_admission": 83,
+    "normal_serial_prefix": "RSGT1",
+    "normal_serial_bytes": 21,
+    "queue_result": "Local admission, not receiver or lamp acknowledgement",
+    "relative_commands": {
+      "+1": "0x06",
+      "-1": "0x07",
+      "+10": "0x0D",
+      "-10": "0x0E"
+    },
+    "descriptor_range": [
+      "0x0093",
+      "0x0099"
+    ],
+    "descriptor_order": [
+      "write",
+      "read",
+      "used",
+      "capacity",
+      "pointer_low",
+      "pointer_high"
+    ],
+    "enqueue": "0x9D54",
+    "source_pointer": "RAM0x18 low8 address in bank0",
+    "normal_frame_wrapper": "0x8FB0",
+    "normal_serializer": "0x5E34",
+    "relative_command": "0x6ECC",
+    "original_fec_command": "0x25 at0x7A12",
+    "exclusive_gate": "RAM0x4B != 0; not the mode byte",
+    "unmatched_step": "Original relative-command routine retains command0 and continues; normal UI supplies +/-1 or +/-10.",
+    "post_submit_tail": "0x6F1E -> 0xA68C -> 0x8A14"
+  },
+  "evidence_index": "source_map.json",
+  "inferred": [
+    "Purpose names for some camera/timing routines are semantic labels; physical timing and complete camera protocol are not established."
+  ],
+  "not_recovered": [
+    "Manufacturer C source, original types/names/build system",
+    "Complete bootloader and updater protocol",
+    "Complete journal scan/commit/recovery state machine",
+    "Complete transitive HSS algorithm and exposure semantics",
+    "Physical clock calibration, RF acknowledgement and hardware behavior"
+  ],
+  "boot": {
+    "reset": "0x4102",
+    "trampoline": "0x417E",
+    "runtime_init": "0x56DE",
+    "board_objects": "0x4BAA",
+    "main_loop": "0x4CF6"
+  },
+  "clock": {
+    "service": "0x7124",
+    "raw_tick_le16": "0x011B",
+    "previous_timer_le16": "0x0115",
+    "divisor_le16": "0x011D",
+    "comparison": "strict delta > divisor",
+    "raw_mask": "0xFFFF",
+    "remainder": "discarded after nonzero elapsed update",
+    "nominal_1kHz": "design inference, not physical calibration",
+    "encoded_deadline_7FFF_mask_is_separate": true
+  },
+  "keys": {
+    "objects": [
+      "0x0272",
+      "0x0276",
+      "0x027A",
+      "0x027E",
+      "0x0282",
+      "0x0286",
+      "0x028A",
+      "0x028E",
+      "0x0292",
+      "0x0296",
+      "0x029A"
+    ],
+    "order": [
+      "MODE",
+      "CHANNEL",
+      "A",
+      "B",
+      "C",
+      "MODEL",
+      "HEAD",
+      "PLUS",
+      "MINUS",
+      "TEST",
+      "extra PORTE.1 input, physical role unknown"
+    ],
+    "sample": "0x4D44",
+    "sample_interval_counts": 5,
+    "history": "0x8E62",
+    "event_machine": "0x4ECC",
+    "round_robin": "0x9BA6",
+    "press_release_samples": 3,
+    "hold_threshold_counts": [
+      250,
+      650
+    ],
+    "ordinary_application_state": "RAM0x4D == 0"
+  },
+  "ui": {
+    "model_pointer_le16": "0x0049",
+    "normal_model_base": "0x01B1",
+    "ttl_abc_offsets": [
+      4,
+      5,
+      6
+    ],
+    "channel_offset": 8,
+    "manual_relative": [
+      "0x0099",
+      "0x009A",
+      "0x009B"
+    ],
+    "selector": "0x0060",
+    "head_mask": "0x004C",
+    "model_mask": "0x0050",
+    "mask_meaning": "low3 bits A/B/C",
+    "lcd_range": [
+      "0x0088",
+      "0x0093"
+    ],
+    "numeric_rows": [
+      "0x0089",
+      "0x008B",
+      "0x008D"
+    ],
+    "numeric_refresh": "0x6928",
+    "signed_tenths": "0x6F44",
+    "serial_service": "0x9BEE",
+    "group_select_manual_side_effect": "0x946E updates original deadline through0x9EEC ->0x56D4 when mode==1 before selecting group."
+  },
+  "nvm": {
+    "descriptor": "0x01C3",
+    "constructor": "0x7FC4",
+    "constructor_call": "0x609A",
+    "logical_journal_range": [
+      "0x01F800",
+      "0x01FC00"
+    ],
+    "end_inclusive": "0x01FBFF",
+    "record_bytes": 4,
+    "word_write": "0x91C2",
+    "erase": "0x9B0E",
+    "unlock_helper": "0x9B2E",
+    "interrupt_exit": "Both primitives unconditionally set FD0.7/FF2.7, not save/restore prior state.",
+    "slot_address_helper": "Not independently identified here."
+  },
+  "hss_boundary": {
+    "isr_range": [
+      "0x4108",
+      "0x417E"
+    ],
+    "pulse": "0x9A02",
+    "timer_sampler": "0xA0AE",
+    "rx_dispatch": "0xA77A",
+    "complete_algorithm_recovered": false
+  },
+  "recovery_regions": [
+    {
+      "start": "0x4000",
+      "end_exclusive": "0x4002",
+      "status": "unknown_zero_placeholders_not_recovered_bytes"
+    },
+    {
+      "start": "0x4002",
+      "end_exclusive": "0x10000",
+      "status": "direct_transform"
+    },
+    {
+      "start": "0x10000",
+      "end_exclusive": "0x1FC00",
+      "status": "FF_fill_from_fixed_opaque_tail_fingerprint_not_general_decryption"
+    }
+  ]
+}

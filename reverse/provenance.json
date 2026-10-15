@@ -1,0 +1,80 @@
+{
+  "schema": "original-provenance-v1",
+  "prepared_date": "2026-10-16",
+  "model": "Air Remote TTL-N",
+  "revision": "C5",
+  "source_updater": {
+    "filename": "Air-Remote-TTL-N-Firmware-C5.exe",
+    "sha256": "4fa0d7c1ae8201910e0586eef30feadb9230e3c30c7b67b8dc4c2d344dea5591",
+    "bytes": 3652240,
+    "executed": false
+  },
+  "method": "Selected original facts were manually reconciled with local stock bytes and disassembly; addresses, entry bytes and span hashes were re-read from stock. AIR2 behavior and qualification fields were excluded.",
+  "archival_inputs_note": "Relative names identify earlier local research inputs, not required files in this public branch. Hashes identify that evidence snapshot. Published source_map and original_contract carry the selected facts; local firmware reproduction requires a separately obtained matching original updater.",
+  "archival_inputs": [
+    {
+      "archival_relative_path": "analysis/air_remote_ttl_multi_air2/shared/stock/N/profile.json",
+      "sha256": "5c4507ddab180c73d25d1b750e17e99631111c8171e31e8dddd716dfc5a451c8",
+      "bytes": 1420,
+      "distributed": false
+    },
+    {
+      "archival_relative_path": "analysis/air_remote_ttl_multi_air2/N/candidate_port_map.json",
+      "sha256": "82a898f8c1bf15826924018603874d96e764cf8297161911a2515f8dcdc33b53",
+      "bytes": 10782,
+      "distributed": false
+    },
+    {
+      "archival_relative_path": "analysis/air_remote_ttl_multi_air2/N/write_port_evidence.py",
+      "sha256": "21f6b3cdbc969cc81cb3367086e60c3e477e8143c9d55478aebcfb6649d540b0",
+      "bytes": 6261,
+      "distributed": false
+    },
+    {
+      "archival_relative_path": "analysis/air_remote_ttl_multi_air2/N/N_TIMING_AND_NATIVE_ABI.zh-en.md",
+      "sha256": "e7eaff20e2cf4b3abfc43681f90c32278cc5810e0764cfe0c8a1997fcbfc2f05",
+      "bytes": 9669,
+      "distributed": false
+    },
+    {
+      "archival_relative_path": "analysis/air_remote_ttl_multi_air2/N/shared_transform.candidate.listing.txt",
+      "sha256": "347edc3d9f108420c2382b8a53ea3310faa2bf44d9d4c92b18edcc499c0869c8",
+      "bytes": 873975,
+      "distributed": false
+    },
+    {
+      "archival_relative_path": "analysis/air_remote_ttl_multi_air2/shared/identity_report.json",
+      "sha256": "ace571c8d06bbef093c4814a0b7bd6b976ecab702fd1a20df63ea892330f9079",
+      "bytes": 20620,
+      "distributed": false
+    },
+    {
+      "archival_relative_path": "analysis/air_remote_ttl_multi_air2/shared/HSS_PRESERVATION_M2.json",
+      "sha256": "e8510edcc317a190558352fae7b8c0706ccc1e9100c70e1d35ad7ceae0c43989",
+      "bytes": 12847,
+      "distributed": false
+    }
+  ],
+  "published_scope": [
+    "human-written bounded pseudocode",
+    "original RAM and interface contract",
+    "short stock entry signatures and range hashes",
+    "explicit uncertainty boundaries"
+  ],
+  "excluded": [
+    "updater executable",
+    "BIN/HEX images",
+    "large disassembly listings",
+    "device captures",
+    "absolute paths",
+    "development adapters/hooks/new features"
+  ],
+  "verification": {
+    "stock_sha_matches_profile": true,
+    "mask_sha_matches_profile": true,
+    "all_published_anchor_ranges_known": true,
+    "executed_updater": false,
+    "hardware_accessed": false,
+    "new_hardware_behavior_claimed": false
+  }
+}

@@ -1,0 +1,402 @@
+{
+  "schema": "original-source-map-v1",
+  "address_unit": "PIC18 byte address",
+  "range_convention": "start inclusive, end exclusive; selected evidence spans, not automatically function extents",
+  "stock_partial_sha256": "d8a58e3bbaeee752b31e698c287c474b4ab027fb29939720e1441a39cb3f0aba",
+  "stock_dense_bytes": 113664,
+  "scope": "Short entry bytes and hashes only; no firmware image or full listing included. Semantic labels do not prove physical behavior.",
+  "anchors": [
+    {
+      "id": "N-boot-4102",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 9
+      },
+      "start": "0x4102",
+      "end_exclusive": "0x4106",
+      "entry_hex": "bfef20f0",
+      "range_sha256": "40b702c3182bcc7636fd476fdad17943603ec69180d114d2ad4fca3fbc73d9bd",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "Reset branch to 417E; trampoline at417E branches to56DE.",
+      "archival_source": "N/shared_transform.candidate.listing.txt"
+    },
+    {
+      "id": "N-boot-417E",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 9
+      },
+      "start": "0x417E",
+      "end_exclusive": "0x4182",
+      "entry_hex": "6fef2bf0",
+      "range_sha256": "a05a92c43559050efa2789538e3683ceeacff21b65f26fdab9a025bb81f4bd5a",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "Reset trampoline to runtime initializer56DE.",
+      "archival_source": "N/shared_transform.candidate.listing.txt"
+    },
+    {
+      "id": "N-boot-56DE",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 9
+      },
+      "start": "0x56DE",
+      "end_exclusive": "0x57CC",
+      "entry_hex": "680ef66e810ef76e",
+      "range_sha256": "a274a458fedf33c8c9cb243b10054cd4946e818874daf8b55c6d7098f234ec7c",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "ROM copy, zero fill and branch to4BAA; not complete board/bootloader recovery.",
+      "archival_source": "N/shared_transform.candidate.listing.txt"
+    },
+    {
+      "id": "N-boot-4CF6",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 9
+      },
+      "start": "0x4CF6",
+      "end_exclusive": "0x4D44",
+      "entry_hex": "040092ec38f0f096",
+      "range_sha256": "9188a68f87fbcd687ab528670a0a787577068a940f26db567614d4765b1935ed",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "Observed foreground call order and camera gate.",
+      "archival_source": "N/shared_transform.candidate.listing.txt"
+    },
+    {
+      "id": "N-clock-7124",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 26
+      },
+      "start": "0x7124",
+      "end_exclusive": "0x7176",
+      "entry_hex": "07ec50f00dc017f0",
+      "range_sha256": "ba762d7afb6ca5fa863ba811c3989fdfccdab3fa3e8bd9813f7e0334c19cced9",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "Strict delta>divisor, previous115:116, divisor11D:11E, full16 tick11B:11C.",
+      "archival_source": "N/shared_transform.candidate.listing.txt"
+    },
+    {
+      "id": "N-keys-4D44",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 39
+      },
+      "start": "0x4D44",
+      "end_exclusive": "0x4EC2",
+      "entry_hex": "b60e116e126ae8ec",
+      "range_sha256": "934675d2acee11c96c6079a97bfe4fef85dca711caba65f608513a2638dc2ab9",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "Eleven raw input samples; next sampling interval5 native counts.",
+      "archival_source": "N/candidate_port_map.json"
+    },
+    {
+      "id": "N-keys-4ECC",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 39
+      },
+      "start": "0x4ECC",
+      "end_exclusive": "0x5018",
+      "entry_hex": "97d8de2845e1020e",
+      "range_sha256": "85eac612d0ce4a5634724232d5993cc9b0695e23400425c0527abb8aa25f7245",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "Debounce/event machine;3 samples and250/650 native-count hold thresholds.",
+      "archival_source": "N/candidate_port_map.json"
+    },
+    {
+      "id": "N-keys-8E62",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 39
+      },
+      "start": "0x8E62",
+      "end_exclusive": "0x8E9A",
+      "entry_hex": "16d8df50126e0f04",
+      "range_sha256": "251477307199d97f3c685c88587595811746544a843d2cad407e21578621b041",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "History low7 shift, preserve bit7, append exactly sample==1.",
+      "archival_source": "N/candidate_port_map.json"
+    },
+    {
+      "id": "N-keys-9BA6",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 39
+      },
+      "start": "0x9BA6",
+      "end_exclusive": "0x9BCA",
+      "entry_hex": "00017851040d720e",
+      "range_sha256": "8286fc499797b9f32c99650170c8e836669fe327d47cfaaec2af2149a209643d",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "Round-robin key object0272+4*index; index78 modulo11.",
+      "archival_source": "N/candidate_port_map.json"
+    },
+    {
+      "id": "N-ui-946E",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 57
+      },
+      "start": "0x946E",
+      "end_exclusive": "0x949C",
+      "entry_hex": "236e49c0d9ff4ac0",
+      "range_sha256": "9a017d78c4b95f5bf84cedfe2c5309f165296e2a16d03c143850f05c8ef01f01",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "A/B/C select; same selection toggles ALL7.",
+      "archival_source": "N/candidate_port_map.json"
+    },
+    {
+      "id": "N-ui-5986",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 57
+      },
+      "start": "0x5986",
+      "end_exclusive": "0x5A52",
+      "entry_hex": "106e10c060f049d0",
+      "range_sha256": "c532eb1db529f678e18a768874f2c0dbc2f6e0e9ba88cdbd47d556126040bdea",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "Store selector60 and bind original callbacks/selection display.",
+      "archival_source": "N/candidate_port_map.json"
+    },
+    {
+      "id": "N-ui-6928",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 57
+      },
+      "start": "0x6928",
+      "end_exclusive": "0x69B2",
+      "entry_hex": "08ec48f021e137d8",
+      "range_sha256": "337564ee8ce645aeeabebcc6e7e5f7923e89a01989d86706a723d8efbbf48f54",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "Original three-row numeric refresh.",
+      "archival_source": "N/candidate_port_map.json"
+    },
+    {
+      "id": "N-ui-6F44",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 57
+      },
+      "start": "0x6F44",
+      "end_exclusive": "0x6FBC",
+      "entry_hex": "020e156e13ae03d0",
+      "range_sha256": "5c3594271b1b0c3c215eac0dfe1e4c19a739609f7198f518e6ed0cfbb989afc1",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "Signed-tenths formatter.",
+      "archival_source": "N/candidate_port_map.json"
+    },
+    {
+      "id": "N-radio-9D54",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 78
+      },
+      "start": "0x9D54",
+      "end_exclusive": "0x9D76",
+      "entry_hex": "09ec4ef0196e1950",
+      "range_sha256": "f37af81ac7fc79d470896564ce093cd5bc44d34c8869efb364e9c7071341f706",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "Native queue record marker0+16 bytes; source RAM18 low bank0 pointer.",
+      "archival_source": "N/candidate_port_map.json"
+    },
+    {
+      "id": "N-radio-6ECC",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 78
+      },
+      "start": "0x6ECC",
+      "end_exclusive": "0x6F44",
+      "entry_hex": "386e4b5001e01200",
+      "range_sha256": "c1cbfbe5969f2c74063f34ca4559d838b71d235e9a2a7306b6847b949292e07d",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "Relative steps +/-1,+/-10 select06,07,0D,0E.",
+      "archival_source": "N/candidate_port_map.json"
+    },
+    {
+      "id": "N-radio-8FB0",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 78
+      },
+      "start": "0x8FB0",
+      "end_exclusive": "0x8FE6",
+      "entry_hex": "1c6e1cc01df0e50e",
+      "range_sha256": "0207d8d164db3944901b47169a2eacc134fd7cd79bb0553c11d1c2885f84f81b",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "Group plus12-byte body frame wrapper.",
+      "archival_source": "N/candidate_port_map.json"
+    },
+    {
+      "id": "N-radio-5E34",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 78
+      },
+      "start": "0x5E34",
+      "end_exclusive": "0x5EF4",
+      "entry_hex": "5bd8a8ec36f0236e",
+      "range_sha256": "cd8b25a6c34078b5b61362cd83dc0b5fc0727936301879cc360e054bc86f1d4f",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "Native transport record prefix/length selection.",
+      "archival_source": "N/candidate_port_map.json"
+    },
+    {
+      "id": "N-nvm-6088",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 101
+      },
+      "start": "0x6088",
+      "end_exclusive": "0x609E",
+      "entry_hex": "0f68fb0e106e010e",
+      "range_sha256": "b92f2fc6d85c7a03d4773fd34ae668d8774fc3b37b70afbd9e6aeea64b3b5528",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "Constructor arguments end01FBFF and record width4.",
+      "archival_source": "N/shared_transform.candidate.listing.txt"
+    },
+    {
+      "id": "N-nvm-7FC4",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 101
+      },
+      "start": "0x7FC4",
+      "end_exclusive": "0x801A",
+      "entry_hex": "0dc0d9ff0ec0daff",
+      "range_sha256": "8bf59c9f8d6a5dee3e3e27a01241b949eead917f31d72e3995f40db53b9f63fe",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "Descriptor constructor; odd width rounded to even.",
+      "archival_source": "N/shared_transform.candidate.listing.txt"
+    },
+    {
+      "id": "N-nvm-91C2",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 101
+      },
+      "start": "0x91C2",
+      "end_exclusive": "0x91F4",
+      "entry_hex": "21c0f8ff20c0f7ff",
+      "range_sha256": "a835ec3293325758f1f535174cd3460b73b1f1506d64c0b3f6e56e18cdae9e05",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "Original word write; unconditional FD0.7/FF2.7 set on exit.",
+      "archival_source": "N/shared_transform.candidate.listing.txt"
+    },
+    {
+      "id": "N-nvm-9B0E",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 101
+      },
+      "start": "0x9B0E",
+      "end_exclusive": "0x9B34",
+      "entry_hex": "0fc0f8ff0ec0f7ff",
+      "range_sha256": "85881563b3f8fe03e6beff3ed909529ae2c4692697036f9b46424ddee1afdf87",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "Original erase and interrupt-disable/unlock helper.",
+      "archival_source": "N/shared_transform.candidate.listing.txt"
+    },
+    {
+      "id": "N-hss-4108",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 114
+      },
+      "start": "0x4108",
+      "end_exclusive": "0x417E",
+      "entry_hex": "5382e1cf09f0e2cf",
+      "range_sha256": "80ae26f3fcebbe7e0c44a47c01a479a0a015eccc7eea4245601432e49b8e051c",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "Interrupt entry, context restoration and fast return.",
+      "archival_source": "N/shared_transform.candidate.listing.txt"
+    },
+    {
+      "id": "N-hss-5D74",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 114
+      },
+      "start": "0x5D74",
+      "end_exclusive": "0x5E34",
+      "entry_hex": "810e196e010e1a6e",
+      "range_sha256": "b5a399c80b5f52283169d087d760db16c0728fa970033f1a89aaf25c5f2e7902",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "Observed camera state region; full protocol semantics not recovered.",
+      "archival_source": "shared/HSS_PRESERVATION_M2.json"
+    },
+    {
+      "id": "N-hss-65C2",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 114
+      },
+      "start": "0x65C2",
+      "end_exclusive": "0x665C",
+      "entry_hex": "b40e336e030e346e",
+      "range_sha256": "0ff2e7aef8eba76423f690bce230e6306605198aaa1d0e68d46b89746ffdb340",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "Observed camera transmitter boundary.",
+      "archival_source": "shared/HSS_PRESERVATION_M2.json"
+    },
+    {
+      "id": "N-hss-6CD0",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 114
+      },
+      "start": "0x6CD0",
+      "end_exclusive": "0x6D50",
+      "entry_hex": "20ee01f03b50d926",
+      "range_sha256": "3d085cde58cf05904f1cb14b59839b37062b6965b215e39b10d9ba85e730210e",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "Observed camera state helper boundary.",
+      "archival_source": "shared/HSS_PRESERVATION_M2.json"
+    },
+    {
+      "id": "N-hss-9A02",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 114
+      },
+      "start": "0x9A02",
+      "end_exclusive": "0x9A2A",
+      "entry_hex": "819657ec50f001c0",
+      "range_sha256": "1f37fad038e0c3762ca263690b029bac77a76878137da50c58b4a5a7c2281dad",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "PORTB.3 low, timer delta loop, PORTB.3 high; physical timing unmeasured.",
+      "archival_source": "N/shared_transform.candidate.listing.txt"
+    },
+    {
+      "id": "N-hss-A0AE",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 114
+      },
+      "start": "0xA0AE",
+      "end_exclusive": "0xA0CE",
+      "entry_hex": "23cf05f0066a0f01",
+      "range_sha256": "df14f1b1e183b5511a7876f35c62f6572f3c747d894fda4f8983d4601ab61ec8",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "Hardware timer sampler used by pulse path.",
+      "archival_source": "shared/HSS_PRESERVATION_M2.json"
+    },
+    {
+      "id": "N-hss-A77A",
+      "pseudocode": {
+        "path": "original.pseudocode.c",
+        "line": 114
+      },
+      "start": "0xA77A",
+      "end_exclusive": "0xA78C",
+      "entry_hex": "076eca0e016e010e",
+      "range_sha256": "5631a6b8241ef6cf1a3e141a739de3be72675d7f827447842f9d8dec93508619",
+      "basis": "known stock bytes; bounded static interpretation",
+      "semantic_evidence": "RX interrupt dispatch boundary.",
+      "archival_source": "shared/HSS_PRESERVATION_M2.json"
+    }
+  ]
+}
