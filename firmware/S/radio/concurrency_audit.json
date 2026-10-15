@@ -1,0 +1,2863 @@
+{
+  "status": "CONFIRMED_NATIVE_PRODUCER_INTERLEAVING_HAZARD",
+  "cycle_scope": "PIC18 instruction-cycle accounting; no oscillator or peripheral wait model",
+  "measurement_case_count": 400,
+  "summary": {
+    "0xa158": {
+      "instructions": [
+        1460,
+        1487
+      ],
+      "cycles": [
+        2065,
+        2105
+      ]
+    },
+    "0xb000": {
+      "instructions": [
+        1601,
+        1628
+      ],
+      "cycles": [
+        2259,
+        2299
+      ]
+    }
+  },
+  "interleaving_cases": [
+    {
+      "initial_count": 0,
+      "return_w": 1,
+      "final_count": 26,
+      "new_bytes": "0008525355545030320d27ffffff0111010a19324b643f2a0000",
+      "correct_frame_record": false,
+      "native_functions_executed": [
+        "AB66",
+        "90BA",
+        "AC84",
+        "7002",
+        "86EA",
+        "6F7A"
+      ],
+      "scope": "Scheduled producer interleaving, not full hardware ISR simulation"
+    },
+    {
+      "initial_count": 83,
+      "return_w": 1,
+      "final_count": 100,
+      "new_bytes": "0008525355545030320d27ffffff011101",
+      "correct_frame_record": false,
+      "native_functions_executed": [
+        "AB66",
+        "90BA",
+        "AC84",
+        "7002",
+        "86EA",
+        "6F7A"
+      ],
+      "scope": "Scheduled producer interleaving, not full hardware ISR simulation"
+    }
+  ],
+  "measurements": [
+    {
+      "entry": "0xa158",
+      "start": 0,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 0,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 0,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 0,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 1,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 1,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 1,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 1,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 2,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 2,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 2,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 2,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 3,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 3,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 3,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 3,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 4,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 4,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 4,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 4,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 5,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 5,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 5,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 5,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 6,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 6,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 6,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 6,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 7,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 7,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 7,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 7,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 8,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 8,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 8,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 8,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 9,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 9,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 9,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 9,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 10,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 10,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 10,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 10,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 11,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 11,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 11,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 11,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 12,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 12,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 12,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 12,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 13,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 13,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 13,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 13,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 14,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 14,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 14,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 14,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 15,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 15,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 15,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 15,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 16,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 16,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 16,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 16,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 17,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 17,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 17,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 17,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 18,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 18,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 18,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 18,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 19,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 19,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 19,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 19,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 20,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 20,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 20,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 20,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 21,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 21,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 21,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 21,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 22,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 22,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 22,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 22,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 23,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 23,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 23,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 23,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 24,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 24,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 24,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 24,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 25,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 25,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 25,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 25,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 26,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 26,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 26,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 26,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 27,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 27,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 27,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 27,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 28,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 28,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 28,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 28,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 29,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 29,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 29,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 29,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 30,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 30,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 30,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 30,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 31,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 31,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 31,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 31,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 32,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 32,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 32,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 32,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 33,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 33,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 33,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 33,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 34,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 34,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 34,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 34,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 35,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 35,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 35,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 35,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 36,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 36,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 36,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 36,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 37,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 37,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 37,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 37,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 38,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 38,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 38,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 38,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 39,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 39,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 39,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 39,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 40,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 40,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 40,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 40,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 41,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 41,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 41,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 41,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 42,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 42,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 42,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 42,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 43,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 43,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 43,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 43,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 44,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 44,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 44,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 44,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 45,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 45,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 45,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 45,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 46,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 46,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 46,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 46,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 47,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 47,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 47,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 47,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 48,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 48,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 48,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 48,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 49,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 49,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 49,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 49,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 50,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 50,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 50,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 50,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 51,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 51,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 51,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 51,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 52,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 52,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 52,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 52,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 53,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 53,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 53,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 53,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 54,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 54,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 54,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 54,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 55,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 55,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 55,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 55,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 56,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 56,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 56,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 56,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 57,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 57,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 57,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 57,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 58,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 58,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 58,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 58,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 59,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 59,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 59,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 59,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 60,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 60,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 60,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 60,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 61,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 61,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 61,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 61,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 62,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 62,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 62,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 62,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 63,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 63,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 63,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 63,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 64,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 64,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 64,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 64,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 65,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 65,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 65,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 65,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 66,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 66,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 66,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 66,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 67,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 67,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 67,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 67,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 68,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 68,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 68,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 68,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 69,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 69,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 69,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 69,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 70,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 70,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 70,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 70,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 71,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 71,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 71,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 71,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 72,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 72,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 72,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 72,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 73,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 73,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 73,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 73,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 74,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 74,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 74,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 74,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 75,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 75,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 75,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 75,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 76,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 76,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 76,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 76,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 77,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 77,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 77,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 77,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 78,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 78,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 78,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 78,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 79,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 79,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 79,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 79,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 80,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 80,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 80,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 80,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 81,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 81,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 81,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 81,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 82,
+      "count": 0,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 82,
+      "count": 0,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 82,
+      "count": 83,
+      "instructions": 1460,
+      "cycles": 2065
+    },
+    {
+      "entry": "0xb000",
+      "start": 82,
+      "count": 83,
+      "instructions": 1601,
+      "cycles": 2259
+    },
+    {
+      "entry": "0xa158",
+      "start": 83,
+      "count": 0,
+      "instructions": 1487,
+      "cycles": 2105
+    },
+    {
+      "entry": "0xb000",
+      "start": 83,
+      "count": 0,
+      "instructions": 1628,
+      "cycles": 2299
+    },
+    {
+      "entry": "0xa158",
+      "start": 83,
+      "count": 83,
+      "instructions": 1487,
+      "cycles": 2105
+    },
+    {
+      "entry": "0xb000",
+      "start": 83,
+      "count": 83,
+      "instructions": 1628,
+      "cycles": 2299
+    },
+    {
+      "entry": "0xa158",
+      "start": 84,
+      "count": 0,
+      "instructions": 1487,
+      "cycles": 2105
+    },
+    {
+      "entry": "0xb000",
+      "start": 84,
+      "count": 0,
+      "instructions": 1628,
+      "cycles": 2299
+    },
+    {
+      "entry": "0xa158",
+      "start": 84,
+      "count": 83,
+      "instructions": 1487,
+      "cycles": 2105
+    },
+    {
+      "entry": "0xb000",
+      "start": 84,
+      "count": 83,
+      "instructions": 1628,
+      "cycles": 2299
+    },
+    {
+      "entry": "0xa158",
+      "start": 85,
+      "count": 0,
+      "instructions": 1487,
+      "cycles": 2105
+    },
+    {
+      "entry": "0xb000",
+      "start": 85,
+      "count": 0,
+      "instructions": 1628,
+      "cycles": 2299
+    },
+    {
+      "entry": "0xa158",
+      "start": 85,
+      "count": 83,
+      "instructions": 1487,
+      "cycles": 2105
+    },
+    {
+      "entry": "0xb000",
+      "start": 85,
+      "count": 83,
+      "instructions": 1628,
+      "cycles": 2299
+    },
+    {
+      "entry": "0xa158",
+      "start": 86,
+      "count": 0,
+      "instructions": 1487,
+      "cycles": 2105
+    },
+    {
+      "entry": "0xb000",
+      "start": 86,
+      "count": 0,
+      "instructions": 1628,
+      "cycles": 2299
+    },
+    {
+      "entry": "0xa158",
+      "start": 86,
+      "count": 83,
+      "instructions": 1487,
+      "cycles": 2105
+    },
+    {
+      "entry": "0xb000",
+      "start": 86,
+      "count": 83,
+      "instructions": 1628,
+      "cycles": 2299
+    },
+    {
+      "entry": "0xa158",
+      "start": 87,
+      "count": 0,
+      "instructions": 1487,
+      "cycles": 2105
+    },
+    {
+      "entry": "0xb000",
+      "start": 87,
+      "count": 0,
+      "instructions": 1628,
+      "cycles": 2299
+    },
+    {
+      "entry": "0xa158",
+      "start": 87,
+      "count": 83,
+      "instructions": 1487,
+      "cycles": 2105
+    },
+    {
+      "entry": "0xb000",
+      "start": 87,
+      "count": 83,
+      "instructions": 1628,
+      "cycles": 2299
+    },
+    {
+      "entry": "0xa158",
+      "start": 88,
+      "count": 0,
+      "instructions": 1487,
+      "cycles": 2105
+    },
+    {
+      "entry": "0xb000",
+      "start": 88,
+      "count": 0,
+      "instructions": 1628,
+      "cycles": 2299
+    },
+    {
+      "entry": "0xa158",
+      "start": 88,
+      "count": 83,
+      "instructions": 1487,
+      "cycles": 2105
+    },
+    {
+      "entry": "0xb000",
+      "start": 88,
+      "count": 83,
+      "instructions": 1628,
+      "cycles": 2299
+    },
+    {
+      "entry": "0xa158",
+      "start": 89,
+      "count": 0,
+      "instructions": 1487,
+      "cycles": 2105
+    },
+    {
+      "entry": "0xb000",
+      "start": 89,
+      "count": 0,
+      "instructions": 1628,
+      "cycles": 2299
+    },
+    {
+      "entry": "0xa158",
+      "start": 89,
+      "count": 83,
+      "instructions": 1487,
+      "cycles": 2105
+    },
+    {
+      "entry": "0xb000",
+      "start": 89,
+      "count": 83,
+      "instructions": 1628,
+      "cycles": 2299
+    },
+    {
+      "entry": "0xa158",
+      "start": 90,
+      "count": 0,
+      "instructions": 1487,
+      "cycles": 2105
+    },
+    {
+      "entry": "0xb000",
+      "start": 90,
+      "count": 0,
+      "instructions": 1628,
+      "cycles": 2299
+    },
+    {
+      "entry": "0xa158",
+      "start": 90,
+      "count": 83,
+      "instructions": 1487,
+      "cycles": 2105
+    },
+    {
+      "entry": "0xb000",
+      "start": 90,
+      "count": 83,
+      "instructions": 1628,
+      "cycles": 2299
+    },
+    {
+      "entry": "0xa158",
+      "start": 91,
+      "count": 0,
+      "instructions": 1487,
+      "cycles": 2105
+    },
+    {
+      "entry": "0xb000",
+      "start": 91,
+      "count": 0,
+      "instructions": 1628,
+      "cycles": 2299
+    },
+    {
+      "entry": "0xa158",
+      "start": 91,
+      "count": 83,
+      "instructions": 1487,
+      "cycles": 2105
+    },
+    {
+      "entry": "0xb000",
+      "start": 91,
+      "count": 83,
+      "instructions": 1628,
+      "cycles": 2299
+    },
+    {
+      "entry": "0xa158",
+      "start": 92,
+      "count": 0,
+      "instructions": 1487,
+      "cycles": 2105
+    },
+    {
+      "entry": "0xb000",
+      "start": 92,
+      "count": 0,
+      "instructions": 1628,
+      "cycles": 2299
+    },
+    {
+      "entry": "0xa158",
+      "start": 92,
+      "count": 83,
+      "instructions": 1487,
+      "cycles": 2105
+    },
+    {
+      "entry": "0xb000",
+      "start": 92,
+      "count": 83,
+      "instructions": 1628,
+      "cycles": 2299
+    },
+    {
+      "entry": "0xa158",
+      "start": 93,
+      "count": 0,
+      "instructions": 1487,
+      "cycles": 2105
+    },
+    {
+      "entry": "0xb000",
+      "start": 93,
+      "count": 0,
+      "instructions": 1628,
+      "cycles": 2299
+    },
+    {
+      "entry": "0xa158",
+      "start": 93,
+      "count": 83,
+      "instructions": 1487,
+      "cycles": 2105
+    },
+    {
+      "entry": "0xb000",
+      "start": 93,
+      "count": 83,
+      "instructions": 1628,
+      "cycles": 2299
+    },
+    {
+      "entry": "0xa158",
+      "start": 94,
+      "count": 0,
+      "instructions": 1487,
+      "cycles": 2105
+    },
+    {
+      "entry": "0xb000",
+      "start": 94,
+      "count": 0,
+      "instructions": 1628,
+      "cycles": 2299
+    },
+    {
+      "entry": "0xa158",
+      "start": 94,
+      "count": 83,
+      "instructions": 1487,
+      "cycles": 2105
+    },
+    {
+      "entry": "0xb000",
+      "start": 94,
+      "count": 83,
+      "instructions": 1628,
+      "cycles": 2299
+    },
+    {
+      "entry": "0xa158",
+      "start": 95,
+      "count": 0,
+      "instructions": 1487,
+      "cycles": 2105
+    },
+    {
+      "entry": "0xb000",
+      "start": 95,
+      "count": 0,
+      "instructions": 1628,
+      "cycles": 2299
+    },
+    {
+      "entry": "0xa158",
+      "start": 95,
+      "count": 83,
+      "instructions": 1487,
+      "cycles": 2105
+    },
+    {
+      "entry": "0xb000",
+      "start": 95,
+      "count": 83,
+      "instructions": 1628,
+      "cycles": 2299
+    },
+    {
+      "entry": "0xa158",
+      "start": 96,
+      "count": 0,
+      "instructions": 1487,
+      "cycles": 2105
+    },
+    {
+      "entry": "0xb000",
+      "start": 96,
+      "count": 0,
+      "instructions": 1628,
+      "cycles": 2299
+    },
+    {
+      "entry": "0xa158",
+      "start": 96,
+      "count": 83,
+      "instructions": 1487,
+      "cycles": 2105
+    },
+    {
+      "entry": "0xb000",
+      "start": 96,
+      "count": 83,
+      "instructions": 1628,
+      "cycles": 2299
+    },
+    {
+      "entry": "0xa158",
+      "start": 97,
+      "count": 0,
+      "instructions": 1487,
+      "cycles": 2105
+    },
+    {
+      "entry": "0xb000",
+      "start": 97,
+      "count": 0,
+      "instructions": 1628,
+      "cycles": 2299
+    },
+    {
+      "entry": "0xa158",
+      "start": 97,
+      "count": 83,
+      "instructions": 1487,
+      "cycles": 2105
+    },
+    {
+      "entry": "0xb000",
+      "start": 97,
+      "count": 83,
+      "instructions": 1628,
+      "cycles": 2299
+    },
+    {
+      "entry": "0xa158",
+      "start": 98,
+      "count": 0,
+      "instructions": 1487,
+      "cycles": 2105
+    },
+    {
+      "entry": "0xb000",
+      "start": 98,
+      "count": 0,
+      "instructions": 1628,
+      "cycles": 2299
+    },
+    {
+      "entry": "0xa158",
+      "start": 98,
+      "count": 83,
+      "instructions": 1487,
+      "cycles": 2105
+    },
+    {
+      "entry": "0xb000",
+      "start": 98,
+      "count": 83,
+      "instructions": 1628,
+      "cycles": 2299
+    },
+    {
+      "entry": "0xa158",
+      "start": 99,
+      "count": 0,
+      "instructions": 1487,
+      "cycles": 2105
+    },
+    {
+      "entry": "0xb000",
+      "start": 99,
+      "count": 0,
+      "instructions": 1628,
+      "cycles": 2299
+    },
+    {
+      "entry": "0xa158",
+      "start": 99,
+      "count": 83,
+      "instructions": 1487,
+      "cycles": 2105
+    },
+    {
+      "entry": "0xb000",
+      "start": 99,
+      "count": 83,
+      "instructions": 1628,
+      "cycles": 2299
+    }
+  ]
+}

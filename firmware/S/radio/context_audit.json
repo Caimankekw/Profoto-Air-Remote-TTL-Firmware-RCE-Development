@@ -1,0 +1,185 @@
+{
+  "reachable_instructions": 1711,
+  "direct_writes_in_saved_range": [],
+  "apparent_banked_writes": [
+    {
+      "pc": 16830,
+      "bsr": 1,
+      "actual_address": 404
+    },
+    {
+      "pc": 16880,
+      "bsr": 1,
+      "actual_address": 404
+    }
+  ],
+  "fsr0_use_sites": [],
+  "indirect_write_sites": [
+    17824,
+    17982,
+    18018,
+    18268,
+    18322,
+    18418,
+    18442,
+    18594,
+    22650,
+    22728,
+    23426,
+    23488,
+    28392,
+    28398,
+    28728,
+    28734,
+    28748,
+    28772,
+    36980,
+    39622,
+    40262,
+    40270,
+    44416
+  ],
+  "hook_isr_reachability": {
+    "0x4e90": false,
+    "0x4ec0": false,
+    "0x87cc": false,
+    "0x6dde": false,
+    "0x8062": false,
+    "0x807a": false,
+    "0x8116": false,
+    "0x52de": false
+  },
+  "status": "PASS_SONY_ISR_FOREGROUND_CONTEXT_PARTITION",
+  "native_execution_cases": 878,
+  "observed_native_writes": {
+    "0x7584": {
+      "role": "foreground_formatter",
+      "cases": 300,
+      "saved_range_writes": [
+        107,
+        108,
+        109,
+        110,
+        114,
+        115,
+        116,
+        117
+      ],
+      "fsr0_writes": []
+    },
+    "0x97d8": {
+      "role": "foreground_formatter",
+      "cases": 3,
+      "saved_range_writes": [
+        107,
+        108,
+        109,
+        110
+      ],
+      "fsr0_writes": []
+    },
+    "0x7b3a": {
+      "role": "foreground_state_helper",
+      "cases": 8,
+      "saved_range_writes": [
+        107,
+        108
+      ],
+      "fsr0_writes": []
+    },
+    "0x5cd8": {
+      "role": "foreground_state_helper",
+      "cases": 8,
+      "saved_range_writes": [
+        107,
+        108,
+        109,
+        110
+      ],
+      "fsr0_writes": []
+    },
+    "0x8816": {
+      "role": "foreground_state_helper",
+      "cases": 8,
+      "saved_range_writes": [
+        107,
+        108,
+        109
+      ],
+      "fsr0_writes": []
+    },
+    "0x980c": {
+      "role": "original_ISR_callable",
+      "cases": 256,
+      "saved_range_writes": [],
+      "fsr0_writes": []
+    },
+    "0xabd2": {
+      "role": "original_ISR_callable",
+      "cases": 256,
+      "saved_range_writes": [],
+      "fsr0_writes": []
+    },
+    "0x7d9e": {
+      "role": "original_ISR_callable",
+      "cases": 8,
+      "saved_range_writes": [],
+      "fsr0_writes": []
+    },
+    "0xa5a4": {
+      "role": "original_ISR_callable",
+      "cases": 1,
+      "saved_range_writes": [],
+      "fsr0_writes": []
+    },
+    "0x9abe": {
+      "role": "original_ISR_callable",
+      "cases": 30,
+      "saved_range_writes": [],
+      "fsr0_writes": []
+    }
+  },
+  "indirect_target_contracts": [
+    {
+      "writers": "4592 printf internal stores",
+      "sources": [
+        "7D9E uses destination025 and format44EA",
+        "980C uses destination024 and format44DF"
+      ],
+      "bounds": "two-digit unsigned byte hex; output plusNUL lies below02F; all256980C inputs replayed"
+    },
+    {
+      "writers": "587A/58C8/6EEE/9074",
+      "target": "camera object0193+1 =0194; ISR4142..4162 binds039/03A"
+    },
+    {
+      "writers": "5B82/5BC0/6EE8/AD80",
+      "target": "handshake byte056 fromISR038 or01 pointer"
+    },
+    {
+      "writers": "7002 stores7038/703E/704C/7064",
+      "target": "TX descriptorE6..EB,data400..463 orRX descriptor1AC..1B1,data3BB..3EC; init668A..66B4"
+    },
+    {
+      "writers": "9D46/9D4E",
+      "target": "A906 passesE6; drop queued bytes throughread/count fields"
+    },
+    {
+      "writers": "9AC6",
+      "target": "SPI pointer3E/3F initialized251 by5BF2, wrapped at26F; all30positions replayed"
+    }
+  ],
+  "architectural_context": "ISR410A..412E savesFSR1/2,PROD,TBLPTR,TABLAT;4226..424A restores them;4250 RETFIE1 restoresW/STATUS/BSR. NoFSR0 use in closure.",
+  "core_write_policy": "runtime_generator.Codegen writesstate_base+offset and architectural W/STATUS/BSR; it does not directly write original06B..C0. Native renderer/state helper scratch overlapsSAVE_REGISTERS by design.",
+  "projection_outputs_not_restored": [
+    "193mode",
+    "197..199FEC",
+    "C1selector",
+    "CA..CFhandlers",
+    "DBhead",
+    "F3model",
+    "49..53LCD"
+  ],
+  "recommendation": "No evidence to shrink06B..C0 saves. Keep ISR access scratch001..060 out of foreground save/restore. Preserve proven original pointer bounds and prohibit lifecycle/context helper reentry.",
+  "limits": "Static direct-flow closure plus specified native-function replay; not arbitrary corrupt pointer memory or complete hardware ISR simulation."
+}

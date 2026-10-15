@@ -1,0 +1,332 @@
+{
+  "schema": 1,
+  "target": "Olympus AirRemote TTL-O A4 candidate decode",
+  "scope": "Offline evidence only; exact MCU package/config and bootloader are not certified.",
+  "image": {
+    "file": "o_a4_candidate_decode.base4002.bin",
+    "base": "0x4002",
+    "sha256": "af0d4bc4a0dfa54f85d05599d9e7ae3b691317cf7f4ecbe6ad29f51ed29d8ef4",
+    "unknown": "0x4000..0x4001"
+  },
+  "ranges_convention": "inclusive RAM/Flash ranges; preimage start inclusive/end exclusive",
+  "ram": {
+    "startup_clear": [
+      [
+        "0x024",
+        "0x040"
+      ],
+      [
+        "0x060",
+        "0x0B6"
+      ],
+      [
+        "0x100",
+        "0x1CD"
+      ],
+      [
+        "0x200",
+        "0x26E"
+      ],
+      [
+        "0x300",
+        "0x363"
+      ]
+    ],
+    "startup_copy": [
+      {
+        "rom": "0x835C",
+        "size": 84,
+        "ram": [
+          "0x26F",
+          "0x2C2"
+        ]
+      },
+      {
+        "rom": "0xAB56",
+        "size": 9,
+        "ram": [
+          "0x1F1",
+          "0x1F9"
+        ]
+      },
+      {
+        "rom": "0xABE0",
+        "size": 1,
+        "ram": [
+          "0x041",
+          "0x041"
+        ]
+      }
+    ],
+    "runtime_additional": [
+      {
+        "range": [
+          "0x1CE",
+          "0x1F0"
+        ],
+        "meaning": "observed temporary variables; not a claim every byte is live",
+        "evidence": [
+          "0x5430..0x5450",
+          "0x598A",
+          "0x598E"
+        ]
+      },
+      {
+        "range": [
+          "0x2C3",
+          "0x2CE"
+        ],
+        "meaning": "2C3 flag and 11-byte temporary copy",
+        "evidence": [
+          "0x5818..0x5834"
+        ]
+      }
+    ],
+    "rings": [
+      {
+        "descriptor": "0x095",
+        "buffer": [
+          "0x300",
+          "0x363"
+        ],
+        "size": 100,
+        "init": "0x6774..0x678A"
+      },
+      {
+        "descriptor": "0x1B2",
+        "buffer": [
+          "0x215",
+          "0x246"
+        ],
+        "size": 50,
+        "init": "0x678A..0x67A2",
+        "irq_writer": "0xA8EC -> 0x719A"
+      }
+    ],
+    "irq_packet_buffer": {
+      "range": [
+        "0x247",
+        "0x26E"
+      ],
+      "index": "0x089",
+      "normal_limit": 40,
+      "writer": "0x67E8"
+    },
+    "highest_confirmed_fixed_object_end": "0x363",
+    "allocation_candidate": {
+      "range": [
+        "0x400",
+        "0x5FF"
+      ],
+      "confidence": "candidate under PIC18F47J53-family GPR map and normal pointer invariants; not a complete whole-program indirect-pointer proof"
+    },
+    "unproven_gaps": [
+      [
+        "0x2CF",
+        "0x2FF"
+      ],
+      [
+        "0x364",
+        "0x3FF"
+      ]
+    ],
+    "c_p8_conflicting_ranges": [
+      [
+        "0x220",
+        "0x248"
+      ],
+      [
+        "0x263",
+        "0x27F"
+      ],
+      [
+        "0x2C0",
+        "0x2CE"
+      ],
+      [
+        "0x330",
+        "0x35F"
+      ]
+    ]
+  },
+  "fsr_stack": {
+    "FSR0": "Explicit references found only in startup copies/clear loops.",
+    "FSR1_FSR2": "Object pointers, field offsets and copy cursors; no dynamic RAM stack pointer initialization identified.",
+    "hardware_indirect_calls": [
+      "0x6148..0x6164",
+      "0x6AA0..0x6ABA",
+      "0xA6B4..0xA6CA"
+    ],
+    "indirect_call_pattern": "PUSH, load three bytes via FSR2, write TOSL/TOSH/TOSU, RETURN. This is not RAM software stack.",
+    "observed_MOVLB_values": [
+      0,
+      1,
+      2,
+      14,
+      15
+    ],
+    "unproven": "All generic pointer caller bounds and bootloader/runtime paths outside recovered application."
+  },
+  "irq": {
+    "entry": "0x4108",
+    "closure_instruction_count": 392,
+    "closure_method": "Direct calls/branches and both skip edges; returns end path; no missing target or TOS dispatch in closure.",
+    "save": "FSR1 and FSR2 at 0x01A..0x01D, 0x410A..0x4116",
+    "restore": "0x4164..0x4170; 0x4176 RETFIE 1 restores fast W/STATUS/BSR context under PIC18 semantics",
+    "scratch": [
+      "0x001",
+      "0x019"
+    ],
+    "save_slots": [
+      "0x01A",
+      "0x01D"
+    ],
+    "shared": [
+      "0x040",
+      "0x042.1",
+      "0x089",
+      "0x0B1..0x0B2",
+      "0x0B5..0x0B6",
+      "0x19A",
+      "0x1B2..0x1B7",
+      "0x215..0x26E"
+    ],
+    "reads": [
+      "0x073..0x076"
+    ],
+    "not_written_in_closure": [
+      "FSR0",
+      "PRODL",
+      "PRODH",
+      "TBLPTR",
+      "TABLAT"
+    ],
+    "unknown": "Bootloader and other exception/interrupt paths outside closure; nesting configuration not certified."
+  },
+  "nvm": {
+    "descriptor": "0x1AB..0x1B1",
+    "descriptor_initial_bytes": "ff fb 01 00 00 00 04",
+    "record_width": 4,
+    "index_width_bits": 8,
+    "index_count": 256,
+    "record_end_formula": "0x1FBFF - 4*index",
+    "word_address_formula": "record_end - remaining + 1, remaining=4 then 2",
+    "write_range": [
+      "0x1F800",
+      "0x1FBFF"
+    ],
+    "erase_target": "0x1FBFF",
+    "erase_page_inference": "0x1F800..0x1FBFF if MCU erase page is 1024 bytes; instruction trace alone does not certify erase geometry",
+    "commit_callers": [
+      "0x8A0E",
+      "0x922E"
+    ],
+    "commit_chain": [
+      "0x97BC",
+      "0x5396"
+    ],
+    "unique_direct_wordwrite_call": "0x54B2 -> 0x962C",
+    "unique_direct_erase_call": "0x53DA -> 0x9E1A",
+    "wordwrite_inputs": {
+      "TBLPTR": "0x0C3..0x0C5",
+      "data": "0x0C7..0x0C8"
+    },
+    "erase_inputs": {
+      "TBLPTR": "0x01E..0x020"
+    },
+    "interrupt_control": "0x9E3A clears FD0.7 and FF2.7; write/erase unconditionally set both afterwards. No save/restore of prior bits.",
+    "F800_candidate": "Image FF plus no overlap with this original normal-runtime journal; not standalone proof F800..FFFF is usable after new code layout/bootloader/config."
+  },
+  "preimages": [
+    {
+      "name": "irq_entry",
+      "start": "0x4108",
+      "end": "0x411A",
+      "hex": "4282e1cf1af0e2cf1bf0d9cf1cf0dacf1df0"
+    },
+    {
+      "name": "irq_restore",
+      "start": "0x4164",
+      "end": "0x4178",
+      "hex": "1dc0daff1cc0d9ff1bc0e2ff1ac0e1ff42921100"
+    },
+    {
+      "name": "startup",
+      "start": "0x69CA",
+      "end": "0x6A62",
+      "hex": "5c0ef66e830ef76e000ef86e02ee6ff010ee54f00900f5cfeeffe550e150fae1560ef66eab0ef76e000ef86e01eef1f010ee09f00900f5cfeeffe550e150fae1e00ef66eab0ef76e000ef86e0900f5cf41f003ee00f0640eee6ae806fde102ee00f06f0eee6ae806fde101ee00f0ce0eee6ae806fde100ee60f0570eee6ae806fde100ee24f01d0eee6ae806fde14290429200014eef2bf0"
+    },
+    {
+      "name": "ring_init",
+      "start": "0x6774",
+      "end": "0x67A2",
+      "hex": "950e1e6e1f6a000e206e030e216e640e226eddec47f0b20e1e6e010e1f6e150e206e020e216e320e226eddec47f0"
+    },
+    {
+      "name": "temporary_2c3_2ce",
+      "start": "0x5818",
+      "end": "0x5836",
+      "hex": "010e0201c36fc40e1e6e020e1f6e8a0e206e216a236a0b0e226e83ec41f0"
+    },
+    {
+      "name": "nvm_descriptor_init",
+      "start": "0x5E38",
+      "end": "0x5E58",
+      "hex": "ab0e0001b76f010eb86fb969fb0eba6f010ebb6fbc6bbd6b040ebe6f2dec41f0"
+    },
+    {
+      "name": "nvm_descriptor_store",
+      "start": "0x825A",
+      "end": "0x82B0",
+      "hex": "b7c0d9ffb8c0daffb9c0deffbac0deffbbc0deffbcc0deff20ee04f017d8bdc0dfffbeb104d0bec01ef01f6a05d0be291e6e1f6a000e1f2220ee06f007d81ec0dfff20ee05f002d8df6a000cb751d926b851da221200"
+    },
+    {
+      "name": "nvm_commit_entry",
+      "start": "0x97BC",
+      "end": "0x97EC",
+      "hex": "fec0d6f0ffc0d7f02fec4bf0d60e0001d76f010ed86f94ec52f0ab0e0001f86f010ef96fd60efa6f010efb6fcbef29f0"
+    },
+    {
+      "name": "nvm_erase_call",
+      "start": "0x53B8",
+      "end": "0x53DE",
+      "hex": "20ee05f09dd8df500ee1f8c0d9fff9c0daffdecf1ef0decf1ff0decf20f0decf21f00dec4ff0"
+    },
+    {
+      "name": "nvm_wordwrite_call",
+      "start": "0x54B2",
+      "end": "0x54BE",
+      "hex": "16ec4bf0020e0001fd5fafd7"
+    },
+    {
+      "name": "flash_wordwrite",
+      "start": "0x962C",
+      "end": "0x965E",
+      "hex": "c5c0f8ffc4c0f7ffc3c0f6ffc7c0f5ff0d00c8c0f5ff0c00a68aa6841dec4ff0a76eaa0ea76ea682d08ef28ea69aa694aa0c"
+    },
+    {
+      "name": "flash_erase_unlock",
+      "start": "0x9E1A",
+      "end": "0x9E40",
+      "hex": "20c0f8ff1fc0f7ff1ec0f6ffa684a68807d8a76eaa0ea76ea682d08ef28eaa0cd09ef29e550c"
+    },
+    {
+      "name": "nvm_address",
+      "start": "0x81A8",
+      "end": "0x8202",
+      "hex": "20ee06f01e50d9261f50da22df50b76f2050b703f3cf22f0f4cf23f02250b76f2350b86fb96bba6b1ec0d9ff1fc0daffdecfbbf0decfbcf0decfbdf0decfbef0b751bb5d1e6eb851bc591f6eb951bd59206eba51be59216e1200"
+    },
+    {
+      "name": "irq_packet_buffer",
+      "start": "0x6804",
+      "end": "0x688E",
+      "hex": "550e1918d8a4120019c047f2010e37d8020edf6e020c19c048f2020e30d8030edf6e030c470e00018925d96eda6a020eda2219c0dfff892b280e8919d8a4120018d00001896b15d01650d96eda6adf50010ad6e0030adfe0010ae4e0070ae2e0010ad8a41200edd70001896b1650b6ef46f01650d96eda6a080edf6e080c0001896f1650d96eda6a1200"
+    },
+    {
+      "name": "irq_ring_entry",
+      "start": "0xA8EC",
+      "end": "0xA8FE",
+      "hex": "076eb20e016e010e026e07c003f0cdef38f0"
+    }
+  ]
+}

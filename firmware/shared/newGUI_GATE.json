@@ -1,0 +1,423 @@
+{
+  "date": "2026-10-15",
+  "scope": "Read-only static PE/.NET metadata/method-body comparison plus prior C11 decompilation; no vendor code execution,USB,registry writes,or changes to original files.",
+  "conclusion": "Same app-header CRC/version does not gate or skip this original GUI update path. Normal DeviceFound/connect conditions permit erase-load-verify-reset. No header version bump or CRC change is needed to bypass a freshness check.",
+  "same_version_or_crc_skip_found": false,
+  "separate_force_update_execution_path_found": false,
+  "actual_device_write_success_proven": false,
+  "gate": "State != Start && !UpdateInProgress && State != Finished && !_isUnplugged && Connect()",
+  "normal_allowed_state": "DeviceFound",
+  "connect_success_rule": "native command <selector> connect exits0",
+  "update_sequence": [
+    "erase",
+    "load <embedded HEX>",
+    "verify <same HEX>",
+    "reset"
+  ],
+  "native_loader_sha256": "eb6a6cd69e7e3b348962b7469a560b22e2c34adf7f66172f47d21cb5cdd89f06",
+  "models": {
+    "N": {
+      "source": "air_remote_ttl/air-remote-ttl-n-firmware-c5-win/Air-Remote-TTL-N-Firmware-C5.exe",
+      "source_sha256_verified": "4fa0d7c1ae8201910e0586eef30feadb9230e3c30c7b67b8dc4c2d344dea5591",
+      "managed_offset": "0x59af0",
+      "managed_size": 3268608,
+      "managed_sha256": "a512279be5770087f64e9a7cfdc7dff332c8edac1ff0e13b7b7a36e6e8039d1f",
+      "business_methods_compared": 58,
+      "identical_method_bodies": 57,
+      "only_changed_method": "AirTTLB1Updater.AirRemoteFirmwareUpdater::deviceDetector_DoWork",
+      "only_changed_method_body_offset": 15,
+      "selector": 2,
+      "all_referenced_method_field_names_and_string_literals_equal": true,
+      "mainwindow_baml_equal_C11": true,
+      "mainwindow_baml_sha256": "8c329f0d2c3e56f718d5a611cc9740ace62e1017417d34c36d39d3f7a685d425",
+      "native_loader_equal_C11": true,
+      "native_loader_sha256": "eb6a6cd69e7e3b348962b7469a560b22e2c34adf7f66172f47d21cb5cdd89f06",
+      "important_methods": {
+        "AirTTLB1Updater.AirRemoteFirmwareUpdateProcedure::FindFileForDevice": {
+          "token": "0x6000004",
+          "rva": "0x207f",
+          "body_sha256": "ab88b00a4ccd891bfe309370c8bdd19262f53b7af46bc59330c8ea4cc4d465c3",
+          "body_bytes_equal_C11": true
+        },
+        "AirTTLB1Updater.AirRemoteFirmwareUpdateProcedure::ExtractHexfiles": {
+          "token": "0x6000005",
+          "rva": "0x20b4",
+          "body_sha256": "824a7423f0528d8f009ede8ceb6b4d35f6a0205deb8ac70fd5da2a01f6a66ce2",
+          "body_bytes_equal_C11": true
+        },
+        "AirTTLB1Updater.AirRemoteFirmwareUpdateProcedure::EraseFirmware": {
+          "token": "0x6000006",
+          "rva": "0x2104",
+          "body_sha256": "5f0a01402254aab590d21529c5dc52b62cb7b2c7698b0eea68ee7c15d0246586",
+          "body_bytes_equal_C11": true
+        },
+        "AirTTLB1Updater.AirRemoteFirmwareUpdateProcedure::LoadNewFirmware": {
+          "token": "0x6000007",
+          "rva": "0x2194",
+          "body_sha256": "bbe1eec0c185940bc2a3a05f2e421ea1e03c2bbdaf248f65db4858b17676d1bc",
+          "body_bytes_equal_C11": true
+        },
+        "AirTTLB1Updater.AirRemoteFirmwareUpdateProcedure::VerifyNewFirmware": {
+          "token": "0x6000008",
+          "rva": "0x2260",
+          "body_sha256": "0e5858095dc370e15e15d2b635ac817ffe394986cdb2c3ec1663847750fbe6f8",
+          "body_bytes_equal_C11": true
+        },
+        "AirTTLB1Updater.AirRemoteFirmwareUpdateProcedure::ResetTheDevice": {
+          "token": "0x6000009",
+          "rva": "0x2310",
+          "body_sha256": "2f4a5ebc05504924bf6d942fba579abaf9598b2d1cfd1bb990627202d90e2887",
+          "body_bytes_equal_C11": true
+        },
+        "AirTTLB1Updater.AirRemoteFirmwareUpdater::StartFirmwareUpdate": {
+          "token": "0x600001b",
+          "rva": "0x2484",
+          "body_sha256": "3a248e4ab65c9ebfe372fa601e41d3b2a16e82a361033f6975c15c3cda060ea1",
+          "body_bytes_equal_C11": true
+        },
+        "AirTTLB1Updater.AirRemoteFirmwareUpdater::bgWorker_DoWork": {
+          "token": "0x600001c",
+          "rva": "0x2528",
+          "body_sha256": "519c5250c4a14578d60c90504c907c2a4b7d9a99f0b6952bf12dd004f77e8b0d",
+          "body_bytes_equal_C11": true
+        },
+        "AirTTLB1Updater.AirRemoteFirmwareUpdater::deviceDetector_DoWork": {
+          "token": "0x6000021",
+          "rva": "0x2784",
+          "body_sha256": "843f018a4d53b5f7688ca8fc68636bc547c6e3e85ffb45a8270e0d22f290ebef",
+          "body_bytes_equal_C11": false
+        },
+        "AirTTLB1Updater.AirRemoteFirmwareUpdater::Connect": {
+          "token": "0x6000022",
+          "rva": "0x282c",
+          "body_sha256": "2350c04b887efcedcdff6600be26f6b1a3005b8c211f8972efe3e48f6498332b",
+          "body_bytes_equal_C11": true
+        },
+        "AirTTLB1Updater.ExeReader::RunExe": {
+          "token": "0x6000033",
+          "rva": "0x2db4",
+          "body_sha256": "ca79527c2328f7621932b679b4a5fb3400fe69d804af9d8fa898d2ddfcd530bf",
+          "body_bytes_equal_C11": true
+        },
+        "AirTTLB1Updater.MainWindow::Update": {
+          "token": "0x6000045",
+          "rva": "0x2ee1",
+          "body_sha256": "f58560b070d0dd55c8f50eabc2d6b66e5400e756b082f640eae0bfcfdb01942f",
+          "body_bytes_equal_C11": true
+        }
+      }
+    },
+    "S": {
+      "source": "air_remote_ttl/air-remote-ttl-s-firmware-a6-win/Air-Remote-TTL-S-Firmware-A6.exe",
+      "source_sha256_verified": "707b65d9cb6ea6c320976e5a6244de05b1f0856ab9c7ddc5008fe739337b9737",
+      "managed_offset": "0x59af0",
+      "managed_size": 3268608,
+      "managed_sha256": "1794feb3a397017d415d59bc0a9d79366a4def20685b95ed69949cff09d31a71",
+      "business_methods_compared": 58,
+      "identical_method_bodies": 57,
+      "only_changed_method": "AirTTLB1Updater.AirRemoteFirmwareUpdater::deviceDetector_DoWork",
+      "only_changed_method_body_offset": 15,
+      "selector": 3,
+      "all_referenced_method_field_names_and_string_literals_equal": true,
+      "mainwindow_baml_equal_C11": true,
+      "mainwindow_baml_sha256": "8c329f0d2c3e56f718d5a611cc9740ace62e1017417d34c36d39d3f7a685d425",
+      "native_loader_equal_C11": true,
+      "native_loader_sha256": "eb6a6cd69e7e3b348962b7469a560b22e2c34adf7f66172f47d21cb5cdd89f06",
+      "important_methods": {
+        "AirTTLB1Updater.AirRemoteFirmwareUpdateProcedure::FindFileForDevice": {
+          "token": "0x6000004",
+          "rva": "0x207f",
+          "body_sha256": "ab88b00a4ccd891bfe309370c8bdd19262f53b7af46bc59330c8ea4cc4d465c3",
+          "body_bytes_equal_C11": true
+        },
+        "AirTTLB1Updater.AirRemoteFirmwareUpdateProcedure::ExtractHexfiles": {
+          "token": "0x6000005",
+          "rva": "0x20b4",
+          "body_sha256": "824a7423f0528d8f009ede8ceb6b4d35f6a0205deb8ac70fd5da2a01f6a66ce2",
+          "body_bytes_equal_C11": true
+        },
+        "AirTTLB1Updater.AirRemoteFirmwareUpdateProcedure::EraseFirmware": {
+          "token": "0x6000006",
+          "rva": "0x2104",
+          "body_sha256": "5f0a01402254aab590d21529c5dc52b62cb7b2c7698b0eea68ee7c15d0246586",
+          "body_bytes_equal_C11": true
+        },
+        "AirTTLB1Updater.AirRemoteFirmwareUpdateProcedure::LoadNewFirmware": {
+          "token": "0x6000007",
+          "rva": "0x2194",
+          "body_sha256": "bbe1eec0c185940bc2a3a05f2e421ea1e03c2bbdaf248f65db4858b17676d1bc",
+          "body_bytes_equal_C11": true
+        },
+        "AirTTLB1Updater.AirRemoteFirmwareUpdateProcedure::VerifyNewFirmware": {
+          "token": "0x6000008",
+          "rva": "0x2260",
+          "body_sha256": "0e5858095dc370e15e15d2b635ac817ffe394986cdb2c3ec1663847750fbe6f8",
+          "body_bytes_equal_C11": true
+        },
+        "AirTTLB1Updater.AirRemoteFirmwareUpdateProcedure::ResetTheDevice": {
+          "token": "0x6000009",
+          "rva": "0x2310",
+          "body_sha256": "2f4a5ebc05504924bf6d942fba579abaf9598b2d1cfd1bb990627202d90e2887",
+          "body_bytes_equal_C11": true
+        },
+        "AirTTLB1Updater.AirRemoteFirmwareUpdater::StartFirmwareUpdate": {
+          "token": "0x600001b",
+          "rva": "0x2484",
+          "body_sha256": "3a248e4ab65c9ebfe372fa601e41d3b2a16e82a361033f6975c15c3cda060ea1",
+          "body_bytes_equal_C11": true
+        },
+        "AirTTLB1Updater.AirRemoteFirmwareUpdater::bgWorker_DoWork": {
+          "token": "0x600001c",
+          "rva": "0x2528",
+          "body_sha256": "519c5250c4a14578d60c90504c907c2a4b7d9a99f0b6952bf12dd004f77e8b0d",
+          "body_bytes_equal_C11": true
+        },
+        "AirTTLB1Updater.AirRemoteFirmwareUpdater::deviceDetector_DoWork": {
+          "token": "0x6000021",
+          "rva": "0x2784",
+          "body_sha256": "0d33532f381ff01b8514f6890037295477f3adc622883347e7e6b7ac1a232880",
+          "body_bytes_equal_C11": false
+        },
+        "AirTTLB1Updater.AirRemoteFirmwareUpdater::Connect": {
+          "token": "0x6000022",
+          "rva": "0x282c",
+          "body_sha256": "2350c04b887efcedcdff6600be26f6b1a3005b8c211f8972efe3e48f6498332b",
+          "body_bytes_equal_C11": true
+        },
+        "AirTTLB1Updater.ExeReader::RunExe": {
+          "token": "0x6000033",
+          "rva": "0x2db4",
+          "body_sha256": "ca79527c2328f7621932b679b4a5fb3400fe69d804af9d8fa898d2ddfcd530bf",
+          "body_bytes_equal_C11": true
+        },
+        "AirTTLB1Updater.MainWindow::Update": {
+          "token": "0x6000045",
+          "rva": "0x2ee1",
+          "body_sha256": "f58560b070d0dd55c8f50eabc2d6b66e5400e756b082f640eae0bfcfdb01942f",
+          "body_bytes_equal_C11": true
+        }
+      }
+    },
+    "F": {
+      "source": "air_remote_ttl/air-remote-ttl-f-firmware-a5-win/Air-Remote-TTL-F-Firmware-A5.exe",
+      "source_sha256_verified": "455b3f8eb74c2a598d5bd679d3450e9850860eae8de84362da71edb4896e4e6a",
+      "managed_offset": "0x59af0",
+      "managed_size": 3269120,
+      "managed_sha256": "340c9f3c2ba554140b311472ec5131de4dce1168b3b754301bebfed6f5ce876b",
+      "business_methods_compared": 58,
+      "identical_method_bodies": 57,
+      "only_changed_method": "AirTTLB1Updater.AirRemoteFirmwareUpdater::deviceDetector_DoWork",
+      "only_changed_method_body_offset": 15,
+      "selector": 5,
+      "all_referenced_method_field_names_and_string_literals_equal": true,
+      "mainwindow_baml_equal_C11": true,
+      "mainwindow_baml_sha256": "8c329f0d2c3e56f718d5a611cc9740ace62e1017417d34c36d39d3f7a685d425",
+      "native_loader_equal_C11": true,
+      "native_loader_sha256": "eb6a6cd69e7e3b348962b7469a560b22e2c34adf7f66172f47d21cb5cdd89f06",
+      "important_methods": {
+        "AirTTLB1Updater.AirRemoteFirmwareUpdateProcedure::FindFileForDevice": {
+          "token": "0x6000004",
+          "rva": "0x207f",
+          "body_sha256": "ab88b00a4ccd891bfe309370c8bdd19262f53b7af46bc59330c8ea4cc4d465c3",
+          "body_bytes_equal_C11": true
+        },
+        "AirTTLB1Updater.AirRemoteFirmwareUpdateProcedure::ExtractHexfiles": {
+          "token": "0x6000005",
+          "rva": "0x20b4",
+          "body_sha256": "824a7423f0528d8f009ede8ceb6b4d35f6a0205deb8ac70fd5da2a01f6a66ce2",
+          "body_bytes_equal_C11": true
+        },
+        "AirTTLB1Updater.AirRemoteFirmwareUpdateProcedure::EraseFirmware": {
+          "token": "0x6000006",
+          "rva": "0x2104",
+          "body_sha256": "5f0a01402254aab590d21529c5dc52b62cb7b2c7698b0eea68ee7c15d0246586",
+          "body_bytes_equal_C11": true
+        },
+        "AirTTLB1Updater.AirRemoteFirmwareUpdateProcedure::LoadNewFirmware": {
+          "token": "0x6000007",
+          "rva": "0x2194",
+          "body_sha256": "bbe1eec0c185940bc2a3a05f2e421ea1e03c2bbdaf248f65db4858b17676d1bc",
+          "body_bytes_equal_C11": true
+        },
+        "AirTTLB1Updater.AirRemoteFirmwareUpdateProcedure::VerifyNewFirmware": {
+          "token": "0x6000008",
+          "rva": "0x2260",
+          "body_sha256": "0e5858095dc370e15e15d2b635ac817ffe394986cdb2c3ec1663847750fbe6f8",
+          "body_bytes_equal_C11": true
+        },
+        "AirTTLB1Updater.AirRemoteFirmwareUpdateProcedure::ResetTheDevice": {
+          "token": "0x6000009",
+          "rva": "0x2310",
+          "body_sha256": "2f4a5ebc05504924bf6d942fba579abaf9598b2d1cfd1bb990627202d90e2887",
+          "body_bytes_equal_C11": true
+        },
+        "AirTTLB1Updater.AirRemoteFirmwareUpdater::StartFirmwareUpdate": {
+          "token": "0x600001b",
+          "rva": "0x2484",
+          "body_sha256": "3a248e4ab65c9ebfe372fa601e41d3b2a16e82a361033f6975c15c3cda060ea1",
+          "body_bytes_equal_C11": true
+        },
+        "AirTTLB1Updater.AirRemoteFirmwareUpdater::bgWorker_DoWork": {
+          "token": "0x600001c",
+          "rva": "0x2528",
+          "body_sha256": "519c5250c4a14578d60c90504c907c2a4b7d9a99f0b6952bf12dd004f77e8b0d",
+          "body_bytes_equal_C11": true
+        },
+        "AirTTLB1Updater.AirRemoteFirmwareUpdater::deviceDetector_DoWork": {
+          "token": "0x6000021",
+          "rva": "0x2784",
+          "body_sha256": "af468ae369dea588e971f98d89c2ff5a52aa547935141c08b5a103ab80f21c2d",
+          "body_bytes_equal_C11": false
+        },
+        "AirTTLB1Updater.AirRemoteFirmwareUpdater::Connect": {
+          "token": "0x6000022",
+          "rva": "0x282c",
+          "body_sha256": "2350c04b887efcedcdff6600be26f6b1a3005b8c211f8972efe3e48f6498332b",
+          "body_bytes_equal_C11": true
+        },
+        "AirTTLB1Updater.ExeReader::RunExe": {
+          "token": "0x6000033",
+          "rva": "0x2db4",
+          "body_sha256": "ca79527c2328f7621932b679b4a5fb3400fe69d804af9d8fa898d2ddfcd530bf",
+          "body_bytes_equal_C11": true
+        },
+        "AirTTLB1Updater.MainWindow::Update": {
+          "token": "0x6000045",
+          "rva": "0x2ee1",
+          "body_sha256": "f58560b070d0dd55c8f50eabc2d6b66e5400e756b082f640eae0bfcfdb01942f",
+          "body_bytes_equal_C11": true
+        }
+      }
+    },
+    "O": {
+      "source": "air_remote_ttl/air-remote-ttl-o-firmware-a4-win/Air-Remote-TTL-O-Firmware-A4.exe",
+      "source_sha256_verified": "80ae4cac56c6bb7c363062d3ed7927373e4b7a907df8abbc2fed6731621a52b5",
+      "managed_offset": "0x59af0",
+      "managed_size": 3269120,
+      "managed_sha256": "f3f4aa2eaee03cde4a6fec9ed462fd628463b85aa36661b8af4392ec84ee4ca2",
+      "business_methods_compared": 58,
+      "identical_method_bodies": 57,
+      "only_changed_method": "AirTTLB1Updater.AirRemoteFirmwareUpdater::deviceDetector_DoWork",
+      "only_changed_method_body_offset": 15,
+      "selector": 4,
+      "all_referenced_method_field_names_and_string_literals_equal": true,
+      "mainwindow_baml_equal_C11": true,
+      "mainwindow_baml_sha256": "8c329f0d2c3e56f718d5a611cc9740ace62e1017417d34c36d39d3f7a685d425",
+      "native_loader_equal_C11": true,
+      "native_loader_sha256": "eb6a6cd69e7e3b348962b7469a560b22e2c34adf7f66172f47d21cb5cdd89f06",
+      "important_methods": {
+        "AirTTLB1Updater.AirRemoteFirmwareUpdateProcedure::FindFileForDevice": {
+          "token": "0x6000004",
+          "rva": "0x207f",
+          "body_sha256": "ab88b00a4ccd891bfe309370c8bdd19262f53b7af46bc59330c8ea4cc4d465c3",
+          "body_bytes_equal_C11": true
+        },
+        "AirTTLB1Updater.AirRemoteFirmwareUpdateProcedure::ExtractHexfiles": {
+          "token": "0x6000005",
+          "rva": "0x20b4",
+          "body_sha256": "824a7423f0528d8f009ede8ceb6b4d35f6a0205deb8ac70fd5da2a01f6a66ce2",
+          "body_bytes_equal_C11": true
+        },
+        "AirTTLB1Updater.AirRemoteFirmwareUpdateProcedure::EraseFirmware": {
+          "token": "0x6000006",
+          "rva": "0x2104",
+          "body_sha256": "5f0a01402254aab590d21529c5dc52b62cb7b2c7698b0eea68ee7c15d0246586",
+          "body_bytes_equal_C11": true
+        },
+        "AirTTLB1Updater.AirRemoteFirmwareUpdateProcedure::LoadNewFirmware": {
+          "token": "0x6000007",
+          "rva": "0x2194",
+          "body_sha256": "bbe1eec0c185940bc2a3a05f2e421ea1e03c2bbdaf248f65db4858b17676d1bc",
+          "body_bytes_equal_C11": true
+        },
+        "AirTTLB1Updater.AirRemoteFirmwareUpdateProcedure::VerifyNewFirmware": {
+          "token": "0x6000008",
+          "rva": "0x2260",
+          "body_sha256": "0e5858095dc370e15e15d2b635ac817ffe394986cdb2c3ec1663847750fbe6f8",
+          "body_bytes_equal_C11": true
+        },
+        "AirTTLB1Updater.AirRemoteFirmwareUpdateProcedure::ResetTheDevice": {
+          "token": "0x6000009",
+          "rva": "0x2310",
+          "body_sha256": "2f4a5ebc05504924bf6d942fba579abaf9598b2d1cfd1bb990627202d90e2887",
+          "body_bytes_equal_C11": true
+        },
+        "AirTTLB1Updater.AirRemoteFirmwareUpdater::StartFirmwareUpdate": {
+          "token": "0x600001b",
+          "rva": "0x2484",
+          "body_sha256": "3a248e4ab65c9ebfe372fa601e41d3b2a16e82a361033f6975c15c3cda060ea1",
+          "body_bytes_equal_C11": true
+        },
+        "AirTTLB1Updater.AirRemoteFirmwareUpdater::bgWorker_DoWork": {
+          "token": "0x600001c",
+          "rva": "0x2528",
+          "body_sha256": "519c5250c4a14578d60c90504c907c2a4b7d9a99f0b6952bf12dd004f77e8b0d",
+          "body_bytes_equal_C11": true
+        },
+        "AirTTLB1Updater.AirRemoteFirmwareUpdater::deviceDetector_DoWork": {
+          "token": "0x6000021",
+          "rva": "0x2784",
+          "body_sha256": "41dec8c1226556e6f1fd001d91a6cfbbedecb2800ae92f9ad65b7cc3b02a27ab",
+          "body_bytes_equal_C11": false
+        },
+        "AirTTLB1Updater.AirRemoteFirmwareUpdater::Connect": {
+          "token": "0x6000022",
+          "rva": "0x282c",
+          "body_sha256": "2350c04b887efcedcdff6600be26f6b1a3005b8c211f8972efe3e48f6498332b",
+          "body_bytes_equal_C11": true
+        },
+        "AirTTLB1Updater.ExeReader::RunExe": {
+          "token": "0x6000033",
+          "rva": "0x2db4",
+          "body_sha256": "ca79527c2328f7621932b679b4a5fb3400fe69d804af9d8fa898d2ddfcd530bf",
+          "body_bytes_equal_C11": true
+        },
+        "AirTTLB1Updater.MainWindow::Update": {
+          "token": "0x6000045",
+          "rva": "0x2ee1",
+          "body_sha256": "f58560b070d0dd55c8f50eabc2d6b66e5400e756b082f640eae0bfcfdb01942f",
+          "body_bytes_equal_C11": true
+        }
+      }
+    }
+  },
+  "evidence": [
+    {
+      "path": "analysis/air_remote_ttl_c_c11/deep/managed_updater/csharp/AirTTLB1Updater/MainWindow.cs",
+      "lines": "30-33,63-64",
+      "fact": "Canvas.MouseDown -> Update -> StartFirmwareUpdate"
+    },
+    {
+      "path": "analysis/air_remote_ttl_c_c11/deep/managed_updater/csharp/AirTTLB1Updater/AirRemoteFirmwareUpdater.cs",
+      "lines": "167-181,184-216,303-309,361-368,416-428",
+      "fact": "state/connect gate, unconditional erase/load/verify/reset after success; early return only on nonzero error code"
+    },
+    {
+      "path": "analysis/air_remote_ttl_c_c11/deep/managed_updater/csharp/AirTTLB1Updater/AirRemoteFirmwareUpdateProcedure.cs",
+      "lines": "28-43,46-91",
+      "fact": "single.hex resource raw extraction; native command construction; no header parsing"
+    },
+    {
+      "path": "analysis/air_remote_ttl_c_c11/deep/managed_updater/csharp/AirTTLB1Updater/ExeReader.cs",
+      "lines": "22-37",
+      "fact": "native exit code only; no stdout version/CRC parser"
+    },
+    {
+      "path": "analysis/air_remote_ttl_c_c11/hss_port/flashable/recovery_investigation/all_vs_gui.txt",
+      "lines": "110-125,153",
+      "fact": "reviewed native connect/erase/load/verify command chain; no C8/C11 host version migration/CRC gate"
+    },
+    {
+      "path": "analysis/air_remote_ttl_c_c11/deep/native_loader/native_loader_deep_review.zh-CN.txt",
+      "lines": "37-43,68-81",
+      "fact": "extended app_version present but unconsumed in inspected flow; programming skips FF packets, not same-version application"
+    }
+  ],
+  "limits": [
+    "Confirms GUI/host decision logic, not successful writing,booting,RF functionality,or device-side acceptance.",
+    "Original XAML was not recovered; BAML is byte-identical in all four models andC11. No claim of fresh visual IsEnabled/trigger rendering inspection.",
+    "Raw-body equality is supplemented by equality of referenced method/field names and strings. CultureInfo signature coded TypeRef indexes differ between assemblies but resolve to the same System.Globalization.CultureInfo return type.",
+    "Prior Canon GUI recovery is historical user report; current audit does not reproduce hardware acceptance.",
+    "User constraint leaves4000..40FF unchanged. Do not edit version/CRC header merely to force an update."
+  ]
+}

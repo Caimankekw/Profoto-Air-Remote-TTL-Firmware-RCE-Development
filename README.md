@@ -1,21 +1,56 @@
-# Air Remote TTL-S · Sony A6 original firmware
+# Air Remote TTL-S · Sony AIR2-P8-M2
 
 English | [简体中文](README.zh-CN.md)
 
-Developer: **Caimankekw** · Authored analysis/tools: [AGPL-3.0-only](LICENSE)
+Developer: **[Caimankekw](https://github.com/Caimankekw)** · Authored work: [AGPL-3.0-only](LICENSE)
 
-This branch documents recovered portions of the **unmodified Sony Air Remote TTL-S A6** firmware. [Reverse-engineering notes](reverse/README.md) contain annotated pseudocode, native function/RAM contracts and evidence. Unresolved helpers remain explicit. This is not a complete vendor source tree or a rebuildable original firmware project, and contains no AIR2 patches. For custom firmware, use [sony-air2-m2](https://github.com/Caimankekw/Profoto-Air-Remote-TTL-Firmware-RCE-Development/tree/sony-air2-m2); other brands are listed on [main](https://github.com/Caimankekw/Profoto-Air-Remote-TTL-Firmware-RCE-Development).
+Experimental AIR2 firmware for **Sony Air Remote TTL-S, stock A6 only**. This is the [sony-air2-m2](https://github.com/Caimankekw/Profoto-Air-Remote-TTL-Firmware-RCE-Development/tree/sony-air2-m2) development branch; unmodified-firmware analysis is on [sony-a6](https://github.com/Caimankekw/Profoto-Air-Remote-TTL-Firmware-RCE-Development/tree/sony-a6). [Release sony-air2-m2-20261016](https://github.com/Caimankekw/Profoto-Air-Remote-TTL-Firmware-RCE-Development/releases/tag/sony-air2-m2-20261016) provides Windows packages and exact corresponding source.
 
-## Read-only extraction
+**Hardware boot, camera/radio behavior and power-loss handling have not been confirmed for this port.** Offline checks and Canon hardware experience do not establish these results. This release preserves the existing M2 firmware bytes and adds model-specific publication/build/package entry points. It retains this model's original HSS, not Canon HSS-P3.
 
-Use Python 3.9 or later and an unmodified `Air-Remote-TTL-S-Firmware-A6.exe`:
+## Controls and changes
+
+- MAN AIR1: relative control; values appear temporarily after editing.
+- MAN AIR2: absolute targets; enabled groups on the current page remain visible.
+- C + HEAD switches ABC/DEF pages. In MAN, C + MODEL switches AIR1/AIR2; TTL ignores this chord without changing the remembered manual type.
+- A, B, plus and minus use normal key paths. Busy transactions can still reject edits; no arbitrary tap-rate guarantee is made.
+- MODE returns to the remembered manual type. Six AIR2 targets, Head/Model switches, mode and page are persisted.
+- ALL affects six groups. **TTL ABC is exposure compensation; DEF uses the remembered manual type, not automatic TTL.** Displayed AIR2 values are requests, not feedback from lights.
+
+M2 preserves saved switch masks across startup mode changes, retries AIR1 display expiry after busy periods, fixes Fujifilm TTL/DEF expiry and ALL boxes, and restores Sony page hints/release redraw. Only the relevant model paths execute. If M1 already stored incorrect switch values, check and reset all Head/Model switches after upgrading. Persistence stops retrying after a write/readback failure for that power cycle; this differs from Canon's dirty-state retry policy. See [full behavior and limits](firmware/README.md).
+
+## Build and layout
+
+Use Python 3.9+ and the unmodified `Air-Remote-TTL-S-Firmware-A6.exe`. No previous workspace or Canon EXE is required.
 
 ```powershell
-python -B tools/inspect_original.py --original "C:\firmware\Air-Remote-TTL-S-Firmware-A6.exe" --output "build\stock"
+python -B build.py --original "C:\firmware\Air-Remote-TTL-S-Firmware-A6.exe" --output "build\M2"
+python -B tools/package_source.py --out "artifacts"
 ```
 
-The output directory must be new. [model.json](model.json) fixes the input identity; the required EXE SHA-256 is `707b65d9cb6ea6c320976e5a6244de05b1f0856ab9c7ddc5008fe739337b9737`. See [tool instructions](tools/README.md). Extraction does not run the updater, write hardware or produce a modified EXE.
+Output paths must be new. The root builder binds this branch to TTL-S, verifies input/source fingerprints, retains its isolated staging tree and executes source generators in a fresh process. It does not run an updater or access USB. Root [release_profile.json](release_profile.json) pins the frozen firmware and expected result; [model.json](model.json) pins the stock input.
 
-Only `[0x4002,0x10000)` has the recovered generic byte transform. The first two plaintext bytes remain unknown placeholders. The higher FF tail is tied to a known opaque suffix fingerprint, not a general-purpose decoder for arbitrary tail content. The local partial BIN is an analysis artifact and must not be directly flashed.
+| Path | Contents |
+| --- | --- |
+| `reverse/`, `tools/inspect_original.py`, `tools/reference/` | Original-only evidence and read-only extraction |
+| `firmware/` | Complete frozen 125-file M2 dependency/test closure for reproducibility |
+| `build.py`, `tools/package_source.py` | Model-bound entry point and corresponding-source archive |
+| `windows/` | Windows self-extracting and portable package build source |
+| `tests/` | Publication/build checks |
 
-The HSS evidence covers identified stock call paths and intervals, not a complete recovered HSS algorithm or measured physical timing. See the [disclaimer](DISCLAIMER.md), [license scope](NOTICE.md) and [LICENSE](LICENSE). Vendor code retains its own rights.
+The shared firmware snapshot includes the other model adapters because verification and packaging share their profiles. The branch root builds only TTL-S; other-model binaries are not included. Inner documentation describes the historical frozen M2 source package; the root documentation describes this publication's additional Windows wrapper. Generic transform reference bytes are not a vendor firmware image. Full vendor EXE/HEX/BIN and device captures are excluded from source.
+
+| Fixed output | SHA-256 |
+| --- | --- |
+| Custom GUI updater | `5432bcbf1c136d940c717dd01fa9fa800f27961dbd78520b4da27303b31c0262` |
+| Partial analysis image | `e159e3accf1271af66e52b11b626433d5cd7136c8b2717b44f441b4730bbf287` |
+
+The first two plaintext bytes remain unknown. **Do not flash a partial BIN.** Use the matching GUI updater. The original GUI/loader container is retained; resource modification may invalidate its vendor signature.
+
+## Windows release and validation
+
+The self-extracting EXE and portable ZIP include the modified GUI updater, matching unmodified stock recovery GUI, corresponding source, bilingual instructions/disclaimers, AGPL text and third-party notices. Extraction does not flash firmware. Updating requires manual action in the GUI. Recovery is not guaranteed. See [Windows packaging](windows/README.md).
+
+The frozen M2 validation records 78 integrated cases, 24 startup restoration cases and 78 model-specific cases for this model, under normal and optimized Python. Cross-model evidence contains 1,024 normal radio-frame matches and 26 operation traces / 178 steps per model compared with Canon. Busy admission differs; these are bounded software checks. Existing independent archive rebuilds reproduced EXE/HEX/partial image exactly. This publication also rebuilds each branch archive and statically verifies its packages; release verification records the result. No installer/updater or hardware is executed in packaging.
+
+Read [DISCLAIMER](DISCLAIMER.md), [NOTICE](NOTICE.md), [LICENSE](LICENSE) and [CHANGELOG](CHANGELOG.md). AGPL covers authored work; vendor firmware and mixed binaries retain their respective terms.
